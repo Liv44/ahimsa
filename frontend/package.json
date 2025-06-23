@@ -17,6 +17,10 @@
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.3",
     "@tailwindcss/vite": "^4.1.10",
+    "@tanstack/query-sync-storage-persister": "^5.81.2",
+    "@tanstack/react-query": "^5.81.2",
+    "@tanstack/react-query-persist-client": "^5.81.2",
+    "@tanstack/react-store": "^0.7.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "i18next": "^25.2.1",
