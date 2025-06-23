@@ -1,18 +1,16 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { useTranslation } from 'react-i18next';
 
 const LandingPage = () => {
+  const { t } = useTranslation();
   return (
     <div>
       <Card>
         <CardHeader>
-          <CardTitle>LandingPage</CardTitle>
+          <CardTitle>{t('home.title')}</CardTitle>
         </CardHeader>
         <CardContent>
-          <h1>LandingPage</h1>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-            quos.
-          </p>
+          <p>{t('home.description')}</p>
         </CardContent>
       </Card>
     </div>

@@ -1,3 +1,4 @@
+import '@/i18n';
 import Router from '@/router/Router';
 import './App.css';
 
