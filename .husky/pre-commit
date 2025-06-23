@@ -1,1 +1,6 @@
-yarn test
+cd frontend
+
+yarn lint:fix
+yarn prettier:fix
+
+git update-index --again
