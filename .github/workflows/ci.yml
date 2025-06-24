@@ -30,3 +30,15 @@ jobs:
       - name: Run build
         working-directory: ${{ matrix.dir }}
         run: npm run build
+      
+      - name: Run tests
+        working-directory: backend
+        run: npm run test
+      
+      - name: Run linter
+        working-directory: ${{ matrix.dir }}
+        run: npm run lint:check
+
+      - name: Run prettier
+        working-directory: ${{ matrix.dir }}
+        run: npm run prettier:check
