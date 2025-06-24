@@ -11,6 +11,7 @@ import useHelloWorldStore, {
   helloWorldStore,
 } from '@/domain/usecases/useStore';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
 const LandingPage = () => {
   const { t } = useTranslation();
@@ -32,7 +33,8 @@ const LandingPage = () => {
           {isPending && <p>Loading...</p>}
           {error && <p>Error: {error.message}</p>}
         </CardContent>
-        <CardFooter className="flex justify-center">
+        <CardFooter className="flex justify-center flex-col gap-2">
+          <Link to="/login">Login</Link>
           <Button onClick={handleClick}>{isHelloWorld ? 'yes' : 'no'}</Button>
         </CardFooter>
       </Card>
