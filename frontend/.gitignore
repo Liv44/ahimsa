@@ -14,6 +14,7 @@ dist-ssr
 *.tsbuildinfo
 vite.config.d.ts
 vite.config.js
+coverage
 
 # Editor directories and files
 .vscode/*
