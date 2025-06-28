@@ -2,5 +2,82 @@
   "home": {
     "title": "Accueil",
     "description": "Bienvenue sur la page d'accueil"
+  },
+  "layout": {
+    "navigation": {
+      "home": "Accueil",
+      "login": "Se connecter",
+      "register": "S'inscrire"
+    },
+    "footer": {
+      "title": "Ahimsa",
+      "description": "Communication non-violente pour un monde plus harmonieux.",
+      "navigation": {
+        "title": "Navigation",
+        "home": "Accueil",
+        "login": "Se connecter",
+        "register": "S'inscrire"
+      },
+      "contact": {
+        "title": "Contact",
+        "description": "Pour toute question, n'hésitez pas à nous contacter."
+      },
+      "copyright": "© 2024 Ahimsa. Tous droits réservés."
+    }
+  },
+  "landing": {
+    "hero": {
+      "title": "Exprimer ses émotions, renouer le dialogue.",
+      "descriptions": [
+        "Ahimsa est une application simple et bienveillante, conçue pour vous aider à mieux exprimer vos ressentis, formuler vos besoins et apaiser vos échanges grâce à la Communication Non Violente (CNV)."
+      ]
+    },
+    "block1": {
+      "title": "Un site pour mieux se comprendre.",
+      "descriptions": [
+        "Ahimsa vous guide pas à pas dans la création de messages clairs et sincères, même en situation de tension ou de conflit.",
+        "En suivant une méthode structurée mais accessible, vous apprenez à exprimer ce que vous vivez sans juger ni accuser, et à renforcer la qualité de vos relations.",
+        "Que ce soit pour parler à un proche, un collègue ou un membre de votre famille, l'application vous accompagne avec douceur et pédagogie."
+      ]
+    },
+    "block2": {
+      "title": "Marshall Rosenberg",
+      "descriptions": [
+        "Marshall Rosenberg, psychologue et médiateur, est à l'origine de la Communication Non Violente.",
+        "Son approche repose sur un principe simple mais puissant : derrière chaque tension, il y a un besoin non exprimé. En apprenant à écouter et à formuler ces besoins, chacun peut transformer ses relations avec plus de clarté et de respect."
+      ]
+    },
+    "block3": {
+      "title": "Exprimer, rédiger, partager. En toute sécurité.",
+      "descriptions": [
+        "Ahimsa vous propose un parcours guidé pour rédiger vos messages étape par étape. Vous pouvez les garder pour vous, les relire plus tard, ou les partager à la personne concernée.",
+        "Votre historique reste privé et sécurisé, et vous pouvez suivre vos progrès dans l'apprentissage de la CNV.",
+        "Chaque utilisateur est accueilli avec bienveillance, quel que soit son niveau de confort avec l'expression émotionnelle."
+      ]
+    },
+    "ofnr_method": {
+      "title": "La méthode OSBD",
+      "description": "La méthode OSBD est une méthode de communication non violente qui permet de renforcer la qualité de vos relations.",
+      "observation": {
+        "title": "Observation",
+        "description": "\"Je vois...\"",
+        "example": "Je vois que tu regardes ton téléphone pendant qu'on dîne ensemble."
+      },
+      "feelings": {
+        "title": "Sentiments",
+        "description": "\"Je me sens...\"",
+        "example": " Je me sens triste et un peu mise à l'écart."
+      },
+      "needs": {
+        "title": "Besoins",
+        "description": "\"Car j'ai besoin de...\"",
+        "example": " J'ai besoin de connexion et de moments de qualité partagés avec toi."
+      },
+      "request": {
+        "title": "Demande",
+        "description": "\"Est-ce que...\"",
+        "example": "Est-ce que tu serais d'accord pour poser ton téléphone pendant les repas ?"
+      }
+    }
   }
 }
