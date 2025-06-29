@@ -18,7 +18,9 @@ const LayoutLink = ({
       key={path}
       to={path}
       className={`block px-3 py-2 text-base font-medium text-white hover:text-light-orange hover:underline ${
-        isActive(path) ? 'font-extrabold' : 'font-normal'
+        isActive(path)
+          ? 'font-extrabold border-b-2 border-light-orange'
+          : 'font-normal'
       }`}
       onClick={() => setIsMenuOpen(false)}
     >

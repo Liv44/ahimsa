@@ -6,6 +6,7 @@
   "layout": {
     "navigation": {
       "home": "Accueil",
+      "feelings-list": "Liste des émotions",
       "login": "Se connecter",
       "register": "S'inscrire"
     },
@@ -79,5 +80,381 @@
         "example": "Est-ce que tu serais d'accord pour poser ton téléphone pendant les repas ?"
       }
     }
-  }
+  },
+  "feelings-list-page": {
+    "title": "Liste des émotions et besoins",
+    "description": "Découvrez les sentiments/émotions et besoins que vous pouvez exprimer pour renforcer la qualité de vos relations.",
+    "feelings": {
+      "title": "Sentiments/émotions",
+      "description": "Les sentiments/émotions sont d'abord triées par grande catégorie : quand le besoin final est atteint ou non, puis par sous-catégorie.",
+      "needs_met": {
+        "title": "Besoins rejoints"
+      },
+      "needs_unmet": {
+        "title": "Besoins non rejoints"
+      }
+    },
+    "needs": {
+      "title": "Besoins",
+      "description": "Les besoins sont triés par grande catégorie."
+    }
+  },
+  "feelings": {
+    "needs_met": [
+      {
+        "category": "Affection",
+        "words": [
+          "Amour (plein·e de)",
+          "Amoureux·se",
+          "Attendri·e",
+          "Attiré·e",
+          "Charmé·e",
+          "Compassion (plein·e de)",
+          "Connecté·e",
+          "Ému·e",
+          "Gratitude (plein·e de)",
+          "Reconnaissant·e",
+          "Relié·e",
+          "Tendresse (plein·e de)",
+          "Touché·e"
+        ]
+      },
+      {
+        "category": "Sérénité",
+        "words": [
+          "Apaisé·e",
+          "Calme",
+          "Centré·e",
+          "Comblé·e",
+          "Confiant·e",
+          "Décontracté·e",
+          "Détendu·e",
+          "Léger·e",
+          "Nourri·e",
+          "Ouvert·e",
+          "Paisible",
+          "Rassuré·e",
+          "Relaxé·e",
+          "Serein.e",
+          "Soulagé·e",
+          "Tranquille",
+          "Zen"
+        ]
+      },
+      {
+        "category": "Joie",
+        "words": [
+          "Amusé·e",
+          "Content·e",
+          "Enchanté·e",
+          "Enjoué·e",
+          "Entrain (plein·e d'énergie)",
+          "Euphorique",
+          "Fier·e",
+          "Gai·e",
+          "Heureux·se",
+          "Hilare",
+          "Humeur espiègle",
+          "Joyeux·se",
+          "Ravi·e",
+          "Réjoui·e",
+          "Satisfait·e"
+        ]
+      },
+      {
+        "category": "Intérêt",
+        "words": [
+          "Admiratif·ve",
+          "Attentif·ve",
+          "Captivé·e",
+          "Concentré·e",
+          "Curieux·se",
+          "Ébloui·e",
+          "Emballé·e",
+          "Émerveillé·e",
+          "Enthousiaste",
+          "Époustouflé·e",
+          "Excité·e",
+          "Fasciné·e",
+          "Inspiré·e",
+          "Intrigué·e",
+          "Passionné·e",
+          "Surpris·e"
+        ]
+      },
+      {
+        "category": "Énergie",
+        "words": [
+          "Électrisé·e",
+          "En effervescence",
+          "En expansion",
+          "Enflammé·e",
+          "Excité·e",
+          "Galvanisé·e",
+          "Pétillant·e",
+          "Plein d'énergie",
+          "Rayonnant·e",
+          "Régénéré·e",
+          "Revigoré·e",
+          "Surexcité·e",
+          "Vibrant·e",
+          "Vivifié·e"
+        ]
+      }
+    ],
+    "needs_unmet": [
+      {
+        "category": "Peur",
+        "words": [
+          "Angoissé·e",
+          "Anxieux·se",
+          "Apeuré·e",
+          "Effrayé·e",
+          "Horrifié·e",
+          "Inquiet·ète",
+          "Méfiant·e",
+          "Paniqué·e",
+          "Stressé·e",
+          "Sur mes gardes",
+          "Terrifié·e",
+          "Terrorisé·e"
+        ]
+      },
+      {
+        "category": "Colère",
+        "words": [
+          "Agacé·e",
+          "Amer·e",
+          "Contrarié·e",
+          "Dégoûté·e",
+          "Écoeuré·e",
+          "Fâché·e",
+          "Enervé·e",
+          "Exaspéré·e",
+          "Excédé·e",
+          "Fâché·e",
+          "Frustré·e",
+          "Furieux·se",
+          "Hors de moi"
+        ]
+      },
+      {
+        "category": "Tension",
+        "words": ["Agité·e", "Crispé·e", "Impatient·e", "Nerveux·se"]
+      },
+      {
+        "category": "Tristesse",
+        "words": [
+          "Accablé·e",
+          "Blessé·e",
+          "Chagriné·e",
+          "Consterné·e",
+          "Découragé·e",
+          "Déçu·e",
+          "Démoralisé·e",
+          "Dépité·e",
+          "Déprimé·e",
+          "Désespéré·e",
+          "Désolé·e",
+          "Effondré·e",
+          "En deuil",
+          "Impuissant·e",
+          "Malheureux·se",
+          "Morose",
+          "Peiné·e",
+          "Résigné·e",
+          "Triste"
+        ]
+      },
+      {
+        "category": "Confusion",
+        "words": [
+          "Bouleversé·e",
+          "Confus·e",
+          "Chamboulé·e",
+          "Coupable",
+          "Déboussolé·e",
+          "Démuni·e",
+          "Déprimé·e",
+          "Désemparé·e",
+          "Déstabilisé·e",
+          "Dubitatif·ve",
+          "Gêné·e",
+          "Honteux·se",
+          "Impuissant·e",
+          "Indécis·e",
+          "Intimidé·e",
+          "Jaloux·se",
+          "Mal à l'aise",
+          "Partagé·e",
+          "Perdu·e",
+          "Remué·e",
+          "Tiraillé·e",
+          "Troublé·e"
+        ]
+      },
+      {
+        "category": "Fatigue",
+        "words": [
+          "Abattu·e",
+          "Affaibli·e",
+          "Anéanti·e",
+          "Eprouvé·e",
+          "Épuisé·e",
+          "Exténué·e",
+          "Endormi·e",
+          "Fatigué·e",
+          "Lessivé·e",
+          "Las·se",
+          "Léthargique",
+          "Sans énergie",
+          "Vidé·e"
+        ]
+      },
+      {
+        "category": "Sidération",
+        "words": [
+          "Abasourdi·e",
+          "Ahuri·e",
+          "Choqué·e",
+          "Chamboulé·e",
+          "Effaré·e",
+          "Estomaqué·e",
+          "Étonné·e",
+          "Interloqué·e",
+          "Perplexe",
+          "Médusé·e",
+          "Sidéré·e",
+          "Stupéfait·e",
+          "Surpris·e"
+        ]
+      }
+    ]
+  },
+  "needs": [
+    {
+      "category": "Survie",
+      "words": [
+        "Abri",
+        "Air",
+        "Alimentation",
+        "Chaleur",
+        "Espace",
+        "Évacuation",
+        "Expression sexuelle",
+        "Hydratation",
+        "Lumière",
+        "Mouvement",
+        "Repos",
+        "Sécurité",
+        "Stimulation sensorielle"
+      ]
+    },
+    {
+      "category": "Intégrité",
+      "words": [
+        "Authenticité",
+        "Autonomie",
+        "Choix",
+        "Clarté",
+        "Cohérence",
+        "Confiance",
+        "Connexion à soi",
+        "Discernement",
+        "Estime de soi",
+        "Dignité",
+        "Intégrité",
+        "Liberté",
+        "Préserver son temps et son énergie",
+        "Rythme (aller à son)",
+        "Spontanéité",
+        "Souveraineté",
+        "Structure/Ordre"
+      ]
+    },
+    {
+      "category": "Réalisation",
+      "words": [
+        "Accomplissement",
+        "Actualisation des potentialités",
+        "Apprentissage",
+        "Créativité",
+        "Exploration",
+        "Épanouissement",
+        "Évolution",
+        "Exploration",
+        "Inspiration",
+        "Réalisation",
+        "Sens",
+        "Unicité"
+      ]
+    },
+    {
+      "category": "Harmonie",
+      "words": [
+        "Beauté",
+        "Calme",
+        "Détente",
+        "Fluidité",
+        "Harmonie",
+        "Jeu / Rire",
+        "Légèreté",
+        "Récréation",
+        "Ressourcement",
+        "Paix",
+        "Simplicité"
+      ]
+    },
+    {
+      "category": "Relation",
+      "words": [
+        "Accueil",
+        "Amour",
+        "Apprivoisement",
+        "Bienveillance",
+        "Chaleur humaine",
+        "Connexion",
+        "Délicatesse",
+        "Douceur",
+        "Écoute",
+        "Empathie",
+        "Expression",
+        "Intimité",
+        "Partage",
+        "Proximité",
+        "Réconfort",
+        "Réciprocité",
+        "Tendresse"
+      ]
+    },
+    {
+      "category": "Coopération",
+      "words": [
+        "Appartenance",
+        "Appréciation",
+        "Attention",
+        "Coopération",
+        "Considération",
+        "Contribution",
+        "Équité/Équivalence",
+        "Préserver la vie",
+        "Partage",
+        "Reconnaissance",
+        "Respect",
+        "Soutien"
+      ]
+    },
+    {
+      "category": "Célébration",
+      "words": [
+        "Célébration",
+        "Communion",
+        "Faire le deuil",
+        "Honorer",
+        "Intensité",
+        "Se sentir vivant",
+        "Spiritualité"
+      ]
+    }
+  ]
 }
