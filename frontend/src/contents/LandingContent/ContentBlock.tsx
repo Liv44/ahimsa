@@ -1,5 +1,5 @@
-import { Button } from '@/components/ui/button';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 interface ContentBlockProps {
   title: string;
@@ -7,8 +7,8 @@ interface ContentBlockProps {
   imageSrc?: string;
   imageAlt?: string;
   imageLeft?: boolean;
-  buttonText?: string;
-  onClick?: () => void;
+  linkText?: string;
+  hrefLink?: string;
 }
 
 const ContentBlock: React.FC<ContentBlockProps> = ({
@@ -17,8 +17,8 @@ const ContentBlock: React.FC<ContentBlockProps> = ({
   imageSrc,
   imageAlt,
   imageLeft = false,
-  buttonText,
-  onClick,
+  linkText,
+  hrefLink,
 }) => {
   return (
     <div
@@ -44,10 +44,13 @@ const ContentBlock: React.FC<ContentBlockProps> = ({
             </p>
           ))}
         </div>
-        {buttonText && (
-          <Button className="w-fit" onClick={onClick}>
-            {buttonText}
-          </Button>
+        {hrefLink && (
+          <Link
+            className="w-fit text-dark-blue border border-dark-blue p-2 rounded-md hover:bg-dark-blue hover:text-white transition-all duration-300"
+            to={hrefLink}
+          >
+            {linkText}
+          </Link>
         )}
       </div>
     </div>

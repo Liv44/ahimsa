@@ -1,12 +1,7 @@
+import { renderWithRouter } from '@/__tests__/utils';
 import Layout from '@/components/Layout/Layout';
-import { render, screen } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
+import { fireEvent, screen } from '@testing-library/react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-
-// Wrapper pour fournir le contexte React Router
-const renderWithRouter = (component: React.ReactElement) => {
-  return render(<BrowserRouter>{component}</BrowserRouter>);
-};
 
 describe('LayoutLink', () => {
   beforeEach(() => {
@@ -95,7 +90,9 @@ describe('LayoutLink', () => {
       </Layout>
     );
 
-    const logoLink = screen.getByRole('link', { name: '' });
+    const logoLink = screen.getByRole('link', {
+      name: 'layout.navigation.aria-label.home',
+    });
     expect(logoLink).toHaveAttribute('href', '/');
   });
 
@@ -157,6 +154,25 @@ describe('LayoutLink', () => {
 
     const menuButton = screen.getByRole('button');
     expect(menuButton).toBeInTheDocument();
+    expect(menuButton).toHaveAttribute(
+      'aria-label',
+      'layout.navigation.aria-label.menu-button-open'
+    );
+
+    const menuButtonOpen = screen.getByTestId('menu-button-open');
+    expect(menuButtonOpen).toBeInTheDocument();
+    expect(menuButtonOpen).toHaveAttribute('aria-hidden', 'true');
+
+    fireEvent.click(menuButton);
+
+    expect(menuButton).toHaveAttribute(
+      'aria-label',
+      'layout.navigation.aria-label.menu-button-close'
+    );
+
+    const menuButtonClose = screen.getByTestId('menu-button-close');
+    expect(menuButtonClose).toBeInTheDocument();
+    expect(menuButtonClose).toHaveAttribute('aria-hidden', 'true');
   });
 
   it('has footer grid layout', () => {

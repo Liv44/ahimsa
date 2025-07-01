@@ -1,12 +1,7 @@
+import { renderWithRouter } from '@/__tests__/utils';
 import LayoutLink from '@/components/Layout/LayoutLink';
-import { render, screen } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
+import { screen } from '@testing-library/react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-
-// Wrapper pour fournir le contexte React Router
-const renderWithRouter = (component: React.ReactElement) => {
-  return render(<BrowserRouter>{component}</BrowserRouter>);
-};
 
 describe('LayoutLink', () => {
   const mockSetIsMenuOpen = vi.fn();

@@ -1,5 +1,6 @@
+import { renderWithRouter } from '@/__tests__/utils';
 import LandingContent from '@/contents/LandingContent/LandingContent';
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import { beforeEach, describe, expect, it, vitest } from 'vitest';
 
 // Mock des images (pour éviter les erreurs d'import)
@@ -29,20 +30,28 @@ vitest.mock('react-i18next', () => ({
       const translations: Record<string, unknown> = {
         'landing.hero.title': 'Titre Hero',
         'landing.hero.descriptions': ['Desc Hero 1', 'Desc Hero 2'],
-        'landing.hero.buttonText': 'Bouton Hero',
-        'landing.hero.buttonLink': '/hero',
+        'landing.hero.linkText': 'Bouton Hero',
+        'landing.hero.hrefLink': '/hero',
         'landing.block1.title': 'Titre Bloc 1',
         'landing.block1.descriptions': ['Desc Bloc 1'],
-        'landing.block1.buttonText': undefined,
-        'landing.block1.buttonLink': undefined,
         'landing.block2.title': 'Titre Bloc 2',
         'landing.block2.descriptions': ['Desc Bloc 2'],
-        'landing.block2.buttonText': undefined,
-        'landing.block2.buttonLink': undefined,
         'landing.block3.title': 'Titre Bloc 3',
         'landing.block3.descriptions': ['Desc Bloc 3'],
-        'landing.block3.buttonText': undefined,
-        'landing.block3.buttonLink': undefined,
+        'landing.ofnr_method.title': 'Title Method Card',
+        'landing.ofnr_method.description': 'Desc Method Card',
+        'landing.ofnr_method.observation.title': 'Title Observation',
+        'landing.ofnr_method.observation.description': 'Desc Observation',
+        'landing.ofnr_method.observation.example': 'Example Observation',
+        'landing.ofnr_method.feelings.title': 'Title Feelings',
+        'landing.ofnr_method.feelings.description': 'Desc Feelings',
+        'landing.ofnr_method.feelings.example': 'Example Feelings',
+        'landing.ofnr_method.needs.title': 'Title Needs',
+        'landing.ofnr_method.needs.description': 'Desc Needs',
+        'landing.ofnr_method.needs.example': 'Example Needs',
+        'landing.ofnr_method.request.title': 'Title Request',
+        'landing.ofnr_method.request.description': 'Desc Request',
+        'landing.ofnr_method.request.example': 'Example Request',
       };
       return translations[key];
     },
@@ -56,14 +65,14 @@ describe('LandingContent', () => {
   });
 
   it('rend tous les ContentBlock avec les bonnes props', () => {
-    render(<LandingContent />);
+    renderWithRouter(<LandingContent />);
 
     // Hero block
     expect(screen.getByText('Titre Hero')).toBeInTheDocument();
     expect(screen.getByText('Desc Hero 1')).toBeInTheDocument();
     expect(screen.getByText('Desc Hero 2')).toBeInTheDocument();
     expect(
-      screen.getByRole('button', { name: 'Bouton Hero' })
+      screen.getByRole('link', { name: 'Bouton Hero' })
     ).toBeInTheDocument();
 
     // Bloc 1
@@ -81,7 +90,7 @@ describe('LandingContent', () => {
   });
 
   it('vérifie la position des images (imageLeft)', () => {
-    render(<LandingContent />);
+    renderWithRouter(<LandingContent />);
     const blocks = screen.getAllByTestId('divContentBlock');
     // Premier et troisième block doivent avoir flexDirection row-reverse
     expect(blocks[0]).toHaveClass('md:flex-row-reverse');
@@ -90,34 +99,52 @@ describe('LandingContent', () => {
     expect(blocks[1]).toHaveClass('md:flex-row');
   });
 
-  it('vérifie que le bouton du hero block a un onClick qui redirige vers /contact', () => {
-    render(<LandingContent />);
+  it('check number of links rendered', () => {
+    renderWithRouter(<LandingContent />);
 
-    const heroButton = screen.getByRole('button', { name: 'Bouton Hero' });
-    expect(heroButton).toBeInTheDocument();
-
-    // Simule le clic sur le bouton
-    heroButton.click();
-
-    // Vérifie que window.location.href a été modifié
-    expect(mockLocation.href).toBe('/contact');
+    const links = screen.getAllByRole('link');
+    expect(links).toHaveLength(1);
+    expect(links[0]).toHaveTextContent('Bouton Hero');
   });
 
-  it("vérifie que les blocs 1 et 2 n'ont pas de bouton", () => {
-    render(<LandingContent />);
-
-    // Il ne doit y avoir qu'un seul bouton (celui du hero)
-    const buttons = screen.getAllByRole('button');
-    expect(buttons).toHaveLength(1);
-    expect(buttons[0]).toHaveTextContent('Bouton Hero');
-  });
-
-  it('vérifie que tous les images ont un alt vide', () => {
-    render(<LandingContent />);
+  it('check that all images have an empty alt text', () => {
+    renderWithRouter(<LandingContent />);
 
     const images = screen.getAllByTestId('imgContentBlock');
     images.forEach((image) => {
       expect(image).toHaveAttribute('alt', '');
     });
+  });
+
+  it('Renders Method Cards list', () => {
+    renderWithRouter(<LandingContent />);
+
+    const list = screen.getByRole('list');
+    expect(list).toBeInTheDocument();
+
+    const methodCards = screen.getAllByTestId('method-card');
+    expect(methodCards).toHaveLength(4);
+
+    expect(methodCards[0]).toBeInTheDocument();
+    expect(methodCards[1]).toBeInTheDocument();
+    expect(methodCards[2]).toBeInTheDocument();
+    expect(methodCards[3]).toBeInTheDocument();
+
+    // Method Card
+    expect(methodCards[0]).toHaveTextContent('Title Observation');
+    expect(methodCards[0]).toHaveTextContent('Desc Observation');
+    expect(methodCards[0]).toHaveTextContent('Example Observation');
+
+    expect(methodCards[1]).toHaveTextContent('Title Feelings');
+    expect(methodCards[1]).toHaveTextContent('Desc Feelings');
+    expect(methodCards[1]).toHaveTextContent('Example Feelings');
+
+    expect(methodCards[2]).toHaveTextContent('Title Needs');
+    expect(methodCards[2]).toHaveTextContent('Desc Needs');
+    expect(methodCards[2]).toHaveTextContent('Example Needs');
+
+    expect(methodCards[3]).toHaveTextContent('Title Request');
+    expect(methodCards[3]).toHaveTextContent('Desc Request');
+    expect(methodCards[3]).toHaveTextContent('Example Request');
   });
 });

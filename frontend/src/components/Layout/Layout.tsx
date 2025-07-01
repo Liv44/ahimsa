@@ -3,6 +3,7 @@ import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link, useLocation } from 'react-router-dom';
+import { Button } from '../ui/button';
 import LayoutLink from './LayoutLink';
 
 interface LayoutProps {
@@ -30,7 +31,11 @@ const Layout = ({ children }: LayoutProps) => {
           <div className="flex justify-between items-center h-auto py-4">
             {/* Logo */}
             <div className="flex-shrink-0">
-              <Link to="/" className="flex items-center">
+              <Link
+                to="/"
+                className="flex items-center"
+                aria-label={t('layout.navigation.aria-label.home')}
+              >
                 <img src={logo} alt="" className="h-20 w-auto" />
               </Link>
             </div>
@@ -52,16 +57,33 @@ const Layout = ({ children }: LayoutProps) => {
 
             {/* Mobile menu button */}
             <div className="md:hidden">
-              <button
+              <Button
+                variant="ghost"
+                size="icon"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="text-white hover:text-gray-300 focus:outline-none focus:text-gray-300"
+                className="size-6 text-white hover:text-dark-blue focus:outline-none"
+                aria-label={
+                  isMenuOpen
+                    ? t('layout.navigation.aria-label.menu-button-close')
+                    : t('layout.navigation.aria-label.menu-button-open')
+                }
               >
                 {isMenuOpen ? (
-                  <X className="h-6 w-6" />
+                  <X
+                    id="menu-button"
+                    className="size-6"
+                    data-testid="menu-button-close"
+                    aria-hidden="true"
+                  />
                 ) : (
-                  <Menu className="h-6 w-6" />
+                  <Menu
+                    id="menu-button"
+                    className="size-6"
+                    data-testid="menu-button-open"
+                    aria-hidden="true"
+                  />
                 )}
-              </button>
+              </Button>
             </div>
           </div>
 
@@ -90,19 +112,19 @@ const Layout = ({ children }: LayoutProps) => {
       {/* Footer */}
       <footer className="bg-black text-white">
         <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div>
-              <h3 className="text-lg font-semibold mb-4">
+          <ul className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <li>
+              <p className="text-lg font-semibold mb-4">
                 {t('layout.footer.title')}
-              </h3>
+              </p>
               <p className="text-light-blue">
                 {t('layout.footer.description')}
               </p>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold mb-4">
+            </li>
+            <li>
+              <p className="text-lg font-semibold mb-4">
                 {t('layout.footer.navigation.title')}
-              </h3>
+              </p>
               <ul className="space-y-2">
                 {navItems.map((item) => (
                   <li key={item.path}>
@@ -115,16 +137,16 @@ const Layout = ({ children }: LayoutProps) => {
                   </li>
                 ))}
               </ul>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold mb-4">
+            </li>
+            <li>
+              <p className="text-lg font-semibold mb-4">
                 {t('layout.footer.contact.title')}
-              </h3>
+              </p>
               <p className="text-light-blue">
                 {t('layout.footer.contact.description')}
               </p>
-            </div>
-          </div>
+            </li>
+          </ul>
           <div className="mt-8 pt-8 border-t border-gray text-center text-light-blue">
             <p>{t('layout.footer.copyright')}</p>
           </div>
