@@ -1,3 +1,4 @@
+import { renderWithRouter } from '@/__tests__/utils';
 import ContentBlock from '@/contents/LandingContent/ContentBlock';
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
@@ -46,11 +47,16 @@ it('displays the image on the left if imageLeft is true', () => {
   );
 });
 
-it('displays the button if buttonText is provided', () => {
-  render(
-    <ContentBlock title="Titre" descriptions={['Desc']} buttonText="Bouton" />
+it('displays the link if linkHref is provided', () => {
+  renderWithRouter(
+    <ContentBlock
+      title="Titre"
+      descriptions={['Desc']}
+      hrefLink="/test"
+      linkText="Link"
+    />
   );
-  expect(screen.getByRole('button', { name: 'Bouton' })).toBeDefined();
+  expect(screen.getByRole('link', { name: 'Link' })).toBeDefined();
 });
 
 it('displays an empty alt text if imageAlt is not provided', () => {

@@ -45,10 +45,8 @@ const LandingContent = () => {
         }
         imageSrc={GroupDiscussion}
         imageAlt=""
-        buttonText={t('landing.hero.buttonText')}
-        onClick={() => {
-          window.location.href = '/contact';
-        }}
+        linkText={t('landing.hero.linkText')}
+        hrefLink={'/feelings-list'}
         imageLeft={true}
       />
       <ContentBlock
@@ -75,7 +73,7 @@ const LandingContent = () => {
       <div className="flex flex-col gap-4">
         <h2 className="text-2xl font-bold">{t('landing.ofnr_method.title')}</h2>
         <p>{t('landing.ofnr_method.description')}</p>
-        <div className="flex flex-col md:flex-row w-full justify-between gap-4 px-4 md:px-10">
+        <ul className="flex flex-col md:flex-row w-full justify-between gap-4 px-4 md:px-10">
           {ofnrSteps.map(
             (step) =>
               step.title &&
@@ -89,7 +87,7 @@ const LandingContent = () => {
                 />
               )
           )}
-        </div>
+        </ul>
       </div>
       <ContentBlock
         title={t('landing.block3.title')}

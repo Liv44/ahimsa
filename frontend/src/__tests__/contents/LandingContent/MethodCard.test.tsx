@@ -16,6 +16,8 @@ describe('MethodCard', () => {
     render(
       <MethodCard title="Méthode" description="Description" example="Exemple" />
     );
+    expect(screen.getByTestId('method-card')).toBeInTheDocument();
+    expect(screen.getByRole('listitem')).toBeInTheDocument();
     expect(screen.getByTestId('letter')).toHaveTextContent('M');
     expect(screen.getByText('Méthode')).toBeInTheDocument();
     expect(screen.getByText('Description')).toBeInTheDocument();

@@ -18,23 +18,29 @@ const FeelingCategory = ({
     returnObjects: true,
   }) as { category: string; words: string[] }[];
   return (
-    <div className="flex flex-col gap-2" key={category}>
+    <div
+      className="flex flex-col gap-2"
+      key={category}
+      data-testid="feeling-category"
+    >
       <h3 className="text-lg font-bold mb-2">
         {t(
           `feelings-list-page.${keyTranslation}${subCategoryKeyTranslation}.title`
         )}
       </h3>
-      <div className="flex flex-col gap-2">
-        {subCategories &&
-          Array.isArray(subCategories) &&
-          subCategories.map((subCategory) => (
-            <FeelingCard
-              title={subCategory.category}
-              words={subCategory.words}
-              key={subCategory.category}
-            />
+      {subCategories && Array.isArray(subCategories) && (
+        <ul className="flex flex-col gap-2">
+          {subCategories.map((subCategory) => (
+            <li key={subCategory.category}>
+              <FeelingCard
+                title={subCategory.category}
+                words={subCategory.words}
+                key={subCategory.category}
+              />
+            </li>
           ))}
-      </div>
+        </ul>
+      )}
     </div>
   );
 };
