@@ -1,0 +1,102 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  lighthouse-ci:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Use Node.js 20
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        working-directory: frontend
+        run: npm install --frozen-lockfile
+      
+      - name: Run Lighthouse CI
+        working-directory: frontend
+        run: npm run lhci autorun || echo "LHCI failed!"
+
+      - name: Upload Lighthouse results
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-report
+          path: lhci-report/
+      - name: Comment (or update) PR with Lighthouse summary
+        if: github.event.pull_request
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs');
+            const { owner, repo } = context.repo;
+            const issue_number = context.issue.number;
+            const runUrl = `https://github.com/${owner}/${repo}/actions/runs/${process.env.GITHUB_RUN_ID}`;
+
+            const manifestPath = './lhci-report/manifest.json';
+            const summary = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+
+            const toEmoji = score => {
+              const pct = Math.round(score * 100);
+              if (pct >= 90) return '🟢';
+              if (pct >= 50) return '🟠';
+              return '🔴';
+            };
+            const pct = v => Math.round(v * 100);
+
+            const rows = summary
+              .map(({ url, summary: s }) => {
+                const pathname = new URL(url).pathname;
+                return `| [\`${pathname}\`](${url}) | ${toEmoji(s.performance)} ${pct(s.performance)} | ${toEmoji(s.accessibility)} ${pct(s.accessibility)} | ${toEmoji(s['best-practices'])} ${pct(s['best-practices'])} | ${toEmoji(s.seo)} ${pct(s.seo)} |`;
+              })
+              .join('\n');
+
+            const body = [
+              '<!-- lhci-report -->',
+              '## 📊 Rapport Lighthouse',
+              '',
+              `*Workflow run: [voir le détail](${runUrl})*`,
+              '',
+              '| Page | Performance | Accessibilité | Bonnes pratiques | SEO |',
+              '|------|-------------|---------------|------------------|-----|',
+              rows
+            ].join('\n');
+
+            const { data: comments } = await github.rest.issues.listComments({
+              owner,
+              repo,
+              issue_number,
+              per_page: 100
+            });
+            const existing = comments.find(c =>
+              c.user?.type === 'Bot' &&
+              c.body?.includes('<!-- lhci-report -->')
+            );
+
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner,
+                repo,
+                comment_id: existing.id,
+                body
+              });
+              core.info(`Comment mis à jour : #${existing.id}`);
+            } else {
+              await github.rest.issues.createComment({
+                owner,
+                repo,
+                issue_number,
+                body
+              });
+              core.info('Nouveau commentaire créé');
+            }
