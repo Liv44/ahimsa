@@ -2,5 +2,468 @@
   "home": {
     "title": "Accueil",
     "description": "Bienvenue sur la page d'accueil"
-  }
+  },
+  "layout": {
+    "navigation": {
+      "home": "Accueil",
+      "feelings-list": "Liste des émotions",
+      "login": "Se connecter",
+      "register": "S'inscrire",
+      "aria-label": {
+        "home": "Page d'accueil",
+        "feelings-list": "Aller à la page de la liste des émotions",
+        "menu-button-open": "Ouvrir le menu",
+        "menu-button-close": "Fermer le menu"
+      }
+    },
+    "footer": {
+      "title": "Ahimsa",
+      "description": "Communication non-violente pour un monde plus harmonieux.",
+      "navigation": {
+        "title": "Navigation",
+        "home": "Accueil",
+        "login": "Se connecter",
+        "register": "S'inscrire"
+      },
+      "contact": {
+        "title": "Contact",
+        "description": "Pour toute question, n'hésitez pas à nous contacter."
+      },
+      "copyright": "© 2024 Ahimsa. Tous droits réservés."
+    }
+  },
+  "landing": {
+    "hero": {
+      "title": "Exprimer ses émotions, renouer le dialogue.",
+      "descriptions": [
+        "Ahimsa est une application simple et bienveillante, conçue pour vous aider à mieux exprimer vos ressentis, formuler vos besoins et apaiser vos échanges grâce à la Communication Non Violente (CNV)."
+      ],
+      "linkText": "Accéder à la liste des émotions"
+    },
+    "block1": {
+      "title": "Un site pour mieux se comprendre.",
+      "descriptions": [
+        "Ahimsa vous guide pas à pas dans la création de messages clairs et sincères, même en situation de tension ou de conflit.",
+        "En suivant une méthode structurée mais accessible, vous apprenez à exprimer ce que vous vivez sans juger ni accuser, et à renforcer la qualité de vos relations.",
+        "Que ce soit pour parler à un proche, un collègue ou un membre de votre famille, l'application vous accompagne avec douceur et pédagogie."
+      ]
+    },
+    "block2": {
+      "title": "Marshall Rosenberg",
+      "descriptions": [
+        "Marshall Rosenberg, psychologue et médiateur, est à l'origine de la Communication Non Violente.",
+        "Son approche repose sur un principe simple mais puissant : derrière chaque tension, il y a un besoin non exprimé. En apprenant à écouter et à formuler ces besoins, chacun peut transformer ses relations avec plus de clarté et de respect."
+      ]
+    },
+    "block3": {
+      "title": "Exprimer, rédiger, partager. En toute sécurité.",
+      "descriptions": [
+        "Ahimsa vous propose un parcours guidé pour rédiger vos messages étape par étape. Vous pouvez les garder pour vous, les relire plus tard, ou les partager à la personne concernée.",
+        "Votre historique reste privé et sécurisé, et vous pouvez suivre vos progrès dans l'apprentissage de la CNV.",
+        "Chaque utilisateur est accueilli avec bienveillance, quel que soit son niveau de confort avec l'expression émotionnelle."
+      ]
+    },
+    "ofnr_method": {
+      "title": "La méthode OSBD",
+      "description": "La méthode OSBD est une méthode de communication non violente qui permet de renforcer la qualité de vos relations.",
+      "observation": {
+        "title": "Observation",
+        "description": "\"Je vois...\"",
+        "example": "Je vois que tu regardes ton téléphone pendant qu'on dîne ensemble."
+      },
+      "feelings": {
+        "title": "Sentiments",
+        "description": "\"Je me sens...\"",
+        "example": " Je me sens triste et un peu mise à l'écart."
+      },
+      "needs": {
+        "title": "Besoins",
+        "description": "\"Car j'ai besoin de...\"",
+        "example": " J'ai besoin de connexion et de moments de qualité partagés avec toi."
+      },
+      "request": {
+        "title": "Demande",
+        "description": "\"Est-ce que...\"",
+        "example": "Est-ce que tu serais d'accord pour poser ton téléphone pendant les repas ?"
+      }
+    }
+  },
+  "feelings-list-page": {
+    "title": "Liste des émotions et besoins",
+    "description": "Découvrez les sentiments/émotions et besoins que vous pouvez exprimer pour renforcer la qualité de vos relations.",
+    "show-words": "Afficher les mots",
+    "hide-words": "Cacher les mots",
+    "feelings": {
+      "title": "Sentiments/émotions",
+      "description": "Les sentiments/émotions sont d'abord triées par grande catégorie : quand le besoin final est atteint ou non, puis par sous-catégorie.",
+      "needs_met": {
+        "title": "Besoins rejoints"
+      },
+      "needs_unmet": {
+        "title": "Besoins non rejoints"
+      }
+    },
+    "needs": {
+      "title": "Besoins",
+      "description": "Les besoins sont triés par grande catégorie."
+    }
+  },
+  "feelings": {
+    "needs_met": [
+      {
+        "category": "Affection",
+        "words": [
+          "Amour (plein·e de)",
+          "Amoureux·se",
+          "Attendri·e",
+          "Attiré·e",
+          "Charmé·e",
+          "Compassion (plein·e de)",
+          "Connecté·e",
+          "Ému·e",
+          "Gratitude (plein·e de)",
+          "Reconnaissant·e",
+          "Relié·e",
+          "Tendresse (plein·e de)",
+          "Touché·e"
+        ]
+      },
+      {
+        "category": "Sérénité",
+        "words": [
+          "Apaisé·e",
+          "Calme",
+          "Centré·e",
+          "Comblé·e",
+          "Confiant·e",
+          "Décontracté·e",
+          "Détendu·e",
+          "Léger·e",
+          "Nourri·e",
+          "Ouvert·e",
+          "Paisible",
+          "Rassuré·e",
+          "Relaxé·e",
+          "Serein.e",
+          "Soulagé·e",
+          "Tranquille",
+          "Zen"
+        ]
+      },
+      {
+        "category": "Joie",
+        "words": [
+          "Amusé·e",
+          "Content·e",
+          "Enchanté·e",
+          "Enjoué·e",
+          "Entrain (plein·e d'énergie)",
+          "Euphorique",
+          "Fier·e",
+          "Gai·e",
+          "Heureux·se",
+          "Hilare",
+          "Humeur espiègle",
+          "Joyeux·se",
+          "Ravi·e",
+          "Réjoui·e",
+          "Satisfait·e"
+        ]
+      },
+      {
+        "category": "Intérêt",
+        "words": [
+          "Admiratif·ve",
+          "Attentif·ve",
+          "Captivé·e",
+          "Concentré·e",
+          "Curieux·se",
+          "Ébloui·e",
+          "Emballé·e",
+          "Émerveillé·e",
+          "Enthousiaste",
+          "Époustouflé·e",
+          "Excité·e",
+          "Fasciné·e",
+          "Inspiré·e",
+          "Intrigué·e",
+          "Passionné·e",
+          "Surpris·e"
+        ]
+      },
+      {
+        "category": "Énergie",
+        "words": [
+          "Électrisé·e",
+          "En effervescence",
+          "En expansion",
+          "Enflammé·e",
+          "Excité·e",
+          "Galvanisé·e",
+          "Pétillant·e",
+          "Plein d'énergie",
+          "Rayonnant·e",
+          "Régénéré·e",
+          "Revigoré·e",
+          "Surexcité·e",
+          "Vibrant·e",
+          "Vivifié·e"
+        ]
+      }
+    ],
+    "needs_unmet": [
+      {
+        "category": "Peur",
+        "words": [
+          "Angoissé·e",
+          "Anxieux·se",
+          "Apeuré·e",
+          "Effrayé·e",
+          "Horrifié·e",
+          "Inquiet·ète",
+          "Méfiant·e",
+          "Paniqué·e",
+          "Stressé·e",
+          "Sur mes gardes",
+          "Terrifié·e",
+          "Terrorisé·e"
+        ]
+      },
+      {
+        "category": "Colère",
+        "words": [
+          "Agacé·e",
+          "Amer·e",
+          "Contrarié·e",
+          "Dégoûté·e",
+          "Écoeuré·e",
+          "Fâché·e",
+          "Enervé·e",
+          "Exaspéré·e",
+          "Excédé·e",
+          "Fâché·e",
+          "Frustré·e",
+          "Furieux·se",
+          "Hors de moi"
+        ]
+      },
+      {
+        "category": "Tension",
+        "words": ["Agité·e", "Crispé·e", "Impatient·e", "Nerveux·se"]
+      },
+      {
+        "category": "Tristesse",
+        "words": [
+          "Accablé·e",
+          "Blessé·e",
+          "Chagriné·e",
+          "Consterné·e",
+          "Découragé·e",
+          "Déçu·e",
+          "Démoralisé·e",
+          "Dépité·e",
+          "Déprimé·e",
+          "Désespéré·e",
+          "Désolé·e",
+          "Effondré·e",
+          "En deuil",
+          "Impuissant·e",
+          "Malheureux·se",
+          "Morose",
+          "Peiné·e",
+          "Résigné·e",
+          "Triste"
+        ]
+      },
+      {
+        "category": "Confusion",
+        "words": [
+          "Bouleversé·e",
+          "Confus·e",
+          "Chamboulé·e",
+          "Coupable",
+          "Déboussolé·e",
+          "Démuni·e",
+          "Déprimé·e",
+          "Désemparé·e",
+          "Déstabilisé·e",
+          "Dubitatif·ve",
+          "Gêné·e",
+          "Honteux·se",
+          "Impuissant·e",
+          "Indécis·e",
+          "Intimidé·e",
+          "Jaloux·se",
+          "Mal à l'aise",
+          "Partagé·e",
+          "Perdu·e",
+          "Remué·e",
+          "Tiraillé·e",
+          "Troublé·e"
+        ]
+      },
+      {
+        "category": "Fatigue",
+        "words": [
+          "Abattu·e",
+          "Affaibli·e",
+          "Anéanti·e",
+          "Eprouvé·e",
+          "Épuisé·e",
+          "Exténué·e",
+          "Endormi·e",
+          "Fatigué·e",
+          "Lessivé·e",
+          "Las·se",
+          "Léthargique",
+          "Sans énergie",
+          "Vidé·e"
+        ]
+      },
+      {
+        "category": "Sidération",
+        "words": [
+          "Abasourdi·e",
+          "Ahuri·e",
+          "Choqué·e",
+          "Chamboulé·e",
+          "Effaré·e",
+          "Estomaqué·e",
+          "Étonné·e",
+          "Interloqué·e",
+          "Perplexe",
+          "Médusé·e",
+          "Sidéré·e",
+          "Stupéfait·e",
+          "Surpris·e"
+        ]
+      }
+    ]
+  },
+  "needs": [
+    {
+      "category": "Survie",
+      "words": [
+        "Abri",
+        "Air",
+        "Alimentation",
+        "Chaleur",
+        "Espace",
+        "Évacuation",
+        "Expression sexuelle",
+        "Hydratation",
+        "Lumière",
+        "Mouvement",
+        "Repos",
+        "Sécurité",
+        "Stimulation sensorielle"
+      ]
+    },
+    {
+      "category": "Intégrité",
+      "words": [
+        "Authenticité",
+        "Autonomie",
+        "Choix",
+        "Clarté",
+        "Cohérence",
+        "Confiance",
+        "Connexion à soi",
+        "Discernement",
+        "Estime de soi",
+        "Dignité",
+        "Intégrité",
+        "Liberté",
+        "Préserver son temps et son énergie",
+        "Rythme (aller à son)",
+        "Spontanéité",
+        "Souveraineté",
+        "Structure/Ordre"
+      ]
+    },
+    {
+      "category": "Réalisation",
+      "words": [
+        "Accomplissement",
+        "Actualisation des potentialités",
+        "Apprentissage",
+        "Créativité",
+        "Exploration",
+        "Épanouissement",
+        "Évolution",
+        "Exploration",
+        "Inspiration",
+        "Réalisation",
+        "Sens",
+        "Unicité"
+      ]
+    },
+    {
+      "category": "Harmonie",
+      "words": [
+        "Beauté",
+        "Calme",
+        "Détente",
+        "Fluidité",
+        "Harmonie",
+        "Jeu / Rire",
+        "Légèreté",
+        "Récréation",
+        "Ressourcement",
+        "Paix",
+        "Simplicité"
+      ]
+    },
+    {
+      "category": "Relation",
+      "words": [
+        "Accueil",
+        "Amour",
+        "Apprivoisement",
+        "Bienveillance",
+        "Chaleur humaine",
+        "Connexion",
+        "Délicatesse",
+        "Douceur",
+        "Écoute",
+        "Empathie",
+        "Expression",
+        "Intimité",
+        "Partage",
+        "Proximité",
+        "Réconfort",
+        "Réciprocité",
+        "Tendresse"
+      ]
+    },
+    {
+      "category": "Coopération",
+      "words": [
+        "Appartenance",
+        "Appréciation",
+        "Attention",
+        "Coopération",
+        "Considération",
+        "Contribution",
+        "Équité/Équivalence",
+        "Préserver la vie",
+        "Partage",
+        "Reconnaissance",
+        "Respect",
+        "Soutien"
+      ]
+    },
+    {
+      "category": "Célébration",
+      "words": [
+        "Célébration",
+        "Communion",
+        "Faire le deuil",
+        "Honorer",
+        "Intensité",
+        "Se sentir vivant",
+        "Spiritualité"
+      ]
+    }
+  ]
 }
