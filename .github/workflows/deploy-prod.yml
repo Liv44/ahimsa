@@ -18,4 +18,4 @@ jobs:
   release-prod:
     uses: ./.github/workflows/release.yml
     needs: deploy-prod
-    with: {}
+    secrets: inherit
