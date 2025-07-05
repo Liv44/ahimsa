@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.2](https://github.com/Liv44/Ahimsa/compare/v0.1.1...v0.1.2) (2025-07-05)
+
+
+### Bug Fixes
+
+* **versioning:** add release-it/bumper to change versions in packages front and back ([8278b5f](https://github.com/Liv44/Ahimsa/commit/8278b5f829545a5a9fa2f2a58ef9ba885a9a642f))
+
 ## [0.1.1](https://github.com/Liv44/Ahimsa/compare/v0.1.0...v0.1.1) (2025-07-05)
 
 
