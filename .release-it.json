@@ -15,8 +15,8 @@
     "requireUpstream": true,
     "files": [
       "package.json",
-      "/frontend/package.json",
-      "/backend/package.json",
+      "./frontend/package.json",
+      "./backend/package.json",
       "CHANGELOG.md"
     ]
   },
