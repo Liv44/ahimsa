@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.1](https://github.com/Liv44/Ahimsa/compare/v0.1.0...v0.1.1) (2025-07-05)
+
+
+### Bug Fixes
+
+* **versioning:** repair files link to increase version ([ad60833](https://github.com/Liv44/Ahimsa/commit/ad608335ea9623e2dee87c25c2be78c657a9ece4))
+
 # 0.1.0 (2025-07-05)
 
 
