@@ -3,6 +3,13 @@
     "@release-it/conventional-changelog": {
           "preset": "angular",
       "infile": "CHANGELOG.md"
+    },
+    "@release-it/bumper": {
+      "in": "package.json",
+      "out": [
+          "frontend/package.json",
+          "backend/package.json"
+      ]
     }
   },
   "git": {
@@ -15,8 +22,8 @@
     "requireUpstream": true,
     "files": [
       "package.json",
-      "./frontend/package.json",
-      "./backend/package.json",
+      "frontend/package.json",
+      "backend/package.json",
       "CHANGELOG.md"
     ]
   },
