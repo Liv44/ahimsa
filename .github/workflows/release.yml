@@ -1,0 +1,37 @@
+name: Release
+
+on:
+  workflow_call:
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # IMPORTANT pour accéder à l'historique Git complet (tags inclus)
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20  # Ou ta version préférée
+
+      - name: 📥 Install dependencies
+        run: npm ci
+        
+      - name: Configure Git user
+        run: |
+          git config --global user.email "release-bot@example.com"
+          git config --global user.name "Release Bot"
+
+      - name: 🚀 Run release-it
+        run: npx release-it --ci
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}

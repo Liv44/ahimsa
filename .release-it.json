@@ -1,0 +1,30 @@
+{
+  "plugins": {
+    "@release-it/conventional-changelog": {
+          "preset": "angular",
+      "infile": "CHANGELOG.md"
+    }
+  },
+  "git": {
+    "commit": true,
+    "tag": true,
+    "push": true,
+    "commitMessage": "chore(release): v${version}",
+    "tagName": "v${version}",
+    "requireCleanWorkingDir": true,
+    "requireUpstream": true,
+    "files": [
+      "package.json",
+      "/frontend/package.json",
+      "/backend/package.json",
+      "CHANGELOG.md"
+    ]
+  },
+  "github": {
+    "release": true
+  },
+  "npm": {
+    "publish": false,
+    "ignoreVersion": false
+  }
+}

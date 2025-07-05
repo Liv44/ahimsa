@@ -1,6 +1,6 @@
 {
   "name": "Ahimsa",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "author": "Olivia Moreau <moreauolivia49@gmail.com> (https://github.com/Liv44)",
   "license": "MIT",
   "description": "Ahimsa is a website to help you use the Non Violent Communication (NVC) method.",
@@ -12,6 +12,9 @@
     "prepare": "husky"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "@release-it/conventional-changelog": "^10.0.1",
     "husky": "^9.1.7"
   }
 }

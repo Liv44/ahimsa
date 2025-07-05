@@ -1,0 +1,17 @@
+name: deploy-staging
+
+on:
+  push:
+    branches: [ develop ]
+
+jobs:
+  run-ci:
+    uses: ./.github/workflows/ci-template.yml
+    with: {}
+  deploy-staging:
+    runs-on: ubuntu-latest
+    needs: run-ci
+    steps:
+      - name: Deploy APP on staging
+        run: |
+          curl ${{ secrets.RENDER_APP_STAGING_WEBHOOK }}
