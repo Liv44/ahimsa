@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.3](https://github.com/Liv44/Ahimsa/compare/v0.1.2...v0.1.3) (2025-07-05)
+
+
+### Bug Fixes
+
+* **versioning:** change secrets in release.yml to add new releases ([9cefb14](https://github.com/Liv44/Ahimsa/commit/9cefb140cb5d4bd7256bbfaf9784401c8d3cb883))
+
 ## [0.1.2](https://github.com/Liv44/Ahimsa/compare/v0.1.1...v0.1.2) (2025-07-05)
 
 
