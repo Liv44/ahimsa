@@ -21,10 +21,21 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 20  # Ou ta version préférée
+          node-version: 20
+ 
+      - name: Install yarn
+        run: npm install -g yarn
 
       - name: 📥 Install dependencies
-        run: npm ci
+        run: yarn install --frozen-lockfile
+
+      - name: Install backend dependencies
+        working-directory: backend
+        run: yarn install --frozen-lockfile
+
+      - name: Install frontend dependencies
+        working-directory: frontend
+        run: yarn install --frozen-lockfile
         
       - name: Configure Git user
         run: |

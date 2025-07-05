@@ -13,15 +13,17 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 20
-      - name: npm install, build
+      - name: Install yarn
+        run: npm install -g yarn
+      - name: yarn install, build
         working-directory: frontend
         run: |
-          npm install
-          npm run build
+          yarn install
+          yarn build
       - name: run Lighthouse CI
         working-directory: frontend
         run: |
-          npm install -g @lhci/cli@latest
+          yarn install -g @lhci/cli@latest
           lhci autorun
       - name: Upload Lighthouse results
         uses: actions/upload-artifact@v4
