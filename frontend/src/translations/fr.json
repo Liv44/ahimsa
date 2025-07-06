@@ -8,6 +8,7 @@
       "home": "Accueil",
       "feelings-list": "Liste des émotions",
       "login": "Se connecter",
+      "discussion": "Créer une discussion",
       "register": "S'inscrire",
       "aria-label": {
         "home": "Page d'accueil",
@@ -106,6 +107,65 @@
     "needs": {
       "title": "Besoins",
       "description": "Les besoins sont triés par grande catégorie."
+    }
+  },
+  "discussion-page": {
+    "title": "Créer une discussion avec la méthode OSBD",
+    "description": "La communication non violente repose sur l'écoute active et la formulation claire des besoins. Vous pouvez ici rédiger votre message étape par étape. Vous pouvez le garder pour vous, le relire plus tard, ou le partager à la personne concernée.",
+    "button-start": "Commencer la discussion",
+    "summary": {
+      "title": "Résumé de la discussion",
+      "button-back": "Retour aux étapes",
+      "button-restart": "Recommencer une discussion",
+      "toast-text": "Résumé copié dans le presse-papiers",
+      "copy-button-aria": "Copier le résumé de la discussion"
+    },
+    "step": {
+      "button-next": "Suivant",
+      "button-finish": "Terminer",
+      "button-next-aria": "Passer à l'étape suivante",
+      "button-finish-aria": "Terminer la discussion",
+      "observation": {
+        "title": "Observation",
+        "description": "Partagez votre observation sur la situation. Cette étape est essentielle pour comprendre le contexte de la discussion. Vous pouvez commencer par dire \"Je vois que...\", \"Quand je vois... \"Je constate que...\".",
+        "label": "Observation",
+        "placeholder": "Je vois que...",
+        "aria-label": "Partagez votre observation sur la situation"
+      },
+      "feelings": {
+        "title": "Sentiments",
+        "description": "Par rapport à l'observation, que ressentez-vous ? Vous pouvez commencer par dire \"Je me sens...\". Vous pouvez choisir des émotions parmi la liste disponible en cliquant sur le bouton \"Afficher les émotions\".",
+        "label": "Sentiments",
+        "placeholder": "Je me sens...",
+        "aria-label": "Partagez vos sentiments sur la situation"
+      },
+      "needs": {
+        "title": "Besoins",
+        "description": "Ce que vous ressentez est lié à vos besoins. Vous pouvez commencer par dire \"Car j'ai besoin de...\".",
+        "label": "Besoins",
+        "placeholder": "Car j'ai besoin de...",
+        "aria-label": "Partagez vos besoins sur la situation"
+      },
+      "request": {
+        "title": "Demande",
+        "description": "Pour résoudre la situation, vous pouvez faire une demande. Vous pouvez commencer par dire \"Est-ce que...\".",
+        "label": "Demande",
+        "placeholder": "Est-ce que...",
+        "aria-label": "Partagez votre demande sur la situation"
+      }
+    },
+    "example": {
+      "title": "Exemples de discussions",
+      "examples": [
+        "Je vois que tu écoutes de la musique jusqu’à tard dans la nuit, parfois après minuit. Je me sens épuisé·e et irrité·e quand je n’arrive pas à dormir. J’ai besoin de repos et de calme pour me ressourcer la nuit. Est-ce que tu serais d’accord pour utiliser un casque après 22h ?",
+        "Je repense à la manière dont tu m’as accompagné·e cette semaine quand j’étais stressé·e par le travail. Je me sens ému·e et reconnaissant·e. J’ai besoin de connexion et de réconfort dans les moments comme ceux-là. Est-ce que je peux te proposer un dîner ce soir pour te dire merci ?",
+        "Je vois que la décision finale sur le projet a été prise sans que mon avis soit sollicité. Je me sens frustré·e et invisible. J’ai besoin de reconnaissance et de contribution dans les décisions qui me concernent. Est-ce que tu serais d’accord pour qu’on prenne un temps de feedback après chaque réunion ?",
+        "Je vois que tu te poses beaucoup de questions en ce moment sur ton avenir professionnel. Je me sens touché·e par ce que tu vis, et aussi attentif·ve à ton chemin. J’ai besoin de connexion à toi et de soutien mutuel dans notre amitié. Est-ce que tu aimerais qu’on en parle ensemble autour d’un café cette semaine ?",
+        "Je vois que tu utilises ton téléphone souvent pendant les repas ou les moments qu’on passe ensemble. Je me sens chagriné·e et parfois déconnecté·e de toi. J’ai besoin de connexion et de partage dans notre relation. Est-ce que tu serais d’accord pour qu’on ait des temps sans écran pendant les repas ?",
+        "Je vois la façon dont tu as géré ce projet, avec créativité et calme. Je me sens inspiré·e et enthousiaste à l’idée de travailler avec toi. J’ai besoin de collaboration et de stimulation intellectuelle dans mon travail. Est-ce qu’on pourrait réfléchir ensemble à un nouveau projet à lancer en duo ?",
+        "Je vois que tu ne réponds plus à mes messages depuis plusieurs jours, et qu’on ne se voit plus comme avant. Je me sens déçu·e et triste, parce que je tiens à notre amitié. J’ai besoin de clarté et de réassurance dans mes relations. Est-ce que tu serais prêt·e à en parler avec moi quand tu te sentiras disponible ?",
+        "Je vois que mes idées n’ont pas été prises en compte lors de la réunion de direction. Je me sens impuissant·e et mal à l’aise dans ce genre de situation. J’ai besoin de considération et de liberté d’expression dans mon poste. Est-ce qu’on pourrait convenir d’un moment pour que je puisse partager mes propositions en détail ?"
+      ]
     }
   },
   "feelings": {

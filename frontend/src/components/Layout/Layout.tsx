@@ -20,6 +20,7 @@ const Layout = ({ children }: LayoutProps) => {
   const navItems = [
     { path: '/', label: t('layout.navigation.home') },
     { path: '/feelings-list', label: t('layout.navigation.feelings-list') },
+    { path: '/discussion', label: t('layout.navigation.discussion') },
     { path: '/login', label: t('layout.navigation.login') },
   ];
 
