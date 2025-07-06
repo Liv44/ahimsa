@@ -62,10 +62,6 @@ describe('LayoutLink', () => {
     expect(
       screen.getByText('layout.footer.navigation.title')
     ).toBeInTheDocument();
-    expect(screen.getByText('layout.footer.contact.title')).toBeInTheDocument();
-    expect(
-      screen.getByText('layout.footer.contact.description')
-    ).toBeInTheDocument();
     expect(screen.getByText('layout.footer.copyright')).toBeInTheDocument();
   });
 
@@ -191,6 +187,6 @@ describe('LayoutLink', () => {
     const footer = screen.getByRole('contentinfo');
     const gridContainer = footer.querySelector('.grid');
 
-    expect(gridContainer).toHaveClass('grid-cols-1', 'md:grid-cols-3');
+    expect(gridContainer).toHaveClass('grid-cols-1', 'md:grid-cols-2');
   });
 });
