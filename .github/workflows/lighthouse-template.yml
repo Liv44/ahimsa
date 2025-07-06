@@ -23,7 +23,7 @@ jobs:
       - name: run Lighthouse CI
         working-directory: frontend
         run: |
-          yarn install -g @lhci/cli@latest
+          yarn global add @lhci/cli@latest
           lhci autorun
       - name: Upload Lighthouse results
         uses: actions/upload-artifact@v4
