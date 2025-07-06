@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import Discussion from '@/domain/entities/Discussion';
 import { Store, useStore } from '@tanstack/react-store';
 

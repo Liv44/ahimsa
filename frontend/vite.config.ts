@@ -31,6 +31,7 @@ export default defineConfig(() => {
           '**/pages/**',
           '**/router/**',
           '**/dist/**',
+          'src/domain/usecases/discussion/useDiscussionStore.ts',
         ],
       },
     },

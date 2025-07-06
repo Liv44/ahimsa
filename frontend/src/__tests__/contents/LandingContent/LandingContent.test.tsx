@@ -1,5 +1,5 @@
 import { renderWithRouter } from '@/__tests__/utils';
-import LandingContent from '@/contents/LandingContent/LandingContent';
+import LandingContent from '@/contents/LandingContent';
 import { screen } from '@testing-library/react';
 import { beforeEach, describe, expect, it, vitest } from 'vitest';
 
