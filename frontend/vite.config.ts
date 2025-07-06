@@ -16,6 +16,23 @@ export default defineConfig(() => {
       globals: true,
       environment: 'jsdom',
       setupFiles: './src/config/setupTest.ts',
+      coverage: {
+        reporter: ['text', 'json', 'html'],
+        exclude: [
+          '**/*.config.{js,ts,cjs}', // Vite, ESLint, Lighthouse configs
+          'src/main.tsx',
+          'src/App.tsx',
+          'src/i18n.ts',
+          '**/*.d.ts', // fichiers de déclaration
+          'lighthouserc.cjs',
+          '**/components/ui/**',
+          '**/config/**',
+          '**/translations/**',
+          '**/pages/**',
+          '**/router/**',
+          '**/dist/**',
+        ],
+      },
     },
   };
 });
