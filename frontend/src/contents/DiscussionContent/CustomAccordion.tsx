@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
@@ -30,12 +30,6 @@ const DiscussionAccordion = () => {
   );
   const [activeStep, setActiveStep] = useState<number>(0);
 
-  useEffect(() => {
-    if (descriptionRef.current) {
-      descriptionRef.current.focus();
-    }
-  }, [activeStep]);
-
   const navigate = useNavigate();
 
   const handleNextStep = (e: React.FormEvent<HTMLFormElement>) => {
@@ -49,7 +43,9 @@ const DiscussionAccordion = () => {
     }));
     if (activeStep < steps.length - 1) {
       setActiveStep(activeStep + 1);
-      descriptionRef.current?.focus();
+      if (descriptionRef.current) {
+        descriptionRef.current.focus();
+      }
     } else {
       discussionStore.setState((state) => ({
         ...state,
@@ -71,7 +67,7 @@ const DiscussionAccordion = () => {
       {steps.map((step, index) => (
         <AccordionItem value={`item-${index}`} key={index}>
           <AccordionTrigger
-            ref={activeStep === index ? descriptionRef : undefined}
+            ref={activeStep === index - 1 ? descriptionRef : undefined}
           >
             {index + 1}. {t(`discussion-page.step.${step.key}.title`)}
           </AccordionTrigger>
@@ -110,6 +106,11 @@ const DiscussionAccordion = () => {
                 type="submit"
                 className="bg-orange text-black hover:bg-orange/80 max-w-40 mx-auto"
                 disabled={!content}
+                aria-label={
+                  index < steps.length - 1
+                    ? t('discussion-page.step.button-next-aria')
+                    : t('discussion-page.step.button-finish-aria')
+                }
               >
                 {index < steps.length - 1
                   ? t('discussion-page.step.button-next')

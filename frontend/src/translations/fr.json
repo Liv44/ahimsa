@@ -117,11 +117,14 @@
       "title": "Résumé de la discussion",
       "button-back": "Retour aux étapes",
       "button-restart": "Recommencer une discussion",
-      "toast-text": "Résumé copié dans le presse-papiers"
+      "toast-text": "Résumé copié dans le presse-papiers",
+      "copy-button-aria": "Copier le résumé de la discussion"
     },
     "step": {
       "button-next": "Suivant",
       "button-finish": "Terminer",
+      "button-next-aria": "Passer à l'étape suivante",
+      "button-finish-aria": "Terminer la discussion",
       "observation": {
         "title": "Observation",
         "description": "Partagez votre observation sur la situation. Cette étape est essentielle pour comprendre le contexte de la discussion. Vous pouvez commencer par dire \"Je vois que...\", \"Quand je vois... \"Je constate que...\".",
