@@ -92,8 +92,8 @@
   "feelings-list-page": {
     "title": "Liste des émotions et besoins",
     "description": "Découvrez les sentiments/émotions et besoins que vous pouvez exprimer pour renforcer la qualité de vos relations.",
-    "show-words": "Afficher les mots",
-    "hide-words": "Cacher les mots",
+    "show-words": "Afficher les mots de {{word}}",
+    "hide-words": "Cacher les mots de {{word}}",
     "feelings": {
       "title": "Sentiments/émotions",
       "description": "Les sentiments/émotions sont d'abord triées par grande catégorie : quand le besoin final est atteint ou non, puis par sous-catégorie.",

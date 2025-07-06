@@ -30,12 +30,11 @@ const FeelingCategory = ({
       </h3>
       {subCategories && Array.isArray(subCategories) && (
         <ul className="flex flex-col gap-2">
-          {subCategories.map((subCategory) => (
-            <li key={subCategory.category}>
+          {subCategories.map((subCategory, index) => (
+            <li key={subCategory.category + index}>
               <FeelingCard
                 title={subCategory.category}
                 words={subCategory.words}
-                key={subCategory.category}
               />
             </li>
           ))}
