@@ -1,5 +1,26 @@
 # Changelog
 
+# [1.0.0](https://github.com/Liv44/Ahimsa/compare/v0.1.3...v1.0.0) (2025-07-06)
+
+
+### Bug Fixes
+
+* **ci:** lighthouse and linter ([15463ef](https://github.com/Liv44/Ahimsa/commit/15463ef16fa17dfc10188ac5dfa28b4bff367e80))
+
+
+### Features
+
+* **AnonymousDiscussion:** add discussion entities and all steps for discussion ([4ca94d6](https://github.com/Liv44/Ahimsa/commit/4ca94d63a72ea588257647e93a96cbc4c9292be3))
+* **AnonymousDiscussion:** set new route in layout ([16e01e4](https://github.com/Liv44/Ahimsa/commit/16e01e4a8261b316d379d9a732a1408eef7c72fd))
+* **ci:** add lighthouse ci to analyse accessibility ([a7ce46c](https://github.com/Liv44/Ahimsa/commit/a7ce46c0275166b5e5c14d57e17b507252605238))
+* **config:** add codecov to display coverage on PRs ([5381412](https://github.com/Liv44/Ahimsa/commit/5381412d5b8ddd24d4e1963a3c17cf2152adb26b))
+* **lighthouse:** add new routes to test on lighthouse ([a6b7aa9](https://github.com/Liv44/Ahimsa/commit/a6b7aa959c0907164074f037131e9e3c0189a351))
+
+
+### BREAKING CHANGES
+
+* **AnonymousDiscussion:** add Discussion Feature for Anonymous users
+
 ## [0.1.3](https://github.com/Liv44/Ahimsa/compare/v0.1.2...v0.1.3) (2025-07-05)
 
 
