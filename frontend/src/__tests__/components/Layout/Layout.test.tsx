@@ -39,6 +39,7 @@ describe('LayoutLink', () => {
     );
     const labelHome = screen.getAllByText('layout.navigation.home');
     const labelLogin = screen.getAllByText('layout.navigation.login');
+    const labelDiscussion = screen.getAllByText('layout.navigation.discussion');
     const labelFeelingsList = screen.getAllByText(
       'layout.navigation.feelings-list'
     );
@@ -46,6 +47,7 @@ describe('LayoutLink', () => {
     expect(labelHome).toHaveLength(2);
     expect(labelLogin).toHaveLength(2);
     expect(labelFeelingsList).toHaveLength(2);
+    expect(labelDiscussion).toHaveLength(2);
   });
 
   it('renders footer content', () => {
@@ -104,25 +106,29 @@ describe('LayoutLink', () => {
     );
 
     const links = screen.getAllByRole('link');
-    expect(links).toHaveLength(7);
+    expect(links).toHaveLength(9);
 
     const iconLink = links[0];
     const firstHomeLink = links[1];
     const firstFeelingsListLink = links[2];
-    const firstLoginLink = links[3];
+    const firstDiscussionLink = links[3];
+    const firstLoginLink = links[4];
 
-    const secondHomeLink = links[4];
-    const secondFeelingsListLink = links[5];
-    const secondLoginLink = links[6];
+    const secondHomeLink = links[5];
+    const secondFeelingsListLink = links[6];
+    const secondDiscussionLink = links[7];
+    const secondLoginLink = links[8];
 
     expect(iconLink).toHaveAttribute('href', '/');
 
     expect(firstHomeLink).toHaveAttribute('href', '/');
     expect(firstLoginLink).toHaveAttribute('href', '/login');
+    expect(firstDiscussionLink).toHaveAttribute('href', '/discussion');
     expect(firstFeelingsListLink).toHaveAttribute('href', '/feelings-list');
 
     expect(secondHomeLink).toHaveAttribute('href', '/');
     expect(secondLoginLink).toHaveAttribute('href', '/login');
+    expect(secondDiscussionLink).toHaveAttribute('href', '/discussion');
     expect(secondFeelingsListLink).toHaveAttribute('href', '/feelings-list');
   });
 
