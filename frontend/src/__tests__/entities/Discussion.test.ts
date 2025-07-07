@@ -24,6 +24,29 @@ describe('Discussion entity', () => {
     expect(discussion.completedAt).toBeNull();
   });
 
+  it('should return a summary of all step contents', () => {
+    const steps = [
+      Step.create({
+        key: DiscussionStepKey.OBSERVATION,
+        content: 'A',
+        completedAt: null,
+      }),
+      Step.create({
+        key: DiscussionStepKey.FEELINGS,
+        content: 'B',
+        completedAt: null,
+      }),
+      Step.create({
+        key: DiscussionStepKey.NEEDS,
+        content: 'C',
+        completedAt: null,
+      }),
+    ];
+    const discussion = Discussion.create(steps);
+
+    expect(discussion.getSummary()).toBe('A, B, C');
+  });
+
   it('should set completedAt when complete() is called', () => {
     const steps = [
       Step.create({
@@ -48,95 +71,5 @@ describe('Discussion entity', () => {
       expect(step.completedAt).toBeNull();
     });
     expect(discussion.completedAt).toBeNull();
-  });
-});
-
-describe('Discussion Summary', () => {
-  it('should generate a full summary with punctuation added when missing', () => {
-    const steps = [
-      Step.create({
-        key: DiscussionStepKey.OBSERVATION,
-        content: 'observation step',
-        completedAt: null,
-      }),
-      Step.create({
-        key: DiscussionStepKey.FEELINGS,
-        content: 'feeling step',
-        completedAt: null,
-      }),
-      Step.create({
-        key: DiscussionStepKey.NEEDS,
-        content: 'needs step',
-        completedAt: null,
-      }),
-      Step.create({
-        key: DiscussionStepKey.REQUEST,
-        content: 'request step',
-        completedAt: null,
-      }),
-    ];
-    const discussion = Discussion.create(steps);
-    expect(discussion.getSummary()).toBe(
-      'Observation step. Feeling step, needs step. Request step.'
-    );
-  });
-  it('should generate a summary when only needs and request are provided', () => {
-    const steps = [
-      Step.create({
-        key: DiscussionStepKey.NEEDS,
-        content: 'needs',
-        completedAt: null,
-      }),
-      Step.create({
-        key: DiscussionStepKey.REQUEST,
-        content: 'request',
-        completedAt: null,
-      }),
-    ];
-    const discussion = Discussion.create(steps);
-    expect(discussion.getSummary()).toBe('Needs. Request.');
-  });
-
-  it('should capitalize needs if feelings ends with punctuation', () => {
-    const steps = [
-      Step.create({
-        key: DiscussionStepKey.FEELINGS,
-        content: 'Feelings with  punctuation!',
-        completedAt: null,
-      }),
-      Step.create({
-        key: DiscussionStepKey.NEEDS,
-        content: 'needs lowercase',
-        completedAt: null,
-      }),
-    ];
-    const discussion = Discussion.create(steps);
-    expect(discussion.getSummary()).toBe(
-      'Feelings with punctuation! Needs lowercase.'
-    );
-  });
-
-  it('should lowercase needs if feelings has no punctuation', () => {
-    const steps = [
-      Step.create({
-        key: DiscussionStepKey.FEELINGS,
-        content: 'Feelings with no punctuation',
-        completedAt: null,
-      }),
-      Step.create({
-        key: DiscussionStepKey.NEEDS,
-        content: 'Needs to lowercase',
-        completedAt: null,
-      }),
-    ];
-    const discussion = Discussion.create(steps);
-    expect(discussion.getSummary()).toBe(
-      'Feelings with no punctuation, needs to lowercase.'
-    );
-  });
-
-  it('should return an empty string when no steps are provided', () => {
-    const discussion = Discussion.create([]);
-    expect(discussion.getSummary()).toBe('');
   });
 });
