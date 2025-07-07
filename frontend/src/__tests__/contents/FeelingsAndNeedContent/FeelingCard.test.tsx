@@ -24,7 +24,20 @@ describe('FeelingCard', () => {
     expect(button).toHaveAccessibleName('Afficher les mots');
   });
 
-  it('check that words are displayed when button is clicked', () => {
+  it('title must be toggled with enter and space keys', () => {
+    render(<FeelingCard title="Title" words={['word 1', 'word 2']} />);
+
+    const button = screen.getByRole('button');
+    fireEvent.keyDown(button, { key: 'Enter', code: 'Enter' });
+
+    expect(button).toHaveAccessibleName('Cacher les mots');
+
+    fireEvent.keyDown(button, { key: ' ', code: 'Space' });
+
+    expect(button).toHaveAccessibleName('Afficher les mots');
+  });
+
+  it('check that words are shown when button is clicked', () => {
     render(<FeelingCard title="Title" words={['word 1', 'word 2']} />);
 
     const button = screen.getByRole('button');
@@ -46,7 +59,11 @@ describe('FeelingCard', () => {
     fireEvent.click(button);
 
     expect(button).toHaveAccessibleName('Afficher les mots');
-    expect(screen.queryByText('word 1')).not.toBeInTheDocument();
-    expect(screen.queryByText('word 2')).not.toBeInTheDocument();
+    const cardContent = screen.getByTestId('feeling-card-content');
+    expect(cardContent).toBeInTheDocument();
+    expect(cardContent).toHaveAttribute('aria-live', 'polite');
+    expect(cardContent).toHaveAttribute('aria-hidden');
+    expect(cardContent).toHaveTextContent('word 1');
+    expect(cardContent).toHaveTextContent('word 2');
   });
 });
