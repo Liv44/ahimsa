@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.0.1](https://github.com/Liv44/Ahimsa/compare/v1.0.0...v1.0.1) (2025-07-07)
+
+
+### Bug Fixes
+
+* **I10:** delete contact section from footer ([b502dd9](https://github.com/Liv44/Ahimsa/commit/b502dd955e8ca216959cdd78700c62843398be85))
+* **I11:** improve toggle feelingsList with header clickable ([5072715](https://github.com/Liv44/Ahimsa/commit/50727156cf7b8e46e977b4baf86be19b25446257))
+* **I12:** improve summary sentence from discussion ([aa2cb30](https://github.com/Liv44/Ahimsa/commit/aa2cb30b4793abe4e36e70f309549ae60e2fd279))
+* **I20:** add key down space to toggle header of FeelingCard ([2738747](https://github.com/Liv44/Ahimsa/commit/2738747f900dcc8285a9161d60df0bbcb466ddc5))
+
 # [1.0.0](https://github.com/Liv44/Ahimsa/compare/v0.1.3...v1.0.0) (2025-07-06)
 
 
