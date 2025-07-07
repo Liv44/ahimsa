@@ -113,7 +113,7 @@ const Layout = ({ children }: LayoutProps) => {
       {/* Footer */}
       <footer className="bg-black text-white">
         <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
-          <ul className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <ul className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <li>
               <p className="text-lg font-semibold mb-4">
                 {t('layout.footer.title')}
@@ -138,14 +138,6 @@ const Layout = ({ children }: LayoutProps) => {
                   </li>
                 ))}
               </ul>
-            </li>
-            <li>
-              <p className="text-lg font-semibold mb-4">
-                {t('layout.footer.contact.title')}
-              </p>
-              <p className="text-light-blue">
-                {t('layout.footer.contact.description')}
-              </p>
             </li>
           </ul>
           <div className="mt-8 pt-8 border-t border-gray text-center text-light-blue">
