@@ -24,13 +24,17 @@ describe('FeelingCard', () => {
     expect(button).toHaveAccessibleName('Afficher les mots');
   });
 
-  it('title must be toggled with enter key', () => {
+  it('title must be toggled with enter and space keys', () => {
     render(<FeelingCard title="Title" words={['word 1', 'word 2']} />);
 
     const button = screen.getByRole('button');
     fireEvent.keyDown(button, { key: 'Enter', code: 'Enter' });
 
     expect(button).toHaveAccessibleName('Cacher les mots');
+
+    fireEvent.keyDown(button, { key: ' ', code: 'Space' });
+
+    expect(button).toHaveAccessibleName('Afficher les mots');
   });
 
   it('check that words are shown when button is clicked', () => {

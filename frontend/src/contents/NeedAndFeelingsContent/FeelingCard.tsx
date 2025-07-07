@@ -28,6 +28,10 @@ const FeelingCard = ({ title, words }: FeelingCardProps) => {
           if (e.key === 'Enter') {
             setIsOpen(!isOpen);
           }
+          if (e.key === ' ') {
+            e.preventDefault();
+            setIsOpen(!isOpen);
+          }
         }}
         onClick={() => setIsOpen(!isOpen)}
       >
