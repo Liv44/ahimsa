@@ -15,7 +15,12 @@ const Layout = ({ children }: LayoutProps) => {
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const isActive = (path: string) => location.pathname === path;
+  const isActive = (path: string) => {
+    if (location.pathname === '/register' && path === '/login') {
+      return true;
+    }
+    return location.pathname === path;
+  };
 
   const navItems = [
     { path: '/', label: t('layout.navigation.home') },

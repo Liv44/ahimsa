@@ -189,4 +189,24 @@ describe('LayoutLink', () => {
 
     expect(gridContainer).toHaveClass('grid-cols-1', 'md:grid-cols-2');
   });
+
+  it('when path is /login and location is /register, link must be active', () => {
+    vi.mock('react-router-dom', async (importOriginal) => {
+      const actual = (await importOriginal()) as typeof importOriginal;
+      return {
+        ...actual,
+        useLocation: () => ({
+          pathname: '/register',
+        }),
+      };
+    });
+
+    renderWithRouter(<Layout>Test Content</Layout>);
+
+    const link = screen.getAllByRole('link', {
+      name: 'layout.navigation.login',
+    })[0];
+
+    expect(link).toHaveClass('font-extrabold');
+  });
 });
