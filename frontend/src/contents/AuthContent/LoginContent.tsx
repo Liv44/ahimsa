@@ -3,12 +3,13 @@ import { useTranslation } from 'react-i18next';
 import z from 'zod';
 
 import AuthForm, { FieldConfig } from '@/components/Auth/AuthForm';
-import { supabase } from '@/config/supabaseConfig';
+import useLogin from '@/domain/usecases/auth/useLogin';
 
 const LoginContent = () => {
   const [emailSent, setEmailSent] = useState(false);
   const [errorSendingEmail, setErrorSendingEmail] = useState(false);
   const [triedToSignin, setTriedToSignin] = useState(false);
+  const { mutate: login } = useLogin();
   const { t } = useTranslation();
 
   const loginFormSchema = z.object({
@@ -27,27 +28,25 @@ const LoginContent = () => {
   ];
 
   const onSubmitLogin = async (values: z.infer<typeof loginFormSchema>) => {
-    console.log(values);
     setErrorSendingEmail(false);
-    const { error } = await supabase.auth.signInWithOtp({
-      email: values.email,
-      options: {
-        shouldCreateUser: false,
-        emailRedirectTo: `${window.location.origin}/`,
-      },
-    });
-    if (error) {
-      console.error(error);
-      setErrorSendingEmail(true);
-      const code = error.code;
-      if (code === 'otp_disabled') {
-        setTriedToSignin(true);
-      } else {
-        setErrorSendingEmail(true);
+    setTriedToSignin(false);
+    setEmailSent(false);
+
+    login(
+      { email: values.email },
+      {
+        onSuccess: () => {
+          setEmailSent(true);
+        },
+        onError: (error) => {
+          setErrorSendingEmail(true);
+          const code = error.code;
+          if (code === 'otp_disabled') {
+            setTriedToSignin(true);
+          }
+        },
       }
-    } else {
-      setEmailSent(true);
-    }
+    );
   };
   return (
     <AuthForm

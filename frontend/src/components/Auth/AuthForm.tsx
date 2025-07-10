@@ -82,7 +82,9 @@ const AuthForm = <T extends ZodTypeAny>({
         )}
         {emailSent && (
           <FormDescription className="text-center">
-            <p>Un mail a été envoyé à {form.getValues().email}</p>
+            <p>
+              {t('connexion.email-sent', { email: form.getValues().email })}
+            </p>
           </FormDescription>
         )}
         <Button type="submit" className="mx-auto min-w-20 max-w-40">

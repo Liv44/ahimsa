@@ -99,7 +99,7 @@
     "missing-pseudo": "Le pseudo est obligatoire",
     "wrong-email": "L'email doit être valide",
     "wrong-pseudo": "Le pseudo doit contenir au moins 3 caractères et au plus 25 caractères",
-    "email-sent": "Un mail a été envoyé à {email}",
+    "email-sent": "Un mail a été envoyé à {{email}}",
     "tried-to-signin": "Pas de compte trouvé avec cet email. Veuillez vous connecter ou créer un compte."
   },
   "feelings-list-page": {
