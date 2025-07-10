@@ -85,6 +85,23 @@
       }
     }
   },
+  "connexion": {
+    "title-login": "Connexion",
+    "title-register": "Créer un compte",
+    "description-login": "Pas besoin de mot de passe ! Vous recevrez un mail pour vous connecter.",
+    "description-register": "Pas besoin de mot de passe ! Vous recevrez directement un mail pour valider votre inscription et vous connecter.",
+    "button-login": "Se connecter",
+    "button-register": "Créer un compte",
+    "button-already-account": "Déjà un compte ? Connectez-vous",
+    "button-no-account": "Pas de compte ? Créez le vôtre",
+    "error-sending-email": "Il y a eu une erreur lors de l'envoi de mail.",
+    "missing-email": "L'email est obligatoire",
+    "missing-pseudo": "Le pseudo est obligatoire",
+    "wrong-email": "L'email doit être valide",
+    "wrong-pseudo": "Le pseudo doit contenir au moins 3 caractères et au plus 25 caractères",
+    "email-sent": "Un mail a été envoyé à {email}",
+    "tried-to-signin": "Pas de compte trouvé avec cet email. Veuillez vous connecter ou créer un compte."
+  },
   "feelings-list-page": {
     "title": "Liste des émotions et besoins",
     "description": "Découvrez les sentiments/émotions et besoins que vous pouvez exprimer pour renforcer la qualité de vos relations.",
