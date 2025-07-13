@@ -121,6 +121,14 @@
       "button-finish": "Terminer",
       "button-next-aria": "Passer à l'étape suivante",
       "button-finish-aria": "Terminer la discussion",
+      "modal": {
+        "title": "Choisir ses mots",
+        "description": "Choisissez les mots que vous souhaitez exprimer. Ils s'ajouteront dans la discussion dès que vous aurez cliqué sur le bouton \"Ajouter les mots à la discussion\".",
+        "button-cancel": "Annuler",
+        "button-confirm": "Ajouter les mots à la dicussion",
+        "feelings-start-phrase": "Je me sens : ",
+        "needs-start-phrase": "car j'ai besoin de : "
+      },
       "observation": {
         "title": "Observation",
         "description": "Partagez votre observation sur la situation. Cette étape est essentielle pour comprendre le contexte de la discussion. Vous pouvez commencer par dire \"Je vois que...\", \"Quand je vois... \"Je constate que...\".",

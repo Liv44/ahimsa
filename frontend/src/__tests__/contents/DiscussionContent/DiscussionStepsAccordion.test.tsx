@@ -1,4 +1,4 @@
-import DiscussionAccordion from '@/contents/DiscussionContent/CustomAccordion';
+import DiscussionStepsAccordion from '@/contents/DiscussionContent/DiscussionStepsAccordion';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 
@@ -66,9 +66,9 @@ const getLastSetStateResult = (initialState: unknown) => {
 };
 
 // - TESTS -
-describe('DiscussionAccordion', () => {
+describe('DiscussionStepsAccordion', () => {
   it('Displays first step with correct elements', () => {
-    render(<DiscussionAccordion />);
+    render(<DiscussionStepsAccordion />);
 
     // Check Buttons
     const buttons = screen.getAllByRole('button');
@@ -100,7 +100,7 @@ describe('DiscussionAccordion', () => {
   });
 
   it('hides all steps when clicking on first step', () => {
-    render(<DiscussionAccordion />);
+    render(<DiscussionStepsAccordion />);
 
     clickButton('1. Step 1');
 
@@ -112,7 +112,7 @@ describe('DiscussionAccordion', () => {
   });
 
   it('shows next step when clicking on next button', () => {
-    render(<DiscussionAccordion />);
+    render(<DiscussionStepsAccordion />);
 
     clickButton('Next Button Aria');
 
@@ -124,7 +124,7 @@ describe('DiscussionAccordion', () => {
   });
 
   it('updates content of step when textArea is changed', () => {
-    render(<DiscussionAccordion />);
+    render(<DiscussionStepsAccordion />);
 
     const textarea = screen.getByRole('textbox');
     fireEvent.change(textarea, { target: { value: 'Mon texte' } });
@@ -157,7 +157,7 @@ describe('DiscussionAccordion', () => {
       };
     });
 
-    render(<DiscussionAccordion />);
+    render(<DiscussionStepsAccordion />);
 
     const nextButton = screen.getByRole('button', { name: 'Next Button Aria' });
     fireEvent.click(nextButton);
