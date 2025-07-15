@@ -38,6 +38,15 @@ class WordCollection {
       .map((word) => word.content);
   }
 
+  searchWords(search: string): WordCollection {
+    const words = this._words.filter(
+      (word) =>
+        word.content.toLowerCase().includes(search.toLowerCase()) ||
+        word.category.toLowerCase().includes(search.toLowerCase())
+    );
+    return WordCollection.create({ words });
+  }
+
   static create({ words }: IChosenWordsConstructorProps): WordCollection {
     return new WordCollection({ words });
   }
