@@ -13,6 +13,7 @@ import {
   DialogDescription,
   DialogFooter,
   DialogHeader,
+  DialogTitle,
   DialogTrigger,
 } from '../ui/dialog';
 import { Separator } from '../ui/separator';
@@ -27,7 +28,7 @@ const WordSelectionModal = ({
   translationKey: DiscussionStepKey;
   activeStep: number;
   currentContent: string;
-  setContent: (content: string[]) => void;
+  setContent: (value: string[] | ((prev: string[]) => string[])) => void;
 }) => {
   const { t: t1 } = useTranslation();
   const { t: t2 } = useTranslation('feelings_and_needs');
@@ -47,21 +48,18 @@ const WordSelectionModal = ({
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
 
   const handleAddWordsToDiscussion = () => {
-    console.log({ selectedWords, currentContent });
-    setContent(
-      ((prev) => {
-        const newContent = [...prev];
-        if (currentContent && currentContent.length > 0) {
-          newContent[activeStep] =
-            currentContent + ' ' + selectedWords.join(', ');
-        } else {
-          newContent[activeStep] =
-            t1(`discussion-page.step.modal.${translationKey}-start-phrase`) +
-            selectedWords.join(', ');
-        }
-        return newContent;
-      })(Array.isArray(setContent) ? setContent : [])
-    );
+    setContent((prev) => {
+      const newContent = [...prev];
+      if (currentContent && currentContent.length > 0) {
+        newContent[activeStep] =
+          currentContent + ' ' + selectedWords.join(', ');
+      } else {
+        newContent[activeStep] =
+          t1(`discussion-page.step.modal.${translationKey}-start-phrase`) +
+          selectedWords.join(', ');
+      }
+      return newContent;
+    });
   };
 
   return (
@@ -71,7 +69,7 @@ const WordSelectionModal = ({
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <h1>{t1('discussion-page.step.modal.title')}</h1>
+          <DialogTitle>{t1('discussion-page.step.modal.title')}</DialogTitle>
         </DialogHeader>
         <DialogDescription>
           {t1('discussion-page.step.modal.description')}
@@ -82,10 +80,11 @@ const WordSelectionModal = ({
             className="grid grid-cols-2 items-start gap-4 overflow-auto max-h-80 p-2"
             aria-pressed="true"
           >
-            {categories.map((category) => (
+            {categories.map((category, index) => (
               <WordCategorySection
+                key={category + index}
                 category={category}
-                words={chosenWords.getWordsStringByCategory(category)}
+                words={chosenWords.getWordsByCategory(category)}
                 isOpen={selectedCategories.includes(category)}
                 setIsOpen={() =>
                   setSelectedCategories(
@@ -102,7 +101,7 @@ const WordSelectionModal = ({
           <Separator className="mt-2" />
           <div className="flex flex-wrap gap-1 mt-4">
             {selectedWords.map((word) => (
-              <Badge key={word} variant={'outline'}>
+              <Badge key={word} variant={'outline'} data-testid="badge">
                 {word}
                 <Button
                   variant="ghost"
@@ -113,6 +112,9 @@ const WordSelectionModal = ({
                       selectedWords.filter((item) => item !== word)
                     );
                   }}
+                  aria-label={
+                    t1('discussion-page.step.modal.button-delete') + ' ' + word
+                  }
                 >
                   <CircleX className="size-3" />
                 </Button>

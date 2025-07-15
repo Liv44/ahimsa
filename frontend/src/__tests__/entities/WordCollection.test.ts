@@ -78,8 +78,8 @@ describe('WordCollection', () => {
 
     const categoryWords = chosenWords.getWordsByCategory('category1');
     expect(categoryWords).toHaveLength(2);
-    expect(categoryWords[0].content).toBe('word1.1');
-    expect(categoryWords[1].content).toBe('word1.2');
+    expect(categoryWords[0]).toBe('word1.1');
+    expect(categoryWords[1]).toBe('word1.2');
   });
 
   it('should return all categories', () => {

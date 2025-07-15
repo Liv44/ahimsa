@@ -32,11 +32,7 @@ class WordCollection {
       .filter((item, index, self) => self.indexOf(item) === index);
   }
 
-  getWordsByCategory(category: string): SelectableWord[] {
-    return this._words.filter((word) => word.category === category);
-  }
-
-  getWordsStringByCategory(category: string): string[] {
+  getWordsByCategory(category: string): string[] {
     return this._words
       .filter((word) => word.category === category)
       .map((word) => word.content);
