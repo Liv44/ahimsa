@@ -3,7 +3,7 @@ import { DiscussionStepKey } from '@/domain/entities/Step';
 import WordCollection from '@/domain/entities/WordCollection';
 import { Label } from '@radix-ui/react-label';
 import { CircleX } from 'lucide-react';
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Badge } from '../ui/badge';
 import { Button } from '../ui/button';
@@ -42,10 +42,7 @@ const WordSelectionModal = ({
     return SelectableWord.create(word.content, word.category);
   });
 
-  const chosenWords = useMemo(
-    () => WordCollection.create({ words: feelings }),
-    []
-  );
+  const chosenWords = WordCollection.create({ words: feelings });
 
   const [selectedWords, setSelectedWords] = useState<string[]>([]);
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
@@ -70,27 +67,24 @@ const WordSelectionModal = ({
     });
   };
 
-  const handleSearch = useCallback(
-    (word: string) => {
-      const filtered = chosenWords.searchWords(word);
-      if (filtered.getAllCategories().length < 5) {
-        console.log('setSelectedCategories');
-        setSelectedCategories(filtered.getAllCategories());
-      } else {
-        setSelectedCategories([]);
-      }
-      setFilteredWords(filtered);
-    },
-    [chosenWords]
-  );
+  const handleSearch = (word: string, chosenWords: WordCollection) => {
+    const filtered = chosenWords.searchWords(word);
+    if (filtered.getAllCategories().length < 5) {
+      console.log('setSelectedCategories');
+      setSelectedCategories(filtered.getAllCategories());
+    } else {
+      setSelectedCategories([]);
+    }
+    setFilteredWords(filtered);
+  };
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      handleSearch(searchInput);
+      handleSearch(searchInput, chosenWords);
     }, 300);
 
     return () => clearTimeout(timer);
-  }, [searchInput, handleSearch]);
+  }, [searchInput, chosenWords]);
 
   return (
     <Dialog>
@@ -121,7 +115,7 @@ const WordSelectionModal = ({
                   value={searchInput}
                   onKeyDown={(e) => {
                     if (e.key === 'Enter') {
-                      handleSearch(searchInput);
+                      handleSearch(searchInput, chosenWords);
                     }
                   }}
                   onChange={(e) => {

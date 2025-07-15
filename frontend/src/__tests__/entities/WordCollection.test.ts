@@ -109,4 +109,42 @@ describe('WordCollection', () => {
     expect(categories[0]).toBe('category1');
     expect(categories[1]).toBe('category2');
   });
+
+  it('should return a new WordCollection with filtered words', () => {
+    const words: SelectableWord[] = [
+      new SelectableWord({
+        content: 'word1',
+        category: 'feelings',
+      }),
+      new SelectableWord({
+        content: 'word1',
+        category: 'needs',
+      }),
+      new SelectableWord({
+        content: 'word2',
+        category: 'feelings',
+      }),
+      new SelectableWord({
+        content: 'word2',
+        category: 'category2',
+      }),
+      new SelectableWord({
+        content: 'word3',
+        category: 'needs',
+      }),
+    ];
+
+    const chosenWords = WordCollection.create({ words });
+
+    const filteredWordsByCategory = chosenWords.searchWords('feelings');
+
+    expect(filteredWordsByCategory.words).toHaveLength(2);
+    expect(filteredWordsByCategory.words[0].content).toBe('word1');
+    expect(filteredWordsByCategory.words[1].content).toBe('word2');
+
+    const filteredWordsByContent = chosenWords.searchWords('word1');
+    expect(filteredWordsByContent.words).toHaveLength(2);
+    expect(filteredWordsByContent.words[0].category).toBe('feelings');
+    expect(filteredWordsByContent.words[1].category).toBe('needs');
+  });
 });
