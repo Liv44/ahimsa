@@ -140,14 +140,14 @@
       },
       "feelings": {
         "title": "Sentiments",
-        "description": "Par rapport à l'observation, que ressentez-vous ? Vous pouvez commencer par dire \"Je me sens...\". Vous pouvez choisir des émotions parmi la liste disponible en cliquant sur le bouton \"Afficher les émotions\".",
+        "description": "Par rapport à l'observation, que ressentez-vous ? Vous pouvez commencer par dire \"Je me sens...\". Vous pouvez choisir des émotions parmi la liste disponible en cliquant sur le bouton \"Choisir ses mots\".",
         "label": "Sentiments",
         "placeholder": "Je me sens...",
         "aria-label": "Partagez vos sentiments sur la situation"
       },
       "needs": {
         "title": "Besoins",
-        "description": "Ce que vous ressentez est lié à vos besoins. Vous pouvez commencer par dire \"Car j'ai besoin de...\".",
+        "description": "Ce que vous ressentez est lié à vos besoins. Vous pouvez commencer par dire \"Car j'ai besoin de...\". Vous pouvez choisir des besoins parmi la liste disponible en cliquant sur le bouton \"Choisir ses mots\".",
         "label": "Besoins",
         "placeholder": "Car j'ai besoin de...",
         "aria-label": "Partagez vos besoins sur la situation"
