@@ -1,5 +1,6 @@
-import DiscussionAccordion from '@/contents/DiscussionContent/CustomAccordion';
+import DiscussionStepsAccordion from '@/contents/DiscussionContent/DiscussionStepsAccordion';
 import { fireEvent, render, screen } from '@testing-library/react';
+import { beforeEach } from 'node:test';
 import { describe, expect, it, vi } from 'vitest';
 
 // - MOCKS -
@@ -11,38 +12,58 @@ const mocks = vi.hoisted(() => {
 });
 
 vi.mock('react-i18next', () => ({
-  useTranslation: () => ({
-    t: (key: string) => {
-      const translations: Record<string, unknown> = {
-        'discussion-page.step.step1.title': 'Step 1',
-        'discussion-page.step.step2.title': 'Step 2',
-        'discussion-page.step.step1.description': 'Description step 1',
-        'discussion-page.step.step2.description': 'Description step 2',
-        'discussion-page.step.step1.label': 'Label step 1',
-        'discussion-page.step.step2.label': 'Label step 2',
-        'discussion-page.step.step1.placeholder': 'Placeholder step 1',
-        'discussion-page.step.step2.placeholder': 'Placeholder step 2',
-        'discussion-page.step.step1.aria-label': 'Aria step 1',
-        'discussion-page.step.step2.aria-label': 'Aria step 2',
-        'discussion-page.step.button-next': 'Next Button',
-        'discussion-page.step.button-next-aria': 'Next Button Aria',
-        'discussion-page.step.button-finish-aria': 'Final Button Aria',
-        'discussion-page.step.button-finish': 'Final Button',
+  useTranslation: (namespace?: string) => {
+    if (!namespace) {
+      return {
+        t: (key: string) => {
+          const translations: Record<string, unknown> = {
+            'discussion-page.step.observation.title': 'Step 1',
+            'discussion-page.step.feelings.title': 'Step 2',
+            'discussion-page.step.observation.description':
+              'Description step 1',
+            'discussion-page.step.feelings.description': 'Description step 2',
+            'discussion-page.step.observation.label': 'Label step 1',
+            'discussion-page.step.feelings.label': 'Label step 2',
+            'discussion-page.step.observation.placeholder':
+              'Placeholder step 1',
+            'discussion-page.step.feelings.placeholder': 'Placeholder step 2',
+            'discussion-page.step.observation.aria-label': 'Aria step 1',
+            'discussion-page.step.feelings.aria-label': 'Aria step 2',
+            'discussion-page.step.button-next': 'Next Button',
+            'discussion-page.step.button-next-aria': 'Next Button Aria',
+            'discussion-page.step.button-finish-aria': 'Final Button Aria',
+            'discussion-page.step.button-finish': 'Final Button',
+            'discussion-page.step.modal.title': 'Choose words',
+          };
+          return translations[key];
+        },
       };
-      return translations[key];
-    },
-  }),
+    }
+    return {
+      t: (key: string, options?: { returnObjects: boolean }) => {
+        if (options?.returnObjects) {
+          return [
+            { category: 'category1', content: 'word1' },
+            { category: 'category1', content: 'word2' },
+            { category: 'category2', content: 'word1' },
+            { category: 'category2', content: 'word2' },
+          ];
+        }
+        return key; // Retourne la clé si returnObjects n'est pas true
+      },
+    };
+  },
 }));
 
 const stepsMock = [
   {
-    key: 'step1',
+    key: 'observation',
     content: '',
     updateContent: vi.fn(),
     complete: vi.fn(),
   },
   {
-    key: 'step2',
+    key: 'feelings',
     content: '',
     updateContent: vi.fn(),
     complete: vi.fn(),
@@ -66,9 +87,12 @@ const getLastSetStateResult = (initialState: unknown) => {
 };
 
 // - TESTS -
-describe('DiscussionAccordion', () => {
+describe('DiscussionStepsAccordion', () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+  });
   it('Displays first step with correct elements', () => {
-    render(<DiscussionAccordion />);
+    render(<DiscussionStepsAccordion />);
 
     // Check Buttons
     const buttons = screen.getAllByRole('button');
@@ -89,18 +113,18 @@ describe('DiscussionAccordion', () => {
     expect(screen.getByText('Description step 1')).toBeInTheDocument();
     const label = screen.getByText('Label step 1');
     expect(label).toBeInTheDocument();
-    expect(label).toHaveAttribute('for', 'step1');
+    expect(label).toHaveAttribute('for', 'observation');
 
     const textArea = screen.getByRole('textbox');
     expect(textArea).toBeInTheDocument();
-    expect(textArea).toHaveAttribute('id', 'step1');
-    expect(textArea).toHaveAttribute('name', 'step1');
+    expect(textArea).toHaveAttribute('id', 'observation');
+    expect(textArea).toHaveAttribute('name', 'observation');
     expect(textArea).toHaveAttribute('placeholder', 'Placeholder step 1');
     expect(textArea).toHaveAccessibleName('Aria step 1');
   });
 
   it('hides all steps when clicking on first step', () => {
-    render(<DiscussionAccordion />);
+    render(<DiscussionStepsAccordion />);
 
     clickButton('1. Step 1');
 
@@ -112,19 +136,20 @@ describe('DiscussionAccordion', () => {
   });
 
   it('shows next step when clicking on next button', () => {
-    render(<DiscussionAccordion />);
+    render(<DiscussionStepsAccordion />);
 
     clickButton('Next Button Aria');
 
     const buttonsStep2Visible = screen.getAllByRole('button');
-    expect(buttonsStep2Visible).toHaveLength(3);
+    expect(buttonsStep2Visible).toHaveLength(4);
     expect(buttonsStep2Visible[0]).toHaveAttribute('aria-expanded', 'false');
     expect(buttonsStep2Visible[1]).toHaveAttribute('aria-expanded', 'true');
-    expect(buttonsStep2Visible[2]).toHaveTextContent('Final Button');
+    expect(buttonsStep2Visible[2]).toHaveTextContent('Choose words');
+    expect(buttonsStep2Visible[3]).toHaveTextContent('Final Button');
   });
 
   it('updates content of step when textArea is changed', () => {
-    render(<DiscussionAccordion />);
+    render(<DiscussionStepsAccordion />);
 
     const textarea = screen.getByRole('textbox');
     fireEvent.change(textarea, { target: { value: 'Mon texte' } });
@@ -157,7 +182,7 @@ describe('DiscussionAccordion', () => {
       };
     });
 
-    render(<DiscussionAccordion />);
+    render(<DiscussionStepsAccordion />);
 
     const nextButton = screen.getByRole('button', { name: 'Next Button Aria' });
     fireEvent.click(nextButton);

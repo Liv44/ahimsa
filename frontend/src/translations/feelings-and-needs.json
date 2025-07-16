@@ -1,0 +1,1217 @@
+{
+  "feelings": [
+    {
+      "category": "Affection",
+      "content": "Amour (plein·e de)",
+      "needs_met": true
+    },
+    {
+      "category": "Affection",
+      "content": "Amoureux·se",
+      "needs_met": true
+    },
+    {
+      "category": "Affection",
+      "content": "Attendri·e",
+      "needs_met": true
+    },
+    {
+      "category": "Affection",
+      "content": "Attiré·e",
+      "needs_met": true
+    },
+    {
+      "category": "Affection",
+      "content": "Charmé·e",
+      "needs_met": true
+    },
+    {
+      "category": "Affection",
+      "content": "Compassion (plein·e de)",
+      "needs_met": true
+    },
+    {
+      "category": "Affection",
+      "content": "Connecté·e",
+      "needs_met": true
+    },
+    {
+      "category": "Affection",
+      "content": "Ému·e",
+      "needs_met": true
+    },
+    {
+      "category": "Affection",
+      "content": "Gratitude (plein·e de)",
+      "needs_met": true
+    },
+    {
+      "category": "Affection",
+      "content": "Reconnaissant·e",
+      "needs_met": true
+    },
+    {
+      "category": "Affection",
+      "content": "Relié·e",
+      "needs_met": true
+    },
+    {
+      "category": "Affection",
+      "content": "Tendresse (plein·e de)",
+      "needs_met": true
+    },
+    {
+      "category": "Affection",
+      "content": "Touché·e",
+      "needs_met": true
+    },
+    {
+      "category": "Sérénité",
+      "content": "Apaisé·e",
+      "needs_met": true
+    },
+    {
+      "category": "Sérénité",
+      "content": "Calme",
+      "needs_met": true
+    },
+    {
+      "category": "Sérénité",
+      "content": "Centré·e",
+      "needs_met": true
+    },
+    {
+      "category": "Sérénité",
+      "content": "Comblé·e",
+      "needs_met": true
+    },
+    {
+      "category": "Sérénité",
+      "content": "Confiant·e",
+      "needs_met": true
+    },
+    {
+      "category": "Sérénité",
+      "content": "Décontracté·e",
+      "needs_met": true
+    },
+    {
+      "category": "Sérénité",
+      "content": "Détendu·e",
+      "needs_met": true
+    },
+    {
+      "category": "Sérénité",
+      "content": "Léger·e",
+      "needs_met": true
+    },
+    {
+      "category": "Sérénité",
+      "content": "Nourri·e",
+      "needs_met": true
+    },
+    {
+      "category": "Sérénité",
+      "content": "Ouvert·e",
+      "needs_met": true
+    },
+    {
+      "category": "Sérénité",
+      "content": "Paisible",
+      "needs_met": true
+    },
+    {
+      "category": "Sérénité",
+      "content": "Rassuré·e",
+      "needs_met": true
+    },
+    {
+      "category": "Sérénité",
+      "content": "Relaxé·e",
+      "needs_met": true
+    },
+    {
+      "category": "Sérénité",
+      "content": "Serein.e",
+      "needs_met": true
+    },
+    {
+      "category": "Sérénité",
+      "content": "Soulagé·e",
+      "needs_met": true
+    },
+    {
+      "category": "Sérénité",
+      "content": "Tranquille",
+      "needs_met": true
+    },
+    {
+      "category": "Sérénité",
+      "content": "Zen",
+      "needs_met": true
+    },
+    {
+      "category": "Joie",
+      "content": "Amusé·e",
+      "needs_met": true
+    },
+    {
+      "category": "Joie",
+      "content": "Content·e",
+      "needs_met": true
+    },
+    {
+      "category": "Joie",
+      "content": "Enchanté·e",
+      "needs_met": true
+    },
+    {
+      "category": "Joie",
+      "content": "Enjoué·e",
+      "needs_met": true
+    },
+    {
+      "category": "Joie",
+      "content": "Entrain (plein·e d'énergie)",
+      "needs_met": true
+    },
+    {
+      "category": "Joie",
+      "content": "Euphorique",
+      "needs_met": true
+    },
+    {
+      "category": "Joie",
+      "content": "Fier·e",
+      "needs_met": true
+    },
+    {
+      "category": "Joie",
+      "content": "Gai·e",
+      "needs_met": true
+    },
+    {
+      "category": "Joie",
+      "content": "Heureux·se",
+      "needs_met": true
+    },
+    {
+      "category": "Joie",
+      "content": "Hilare",
+      "needs_met": true
+    },
+    {
+      "category": "Joie",
+      "content": "Humeur espiègle",
+      "needs_met": true
+    },
+    {
+      "category": "Joie",
+      "content": "Joyeux·se",
+      "needs_met": true
+    },
+    {
+      "category": "Joie",
+      "content": "Ravi·e",
+      "needs_met": true
+    },
+    {
+      "category": "Joie",
+      "content": "Réjoui·e",
+      "needs_met": true
+    },
+    {
+      "category": "Joie",
+      "content": "Satisfait·e",
+      "needs_met": true
+    },
+    {
+      "category": "Intérêt",
+      "content": "Admiratif·ve",
+      "needs_met": true
+    },
+    {
+      "category": "Intérêt",
+      "content": "Attentif·ve",
+      "needs_met": true
+    },
+    {
+      "category": "Intérêt",
+      "content": "Captivé·e",
+      "needs_met": true
+    },
+    {
+      "category": "Intérêt",
+      "content": "Concentré·e",
+      "needs_met": true
+    },
+    {
+      "category": "Intérêt",
+      "content": "Curieux·se",
+      "needs_met": true
+    },
+    {
+      "category": "Intérêt",
+      "content": "Ébloui·e",
+      "needs_met": true
+    },
+    {
+      "category": "Intérêt",
+      "content": "Emballé·e",
+      "needs_met": true
+    },
+    {
+      "category": "Intérêt",
+      "content": "Émerveillé·e",
+      "needs_met": true
+    },
+    {
+      "category": "Intérêt",
+      "content": "Enthousiaste",
+      "needs_met": true
+    },
+    {
+      "category": "Intérêt",
+      "content": "Époustouflé·e",
+      "needs_met": true
+    },
+    {
+      "category": "Intérêt",
+      "content": "Excité·e",
+      "needs_met": true
+    },
+    {
+      "category": "Intérêt",
+      "content": "Fasciné·e",
+      "needs_met": true
+    },
+    {
+      "category": "Intérêt",
+      "content": "Inspiré·e",
+      "needs_met": true
+    },
+    {
+      "category": "Intérêt",
+      "content": "Intrigué·e",
+      "needs_met": true
+    },
+    {
+      "category": "Intérêt",
+      "content": "Passionné·e",
+      "needs_met": true
+    },
+    {
+      "category": "Intérêt",
+      "content": "Surpris·e",
+      "needs_met": true
+    },
+    {
+      "category": "Énergie",
+      "content": "Électrisé·e",
+      "needs_met": true
+    },
+    {
+      "category": "Énergie",
+      "content": "En effervescence",
+      "needs_met": true
+    },
+    {
+      "category": "Énergie",
+      "content": "En expansion",
+      "needs_met": true
+    },
+    {
+      "category": "Énergie",
+      "content": "Enflammé·e",
+      "needs_met": true
+    },
+    {
+      "category": "Énergie",
+      "content": "Excité·e",
+      "needs_met": true
+    },
+    {
+      "category": "Énergie",
+      "content": "Galvanisé·e",
+      "needs_met": true
+    },
+    {
+      "category": "Énergie",
+      "content": "Pétillant·e",
+      "needs_met": true
+    },
+    {
+      "category": "Énergie",
+      "content": "Plein d'énergie",
+      "needs_met": true
+    },
+    {
+      "category": "Énergie",
+      "content": "Rayonnant·e",
+      "needs_met": true
+    },
+    {
+      "category": "Énergie",
+      "content": "Régénéré·e",
+      "needs_met": true
+    },
+    {
+      "category": "Énergie",
+      "content": "Revigoré·e",
+      "needs_met": true
+    },
+    {
+      "category": "Énergie",
+      "content": "Surexcité·e",
+      "needs_met": true
+    },
+    {
+      "category": "Énergie",
+      "content": "Vibrant·e",
+      "needs_met": true
+    },
+    {
+      "category": "Énergie",
+      "content": "Vivifié·e",
+      "needs_met": true
+    },
+    {
+      "category": "Peur",
+      "content": "Angoissé·e",
+      "needs_met": false
+    },
+    {
+      "category": "Peur",
+      "content": "Anxieux·se",
+      "needs_met": false
+    },
+    {
+      "category": "Peur",
+      "content": "Apeuré·e",
+      "needs_met": false
+    },
+    {
+      "category": "Peur",
+      "content": "Effrayé·e",
+      "needs_met": false
+    },
+    {
+      "category": "Peur",
+      "content": "Horrifié·e",
+      "needs_met": false
+    },
+    {
+      "category": "Peur",
+      "content": "Inquiet·ète",
+      "needs_met": false
+    },
+    {
+      "category": "Peur",
+      "content": "Méfiant·e",
+      "needs_met": false
+    },
+    {
+      "category": "Peur",
+      "content": "Paniqué·e",
+      "needs_met": false
+    },
+    {
+      "category": "Peur",
+      "content": "Stressé·e",
+      "needs_met": false
+    },
+    {
+      "category": "Peur",
+      "content": "Sur mes gardes",
+      "needs_met": false
+    },
+    {
+      "category": "Peur",
+      "content": "Terrifié·e",
+      "needs_met": false
+    },
+    {
+      "category": "Peur",
+      "content": "Terrorisé·e",
+      "needs_met": false
+    },
+    {
+      "category": "Colère",
+      "content": "Agacé·e",
+      "needs_met": false
+    },
+    {
+      "category": "Colère",
+      "content": "Amer·e",
+      "needs_met": false
+    },
+    {
+      "category": "Colère",
+      "content": "Contrarié·e",
+      "needs_met": false
+    },
+    {
+      "category": "Colère",
+      "content": "Dégoûté·e",
+      "needs_met": false
+    },
+    {
+      "category": "Colère",
+      "content": "Écoeuré·e",
+      "needs_met": false
+    },
+    {
+      "category": "Colère",
+      "content": "Fâché·e",
+      "needs_met": false
+    },
+    {
+      "category": "Colère",
+      "content": "Enervé·e",
+      "needs_met": false
+    },
+    {
+      "category": "Colère",
+      "content": "Exaspéré·e",
+      "needs_met": false
+    },
+    {
+      "category": "Colère",
+      "content": "Excédé·e",
+      "needs_met": false
+    },
+    {
+      "category": "Colère",
+      "content": "Fâché·e",
+      "needs_met": false
+    },
+    {
+      "category": "Colère",
+      "content": "Frustré·e",
+      "needs_met": false
+    },
+    {
+      "category": "Colère",
+      "content": "Furieux·se",
+      "needs_met": false
+    },
+    {
+      "category": "Colère",
+      "content": "Hors de moi",
+      "needs_met": false
+    },
+    {
+      "category": "Tension",
+      "content": "Agité·e",
+      "needs_met": false
+    },
+    {
+      "category": "Tension",
+      "content": "Crispé·e",
+      "needs_met": false
+    },
+    {
+      "category": "Tension",
+      "content": "Impatient·e",
+      "needs_met": false
+    },
+    {
+      "category": "Tension",
+      "content": "Nerveux·se",
+      "needs_met": false
+    },
+    {
+      "category": "Tristesse",
+      "content": "Accablé·e",
+      "needs_met": false
+    },
+    {
+      "category": "Tristesse",
+      "content": "Blessé·e",
+      "needs_met": false
+    },
+    {
+      "category": "Tristesse",
+      "content": "Chagriné·e",
+      "needs_met": false
+    },
+    {
+      "category": "Tristesse",
+      "content": "Consterné·e",
+      "needs_met": false
+    },
+    {
+      "category": "Tristesse",
+      "content": "Découragé·e",
+      "needs_met": false
+    },
+    {
+      "category": "Tristesse",
+      "content": "Déçu·e",
+      "needs_met": false
+    },
+    {
+      "category": "Tristesse",
+      "content": "Démoralisé·e",
+      "needs_met": false
+    },
+    {
+      "category": "Tristesse",
+      "content": "Dépité·e",
+      "needs_met": false
+    },
+    {
+      "category": "Tristesse",
+      "content": "Déprimé·e",
+      "needs_met": false
+    },
+    {
+      "category": "Tristesse",
+      "content": "Désespéré·e",
+      "needs_met": false
+    },
+    {
+      "category": "Tristesse",
+      "content": "Désolé·e",
+      "needs_met": false
+    },
+    {
+      "category": "Tristesse",
+      "content": "Effondré·e",
+      "needs_met": false
+    },
+    {
+      "category": "Tristesse",
+      "content": "En deuil",
+      "needs_met": false
+    },
+    {
+      "category": "Tristesse",
+      "content": "Impuissant·e",
+      "needs_met": false
+    },
+    {
+      "category": "Tristesse",
+      "content": "Malheureux·se",
+      "needs_met": false
+    },
+    {
+      "category": "Tristesse",
+      "content": "Morose",
+      "needs_met": false
+    },
+    {
+      "category": "Tristesse",
+      "content": "Peiné·e",
+      "needs_met": false
+    },
+    {
+      "category": "Tristesse",
+      "content": "Résigné·e",
+      "needs_met": false
+    },
+    {
+      "category": "Tristesse",
+      "content": "Triste",
+      "needs_met": false
+    },
+    {
+      "category": "Confusion",
+      "content": "Bouleversé·e",
+      "needs_met": false
+    },
+    {
+      "category": "Confusion",
+      "content": "Confus·e",
+      "needs_met": false
+    },
+    {
+      "category": "Confusion",
+      "content": "Chamboulé·e",
+      "needs_met": false
+    },
+    {
+      "category": "Confusion",
+      "content": "Coupable",
+      "needs_met": false
+    },
+    {
+      "category": "Confusion",
+      "content": "Déboussolé·e",
+      "needs_met": false
+    },
+    {
+      "category": "Confusion",
+      "content": "Démuni·e",
+      "needs_met": false
+    },
+    {
+      "category": "Confusion",
+      "content": "Déprimé·e",
+      "needs_met": false
+    },
+    {
+      "category": "Confusion",
+      "content": "Désemparé·e",
+      "needs_met": false
+    },
+    {
+      "category": "Confusion",
+      "content": "Déstabilisé·e",
+      "needs_met": false
+    },
+    {
+      "category": "Confusion",
+      "content": "Dubitatif·ve",
+      "needs_met": false
+    },
+    {
+      "category": "Confusion",
+      "content": "Gêné·e",
+      "needs_met": false
+    },
+    {
+      "category": "Confusion",
+      "content": "Honteux·se",
+      "needs_met": false
+    },
+    {
+      "category": "Confusion",
+      "content": "Impuissant·e",
+      "needs_met": false
+    },
+    {
+      "category": "Confusion",
+      "content": "Indécis·e",
+      "needs_met": false
+    },
+    {
+      "category": "Confusion",
+      "content": "Intimidé·e",
+      "needs_met": false
+    },
+    {
+      "category": "Confusion",
+      "content": "Jaloux·se",
+      "needs_met": false
+    },
+    {
+      "category": "Confusion",
+      "content": "Mal à l'aise",
+      "needs_met": false
+    },
+    {
+      "category": "Confusion",
+      "content": "Partagé·e",
+      "needs_met": false
+    },
+    {
+      "category": "Confusion",
+      "content": "Perdu·e",
+      "needs_met": false
+    },
+    {
+      "category": "Confusion",
+      "content": "Remué·e",
+      "needs_met": false
+    },
+    {
+      "category": "Confusion",
+      "content": "Tiraillé·e",
+      "needs_met": false
+    },
+    {
+      "category": "Confusion",
+      "content": "Troublé·e",
+      "needs_met": false
+    },
+    {
+      "category": "Fatigue",
+      "content": "Abattu·e",
+      "needs_met": false
+    },
+    {
+      "category": "Fatigue",
+      "content": "Affaibli·e",
+      "needs_met": false
+    },
+    {
+      "category": "Fatigue",
+      "content": "Anéanti·e",
+      "needs_met": false
+    },
+    {
+      "category": "Fatigue",
+      "content": "Eprouvé·e",
+      "needs_met": false
+    },
+    {
+      "category": "Fatigue",
+      "content": "Épuisé·e",
+      "needs_met": false
+    },
+    {
+      "category": "Fatigue",
+      "content": "Exténué·e",
+      "needs_met": false
+    },
+    {
+      "category": "Fatigue",
+      "content": "Endormi·e",
+      "needs_met": false
+    },
+    {
+      "category": "Fatigue",
+      "content": "Fatigué·e",
+      "needs_met": false
+    },
+    {
+      "category": "Fatigue",
+      "content": "Lessivé·e",
+      "needs_met": false
+    },
+    {
+      "category": "Fatigue",
+      "content": "Las·se",
+      "needs_met": false
+    },
+    {
+      "category": "Fatigue",
+      "content": "Léthargique",
+      "needs_met": false
+    },
+    {
+      "category": "Fatigue",
+      "content": "Sans énergie",
+      "needs_met": false
+    },
+    {
+      "category": "Fatigue",
+      "content": "Vidé·e",
+      "needs_met": false
+    },
+    {
+      "category": "Sidération",
+      "content": "Abasourdi·e",
+      "needs_met": false
+    },
+    {
+      "category": "Sidération",
+      "content": "Ahuri·e",
+      "needs_met": false
+    },
+    {
+      "category": "Sidération",
+      "content": "Choqué·e",
+      "needs_met": false
+    },
+    {
+      "category": "Sidération",
+      "content": "Chamboulé·e",
+      "needs_met": false
+    },
+    {
+      "category": "Sidération",
+      "content": "Effaré·e",
+      "needs_met": false
+    },
+    {
+      "category": "Sidération",
+      "content": "Estomaqué·e",
+      "needs_met": false
+    },
+    {
+      "category": "Sidération",
+      "content": "Étonné·e",
+      "needs_met": false
+    },
+    {
+      "category": "Sidération",
+      "content": "Interloqué·e",
+      "needs_met": false
+    },
+    {
+      "category": "Sidération",
+      "content": "Perplexe",
+      "needs_met": false
+    },
+    {
+      "category": "Sidération",
+      "content": "Médusé·e",
+      "needs_met": false
+    },
+    {
+      "category": "Sidération",
+      "content": "Sidéré·e",
+      "needs_met": false
+    },
+    {
+      "category": "Sidération",
+      "content": "Stupéfait·e",
+      "needs_met": false
+    },
+    {
+      "category": "Sidération",
+      "content": "Surpris·e",
+      "needs_met": false
+    }
+  ],
+  "needs": [
+    {
+      "category": "Survie",
+      "content": "Abri"
+    },
+    {
+      "category": "Survie",
+      "content": "Air"
+    },
+    {
+      "category": "Survie",
+      "content": "Alimentation"
+    },
+    {
+      "category": "Survie",
+      "content": "Chaleur"
+    },
+    {
+      "category": "Survie",
+      "content": "Espace"
+    },
+    {
+      "category": "Survie",
+      "content": "Évacuation"
+    },
+    {
+      "category": "Survie",
+      "content": "Expression sexuelle"
+    },
+    {
+      "category": "Survie",
+      "content": "Hydratation"
+    },
+    {
+      "category": "Survie",
+      "content": "Lumière"
+    },
+    {
+      "category": "Survie",
+      "content": "Mouvement"
+    },
+    {
+      "category": "Survie",
+      "content": "Repos"
+    },
+    {
+      "category": "Survie",
+      "content": "Sécurité"
+    },
+    {
+      "category": "Survie",
+      "content": "Stimulation sensorielle"
+    },
+    {
+      "category": "Intégrité",
+      "content": "Authenticité"
+    },
+    {
+      "category": "Intégrité",
+      "content": "Autonomie"
+    },
+    {
+      "category": "Intégrité",
+      "content": "Choix"
+    },
+    {
+      "category": "Intégrité",
+      "content": "Clarté"
+    },
+    {
+      "category": "Intégrité",
+      "content": "Cohérence"
+    },
+    {
+      "category": "Intégrité",
+      "content": "Confiance"
+    },
+    {
+      "category": "Intégrité",
+      "content": "Connexion à soi"
+    },
+    {
+      "category": "Intégrité",
+      "content": "Discernement"
+    },
+    {
+      "category": "Intégrité",
+      "content": "Estime de soi"
+    },
+    {
+      "category": "Intégrité",
+      "content": "Dignité"
+    },
+    {
+      "category": "Intégrité",
+      "content": "Intégrité"
+    },
+    {
+      "category": "Intégrité",
+      "content": "Liberté"
+    },
+    {
+      "category": "Intégrité",
+      "content": "Préserver son temps et son énergie"
+    },
+    {
+      "category": "Intégrité",
+      "content": "Rythme (aller à son)"
+    },
+    {
+      "category": "Intégrité",
+      "content": "Spontanéité"
+    },
+    {
+      "category": "Intégrité",
+      "content": "Souveraineté"
+    },
+    {
+      "category": "Intégrité",
+      "content": "Structure/Ordre"
+    },
+    {
+      "category": "Réalisation",
+      "content": "Accomplissement"
+    },
+    {
+      "category": "Réalisation",
+      "content": "Actualisation des potentialités"
+    },
+    {
+      "category": "Réalisation",
+      "content": "Apprentissage"
+    },
+    {
+      "category": "Réalisation",
+      "content": "Créativité"
+    },
+    {
+      "category": "Réalisation",
+      "content": "Exploration"
+    },
+    {
+      "category": "Réalisation",
+      "content": "Épanouissement"
+    },
+    {
+      "category": "Réalisation",
+      "content": "Évolution"
+    },
+    {
+      "category": "Réalisation",
+      "content": "Exploration"
+    },
+    {
+      "category": "Réalisation",
+      "content": "Inspiration"
+    },
+    {
+      "category": "Réalisation",
+      "content": "Réalisation"
+    },
+    {
+      "category": "Réalisation",
+      "content": "Sens"
+    },
+    {
+      "category": "Réalisation",
+      "content": "Unicité"
+    },
+    {
+      "category": "Harmonie",
+      "content": "Beauté"
+    },
+    {
+      "category": "Harmonie",
+      "content": "Calme"
+    },
+    {
+      "category": "Harmonie",
+      "content": "Détente"
+    },
+    {
+      "category": "Harmonie",
+      "content": "Fluidité"
+    },
+    {
+      "category": "Harmonie",
+      "content": "Harmonie"
+    },
+    {
+      "category": "Harmonie",
+      "content": "Jeu / Rire"
+    },
+    {
+      "category": "Harmonie",
+      "content": "Légèreté"
+    },
+    {
+      "category": "Harmonie",
+      "content": "Récréation"
+    },
+    {
+      "category": "Harmonie",
+      "content": "Ressourcement"
+    },
+    {
+      "category": "Harmonie",
+      "content": "Paix"
+    },
+    {
+      "category": "Harmonie",
+      "content": "Simplicité"
+    },
+    {
+      "category": "Relation",
+      "content": "Accueil"
+    },
+    {
+      "category": "Relation",
+      "content": "Amour"
+    },
+    {
+      "category": "Relation",
+      "content": "Apprivoisement"
+    },
+    {
+      "category": "Relation",
+      "content": "Bienveillance"
+    },
+    {
+      "category": "Relation",
+      "content": "Chaleur humaine"
+    },
+    {
+      "category": "Relation",
+      "content": "Connexion"
+    },
+    {
+      "category": "Relation",
+      "content": "Délicatesse"
+    },
+    {
+      "category": "Relation",
+      "content": "Douceur"
+    },
+    {
+      "category": "Relation",
+      "content": "Écoute"
+    },
+    {
+      "category": "Relation",
+      "content": "Empathie"
+    },
+    {
+      "category": "Relation",
+      "content": "Expression"
+    },
+    {
+      "category": "Relation",
+      "content": "Intimité"
+    },
+    {
+      "category": "Relation",
+      "content": "Partage"
+    },
+    {
+      "category": "Relation",
+      "content": "Proximité"
+    },
+    {
+      "category": "Relation",
+      "content": "Réconfort"
+    },
+    {
+      "category": "Relation",
+      "content": "Réciprocité"
+    },
+    {
+      "category": "Relation",
+      "content": "Tendresse"
+    },
+    {
+      "category": "Coopération",
+      "content": "Appartenance"
+    },
+    {
+      "category": "Coopération",
+      "content": "Appréciation"
+    },
+    {
+      "category": "Coopération",
+      "content": "Attention"
+    },
+    {
+      "category": "Coopération",
+      "content": "Coopération"
+    },
+    {
+      "category": "Coopération",
+      "content": "Considération"
+    },
+    {
+      "category": "Coopération",
+      "content": "Contribution"
+    },
+    {
+      "category": "Coopération",
+      "content": "Équité/Équivalence"
+    },
+    {
+      "category": "Coopération",
+      "content": "Préserver la vie"
+    },
+    {
+      "category": "Coopération",
+      "content": "Partage"
+    },
+    {
+      "category": "Coopération",
+      "content": "Reconnaissance"
+    },
+    {
+      "category": "Coopération",
+      "content": "Respect"
+    },
+    {
+      "category": "Coopération",
+      "content": "Soutien"
+    },
+    {
+      "category": "Célébration",
+      "content": "Célébration"
+    },
+    {
+      "category": "Célébration",
+      "content": "Communion"
+    },
+    {
+      "category": "Célébration",
+      "content": "Faire le deuil"
+    },
+    {
+      "category": "Célébration",
+      "content": "Honorer"
+    },
+    {
+      "category": "Célébration",
+      "content": "Intensité"
+    },
+    {
+      "category": "Célébration",
+      "content": "Se sentir vivant"
+    },
+    {
+      "category": "Célébration",
+      "content": "Spiritualité"
+    }
+  ]
+}

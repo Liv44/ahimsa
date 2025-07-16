@@ -1,7 +1,7 @@
 import { BrowserRouter, Outlet, Route, Routes } from 'react-router-dom';
 
 import Layout from '@/components/Layout/Layout';
-import DiscussionAccordion from '@/contents/DiscussionContent/CustomAccordion';
+import DiscussionStepsAccordion from '@/contents/DiscussionContent/DiscussionStepsAccordion';
 import Introduction from '@/contents/DiscussionContent/Introduction';
 import Summary from '@/contents/DiscussionContent/Summary';
 import DiscussionPage from '@/pages/DiscussionPage';
@@ -26,7 +26,7 @@ const Router = () => {
           <Route path="feelings-list" element={<NeedsAndFeelingsListPage />} />
           <Route path="discussion" element={<DiscussionPage />}>
             <Route path="" element={<Introduction />} />
-            <Route path="create" element={<DiscussionAccordion />} />
+            <Route path="create" element={<DiscussionStepsAccordion />} />
             <Route path="summary" element={<Summary />} />
           </Route>
         </Route>
