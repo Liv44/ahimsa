@@ -67,7 +67,7 @@ const WordSelectionModal = ({
     });
   };
 
-  const handleSearch = (word: string, chosenWords: WordCollection) => {
+  const handleSearch = (word: string) => {
     const filtered = chosenWords.searchWords(word);
     if (filtered.getAllCategories().length < 5) {
       console.log('setSelectedCategories');
@@ -80,11 +80,12 @@ const WordSelectionModal = ({
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      handleSearch(searchInput, chosenWords);
+      handleSearch(searchInput);
     }, 300);
 
     return () => clearTimeout(timer);
-  }, [searchInput, chosenWords]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchInput]);
 
   return (
     <Dialog>
@@ -120,7 +121,7 @@ const WordSelectionModal = ({
                   value={searchInput}
                   onKeyDown={(e) => {
                     if (e.key === 'Enter') {
-                      handleSearch(searchInput, chosenWords);
+                      handleSearch(searchInput);
                     }
                   }}
                   onChange={(e) => {
