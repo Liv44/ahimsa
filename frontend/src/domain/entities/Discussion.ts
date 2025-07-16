@@ -41,7 +41,63 @@ class Discussion {
   }
 
   getSummary(): string {
-    return this._steps.map((step) => step.content).join(', ');
+    const capitalizeFirst = (str: string) =>
+      str.charAt(0).toUpperCase() + str.slice(1);
+
+    const lowercaseFirst = (str: string) =>
+      str.charAt(0).toLowerCase() + str.slice(1);
+
+    const endsWithPunctuation = (str: string) => /[.!?]$/.test(str.trim());
+
+    const formatSentence = (str: string, capitalize = true): string => {
+      let formatted = capitalize ? capitalizeFirst(str) : str;
+      if (!endsWithPunctuation(formatted)) {
+        formatted += '.';
+      }
+      return formatted;
+    };
+
+    const findStepContent = (key: DiscussionStepKey): string | null => {
+      const step = this._steps.find((s) => s.key === key);
+      return step?.content ?? null;
+    };
+
+    const formatObservation = (): string => {
+      const content = findStepContent(DiscussionStepKey.OBSERVATION);
+      return content ? formatSentence(content) + ' ' : '';
+    };
+
+    const formatFeelingsAndNeeds = (): string => {
+      const feeling = findStepContent(DiscussionStepKey.FEELINGS);
+      const needs = findStepContent(DiscussionStepKey.NEEDS);
+
+      if (feeling && needs) {
+        const feelingFormatted = capitalizeFirst(feeling);
+        const needsFormatted = endsWithPunctuation(feelingFormatted)
+          ? capitalizeFirst(needs)
+          : lowercaseFirst(needs);
+
+        const feelingFinal =
+          feelingFormatted +
+          (endsWithPunctuation(feelingFormatted) ? ' ' : ', ');
+        const needsFinal = formatSentence(needsFormatted, false) + ' ';
+
+        return feelingFinal + needsFinal;
+      } else if (needs) {
+        return formatSentence(needs) + ' ';
+      }
+      return '';
+    };
+
+    const formatRequest = (): string => {
+      const content = findStepContent(DiscussionStepKey.REQUEST);
+      return content ? formatSentence(content) : '';
+    };
+
+    const summary =
+      formatObservation() + formatFeelingsAndNeeds() + formatRequest();
+
+    return summary.replace(/\s+/g, ' ').trim();
   }
 
   static create(steps: Step[]): Discussion {

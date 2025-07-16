@@ -12,11 +12,13 @@ import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 
+import WordSelectionModal from '@/components/Discussion/WordSelectionModal';
+import { DiscussionStepKey } from '@/domain/entities/Step';
 import useDiscussionStore, {
   discussionStore,
 } from '@/domain/usecases/discussion/useDiscussionStore';
 
-const DiscussionAccordion = () => {
+const DiscussionStepsAccordion = () => {
   const { discussion } = useDiscussionStore();
   const steps = discussion.steps;
   const { t } = useTranslation();
@@ -80,6 +82,15 @@ const DiscussionAccordion = () => {
               <p className="text-sm">
                 {t(`discussion-page.step.${steps[index].key}.description`)}
               </p>
+              {(steps[index].key === DiscussionStepKey.NEEDS ||
+                steps[index].key === DiscussionStepKey.FEELINGS) && (
+                <WordSelectionModal
+                  currentContent={content[index]}
+                  translationKey={steps[index].key}
+                  activeStep={index}
+                  setContent={setContent}
+                />
+              )}
               <Label htmlFor={steps[index].key} className="sr-only">
                 {t(`discussion-page.step.${steps[index].key}.label`)}
               </Label>
@@ -124,4 +135,4 @@ const DiscussionAccordion = () => {
   );
 };
 
-export default DiscussionAccordion;
+export default DiscussionStepsAccordion;
