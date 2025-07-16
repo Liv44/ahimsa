@@ -1,5 +1,20 @@
 # Changelog
 
+# [1.1.0](https://github.com/Liv44/Ahimsa/compare/v1.0.1...v1.1.0) (2025-07-16)
+
+
+### Bug Fixes
+
+* **I12:** hotfix repair revert commit ([062a8f3](https://github.com/Liv44/Ahimsa/commit/062a8f34a1b3f0a2534feadcfed9c1e933715863))
+* **I32:** fix bug in discussion modal with toggling categories ([ecb3b3d](https://github.com/Liv44/Ahimsa/commit/ecb3b3d96a86f9177804f51f56c4564d6655a007))
+* **I33:** improve discussion modal design ([cc15ae3](https://github.com/Liv44/Ahimsa/commit/cc15ae37da17747c6a9974a3b355ea0c75c24472))
+
+
+### Features
+
+* **Discussion:** add modal to select words for Feelings and Needs steps ([3f63cb7](https://github.com/Liv44/Ahimsa/commit/3f63cb7126ccb1b00a8338da98d5593777ed0c20))
+* **Discussion:** add search bar in modal ([57b5df2](https://github.com/Liv44/Ahimsa/commit/57b5df226d7f67c2f28315ad64400c4274f71ee1))
+
 ## [1.0.1](https://github.com/Liv44/Ahimsa/compare/v1.0.0...v1.0.1) (2025-07-07)
 
 
