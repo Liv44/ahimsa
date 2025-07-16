@@ -89,7 +89,12 @@ const WordSelectionModal = ({
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button>{t1('discussion-page.step.modal.title')}</Button>
+        <Button
+          variant="outline"
+          className="border-white text-white bg-dark-blue mx-auto"
+        >
+          {t1('discussion-page.step.modal.title')}
+        </Button>
       </DialogTrigger>
       <DialogContent className="min-h-150 flex flex-col gap-2 justify-between">
         <div className="flex flex-col gap-2">

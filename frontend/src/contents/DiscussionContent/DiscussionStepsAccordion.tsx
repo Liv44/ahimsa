@@ -81,16 +81,16 @@ const DiscussionStepsAccordion = () => {
             >
               <p className="text-sm">
                 {t(`discussion-page.step.${steps[index].key}.description`)}
-                {(steps[index].key === DiscussionStepKey.NEEDS ||
-                  steps[index].key === DiscussionStepKey.FEELINGS) && (
-                  <WordSelectionModal
-                    currentContent={content[index]}
-                    translationKey={steps[index].key}
-                    activeStep={index}
-                    setContent={setContent}
-                  />
-                )}
               </p>
+              {(steps[index].key === DiscussionStepKey.NEEDS ||
+                steps[index].key === DiscussionStepKey.FEELINGS) && (
+                <WordSelectionModal
+                  currentContent={content[index]}
+                  translationKey={steps[index].key}
+                  activeStep={index}
+                  setContent={setContent}
+                />
+              )}
               <Label htmlFor={steps[index].key} className="sr-only">
                 {t(`discussion-page.step.${steps[index].key}.label`)}
               </Label>
