@@ -10,6 +10,7 @@
       "login": "Se connecter",
       "discussion": "Créer une discussion",
       "register": "S'inscrire",
+      "profile": "Mon profil",
       "aria-label": {
         "home": "Page d'accueil",
         "feelings-list": "Aller à la page de la liste des émotions",
@@ -24,7 +25,8 @@
         "title": "Navigation",
         "home": "Accueil",
         "login": "Se connecter",
-        "register": "S'inscrire"
+        "register": "S'inscrire",
+        "profile": "Mon profil"
       },
       "copyright": "© 2025 Ahimsa. Créé par Olivia MOREAU. Projet de fin d'études."
     }
@@ -101,6 +103,17 @@
     "wrong-pseudo": "Le pseudo doit contenir au moins 3 caractères et au plus 25 caractères",
     "email-sent": "Un mail a été envoyé à {{email}}",
     "tried-to-signin": "Pas de compte trouvé avec cet email. Veuillez vous connecter ou créer un compte."
+  },
+  "profile-page": {
+    "title": "Page de profil",
+    "email": "Email",
+    "pseudo": "Pseudo",
+    "loading": "Chargement...",
+    "sign-out": "Déconnexion",
+    "registered": "Vous êtes bien inscrit !",
+    "registered-description": "Vous pouvez maintenant accéder à votre compte.",
+    "connected": "Vous êtes bien connecté !",
+    "connected-description": "Vous pouvez maintenant accéder à votre compte."
   },
   "feelings-list-page": {
     "title": "Liste des émotions et besoins",

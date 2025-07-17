@@ -9,7 +9,7 @@ const LoginContent = () => {
   const [emailSent, setEmailSent] = useState(false);
   const [errorSendingEmail, setErrorSendingEmail] = useState(false);
   const [triedToSignin, setTriedToSignin] = useState(false);
-  const { mutate: login } = useLogin();
+  const { mutate: login, isPending: isLoading } = useLogin();
   const { t } = useTranslation();
 
   const loginFormSchema = z.object({
@@ -57,6 +57,7 @@ const LoginContent = () => {
       errorSendingEmail={errorSendingEmail}
       emailSent={emailSent}
       triedToSignin={triedToSignin}
+      isLoading={isLoading}
     />
   );
 };

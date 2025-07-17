@@ -8,6 +8,7 @@ import ConnexionPage from '@/pages/ConnexionPage';
 import DiscussionPage from '@/pages/DiscussionPage';
 import LandingPage from '@/pages/LandingPage';
 import NeedsAndFeelingsListPage from '@/pages/NeedsAndFeelingsListPage';
+import ProfilePage from '@/pages/ProfilePage';
 
 const Router = () => {
   return (
@@ -30,6 +31,7 @@ const Router = () => {
             <Route path="create" element={<DiscussionStepsAccordion />} />
             <Route path="summary" element={<Summary />} />
           </Route>
+          <Route path="profile" element={<ProfilePage />} />
         </Route>
       </Routes>
     </BrowserRouter>

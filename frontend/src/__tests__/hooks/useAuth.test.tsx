@@ -6,6 +6,7 @@ const mocks = vi.hoisted(() => {
   return {
     mockGetUser: vi.fn(),
     mockOnAuthStateChange: vi.fn(),
+    mockSignOut: vi.fn(),
   };
 });
 
@@ -14,6 +15,7 @@ vi.mock('@/config/supabaseConfig', () => ({
     auth: {
       getUser: mocks.mockGetUser,
       onAuthStateChange: mocks.mockOnAuthStateChange,
+      signOut: mocks.mockSignOut,
     },
   },
 }));
@@ -94,5 +96,24 @@ describe('useAuth', () => {
       authStateChangeCallback('SIGNED_OUT', { user: null });
     });
     expect(result.current.user).toBeNull();
+  });
+
+  it('sign out', async () => {
+    const fakeUser = { id: '123', email: 'test@test.com' };
+    mocks.mockGetUser.mockResolvedValue({ data: { user: fakeUser } });
+    mocks.mockOnAuthStateChange.mockReturnValue({
+      data: { subscription: { unsubscribe: vi.fn() } },
+    });
+
+    const { result } = renderHook(() => useAuth());
+    await act(async () => {});
+
+    await act(async () => {
+      await result.current.signOut();
+    });
+
+    expect(mocks.mockSignOut).toHaveBeenCalled();
+    expect(result.current.user).toBeNull();
+    expect(result.current.loading).toBe(false);
   });
 });

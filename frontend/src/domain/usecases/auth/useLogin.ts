@@ -9,7 +9,7 @@ const useLogin = () => {
         email,
         options: {
           shouldCreateUser: false,
-          emailRedirectTo: `${window.location.origin}/`,
+          emailRedirectTo: `${window.location.origin}/profile?magic_link=true`,
         },
       });
       if (error) {

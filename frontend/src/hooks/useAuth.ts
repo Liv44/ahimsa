@@ -33,5 +33,10 @@ export function useAuth() {
     setLoading(false);
   }, []);
 
-  return { user, loading, refreshUser };
+  const signOut = useCallback(async () => {
+    await supabase.auth.signOut();
+    setUser(null);
+  }, []);
+
+  return { user, loading, refreshUser, signOut };
 }

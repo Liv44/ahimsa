@@ -106,4 +106,21 @@ describe('AuthForm', () => {
 
     expect(screen.getByText('Email sent !'));
   });
+
+  it('displays loader when isLoading is true', () => {
+    render(
+      <AuthForm
+        formSchema={zodSchema}
+        onSubmit={async () => {}}
+        submitLabel={'Submit'}
+        errorSendingEmail={false}
+        emailSent={false}
+        fields={fields}
+        isLoading={true}
+      />
+    );
+
+    expect(screen.getByRole('button')).toBeDisabled();
+    expect(screen.getByRole('button').firstChild).toHaveClass('animate-spin');
+  });
 });

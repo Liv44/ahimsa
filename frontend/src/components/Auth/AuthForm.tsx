@@ -1,4 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod';
+import { Loader2 } from 'lucide-react';
 import { FieldValues, Path, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import z, { ZodTypeAny } from 'zod';
@@ -29,6 +30,7 @@ interface AuthComponentProps<T extends ZodTypeAny> {
   emailSent: boolean;
   fields: FieldConfig<z.infer<T>>[];
   triedToSignin?: boolean;
+  isLoading?: boolean;
 }
 
 const AuthForm = <T extends ZodTypeAny>({
@@ -39,6 +41,7 @@ const AuthForm = <T extends ZodTypeAny>({
   emailSent,
   fields,
   triedToSignin,
+  isLoading,
 }: AuthComponentProps<T>) => {
   const { t } = useTranslation();
 
@@ -87,8 +90,12 @@ const AuthForm = <T extends ZodTypeAny>({
             </p>
           </FormDescription>
         )}
-        <Button type="submit" className="mx-auto min-w-20 max-w-40">
-          {submitLabel}
+        <Button
+          type="submit"
+          className="mx-auto min-w-20 max-w-40"
+          disabled={isLoading}
+        >
+          {isLoading ? <Loader2 className="animate-spin" /> : submitLabel}
         </Button>
       </form>
     </Form>
