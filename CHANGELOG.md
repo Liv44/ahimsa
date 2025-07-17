@@ -1,5 +1,13 @@
 # Changelog
 
+# [1.2.0](https://github.com/Liv44/Ahimsa/compare/v1.1.0...v1.2.0) (2025-07-17)
+
+
+### Features
+
+* **Discussion:** add error message when a step is not completed ([cfce503](https://github.com/Liv44/Ahimsa/commit/cfce5039b17288b375e245bf45e451bbea6981b2))
+* **Discussion:** open step uncompleted ([f60936c](https://github.com/Liv44/Ahimsa/commit/f60936c38f99415d1cc7a3a803e45d6d0bebe6ec))
+
 # [1.1.0](https://github.com/Liv44/Ahimsa/compare/v1.0.1...v1.1.0) (2025-07-16)
 
 
