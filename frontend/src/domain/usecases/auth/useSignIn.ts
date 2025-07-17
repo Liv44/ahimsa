@@ -14,7 +14,7 @@ const useSignIn = () => {
       const { error } = await supabase.auth.signInWithOtp({
         email,
         options: {
-          emailRedirectTo: `${window.location.origin}/profile?magic_link=true&register=true`,
+          emailRedirectTo: `${import.meta.env.VITE_APP_URL}/profile?magic_link=true&register=true`,
           data: {
             pseudo,
           },

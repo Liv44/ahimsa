@@ -9,7 +9,7 @@ const useLogin = () => {
         email,
         options: {
           shouldCreateUser: false,
-          emailRedirectTo: `${window.location.origin}/profile?magic_link=true`,
+          emailRedirectTo: `${import.meta.env.VITE_APP_URL}/profile?magic_link=true`,
         },
       });
       if (error) {
