@@ -34,6 +34,7 @@ vi.mock('react-i18next', () => ({
             'discussion-page.step.button-finish-aria': 'Final Button Aria',
             'discussion-page.step.button-finish': 'Final Button',
             'discussion-page.step.modal.title': 'Choose words',
+            'discussion-page.step.error': 'Field is required',
           };
           return translations[key];
         },
@@ -49,7 +50,7 @@ vi.mock('react-i18next', () => ({
             { category: 'category2', content: 'word2' },
           ];
         }
-        return key; // Retourne la clé si returnObjects n'est pas true
+        return key;
       },
     };
   },
@@ -77,6 +78,12 @@ vi.mock('@/domain/usecases/discussion/useDiscussionStore', () => ({
 }));
 
 // - HELPERS -
+
+const fillTextArea = (text: string) => {
+  const textarea = screen.getByRole('textbox');
+  fireEvent.change(textarea, { target: { value: text } });
+};
+
 const clickButton = (name: string) => {
   fireEvent.click(screen.getByRole('button', { name }));
 };
@@ -138,6 +145,8 @@ describe('DiscussionStepsAccordion', () => {
   it('shows next step when clicking on next button', () => {
     render(<DiscussionStepsAccordion />);
 
+    fillTextArea('Text');
+
     clickButton('Next Button Aria');
 
     const buttonsStep2Visible = screen.getAllByRole('button');
@@ -146,6 +155,11 @@ describe('DiscussionStepsAccordion', () => {
     expect(buttonsStep2Visible[1]).toHaveAttribute('aria-expanded', 'true');
     expect(buttonsStep2Visible[2]).toHaveTextContent('Choose words');
     expect(buttonsStep2Visible[3]).toHaveTextContent('Final Button');
+  });
+  it('shows error message when textArea is empty', () => {
+    render(<DiscussionStepsAccordion />);
+    clickButton('Next Button Aria');
+    expect(screen.getByText('Field is required')).toBeInTheDocument();
   });
 
   it('updates content of step when textArea is changed', () => {
@@ -184,12 +198,16 @@ describe('DiscussionStepsAccordion', () => {
 
     render(<DiscussionStepsAccordion />);
 
+    fillTextArea('Text');
+
     const nextButton = screen.getByRole('button', { name: 'Next Button Aria' });
     fireEvent.click(nextButton);
     const finalButton = screen.getByRole('button', {
       name: 'Final Button Aria',
     });
     expect(finalButton).toBeInTheDocument();
+
+    fillTextArea('Text');
 
     fireEvent.click(finalButton);
 
@@ -206,5 +224,18 @@ describe('DiscussionStepsAccordion', () => {
     });
 
     expect(mocks.navigateMock).toHaveBeenCalledWith('/discussion/summary');
+  });
+
+  it('shows error message when closing the last step with empty textArea', () => {
+    render(<DiscussionStepsAccordion />);
+    clickButton('1. Step 1');
+    clickButton('2. Step 2');
+    fillTextArea('Test');
+    clickButton('Final Button Aria');
+    expect(screen.getByRole('button', { name: '1. Step 1' })).toHaveAttribute(
+      'aria-expanded',
+      'true'
+    );
+    expect(screen.getByText('Field is required')).toBeInTheDocument();
   });
 });

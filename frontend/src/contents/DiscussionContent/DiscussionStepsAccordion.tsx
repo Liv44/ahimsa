@@ -23,6 +23,7 @@ const DiscussionStepsAccordion = () => {
   const steps = discussion.steps;
   const { t } = useTranslation();
   const handleAccordionChange = (value: string) => {
+    setError(false);
     setActiveStep(Number(value.split('-')[1]));
   };
   const descriptionRef = useRef<HTMLButtonElement>(null);
@@ -30,12 +31,18 @@ const DiscussionStepsAccordion = () => {
   const [content, setContent] = useState<string[]>(
     steps.map((step) => step.content)
   );
+  const [error, setError] = useState<boolean>(false);
   const [activeStep, setActiveStep] = useState<number>(0);
 
   const navigate = useNavigate();
 
   const handleNextStep = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setError(false);
+    if (content[activeStep] === '') {
+      setError(true);
+      return;
+    }
     setActiveStep(activeStep + 1);
     steps[activeStep].updateContent(content[activeStep]);
     steps[activeStep].complete();
@@ -49,11 +56,18 @@ const DiscussionStepsAccordion = () => {
         descriptionRef.current.focus();
       }
     } else {
-      discussionStore.setState((state) => ({
-        ...state,
-        isCompleted: true,
-      }));
-      navigate('/discussion/summary');
+      // TODO : add a verification to check if the discussion is completed
+      if (content.every((step) => step !== '')) {
+        discussionStore.setState((state) => ({
+          ...state,
+          isCompleted: true,
+        }));
+        navigate('/discussion/summary');
+      } else {
+        const index = content.findIndex((step) => step === '');
+        setActiveStep(index);
+        setError(true);
+      }
     }
   };
 
@@ -95,7 +109,9 @@ const DiscussionStepsAccordion = () => {
                 {t(`discussion-page.step.${steps[index].key}.label`)}
               </Label>
               <Textarea
-                className="bg-white text-black text-sm"
+                className={`bg-white text-black text-sm ${
+                  error ? 'border-red-500 border-2' : ''
+                }`}
                 name={steps[index].key}
                 id={steps[index].key}
                 placeholder={t(
@@ -113,6 +129,11 @@ const DiscussionStepsAccordion = () => {
                   })
                 }
               />
+              {error && (
+                <p className="text-red-500 text-sm text-center bg-white rounded-lg p-2 mx-auto">
+                  {t('discussion-page.step.error')}
+                </p>
+              )}
               <Button
                 type="submit"
                 className="bg-orange text-black hover:bg-orange/80 max-w-40 mx-auto"
