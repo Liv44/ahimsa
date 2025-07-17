@@ -1,4 +1,5 @@
 import logo from '@/assets/logo.svg';
+import { useAuth } from '@/hooks/useAuth';
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -15,13 +16,25 @@ const Layout = ({ children }: LayoutProps) => {
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const isActive = (path: string) => location.pathname === path;
+  const isActive = (path: string) => {
+    if (location.pathname === '/register' && path === '/login') {
+      return true;
+    }
+    return location.pathname === path;
+  };
+
+  const { user } = useAuth();
 
   const navItems = [
     { path: '/', label: t('layout.navigation.home') },
     { path: '/feelings-list', label: t('layout.navigation.feelings-list') },
     { path: '/discussion', label: t('layout.navigation.discussion') },
-    { path: '/login', label: t('layout.navigation.login') },
+    {
+      path: user ? '/profile' : '/login',
+      label: user
+        ? t('layout.navigation.profile')
+        : t('layout.navigation.login'),
+    },
   ];
 
   return (
