@@ -225,4 +225,17 @@ describe('DiscussionStepsAccordion', () => {
 
     expect(mocks.navigateMock).toHaveBeenCalledWith('/discussion/summary');
   });
+
+  it('shows error message when closing the last step with empty textArea', () => {
+    render(<DiscussionStepsAccordion />);
+    clickButton('1. Step 1');
+    clickButton('2. Step 2');
+    fillTextArea('Test');
+    clickButton('Final Button Aria');
+    expect(screen.getByRole('button', { name: '1. Step 1' })).toHaveAttribute(
+      'aria-expanded',
+      'true'
+    );
+    expect(screen.getByText('Field is required')).toBeInTheDocument();
+  });
 });

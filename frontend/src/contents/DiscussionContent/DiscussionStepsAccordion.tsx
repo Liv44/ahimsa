@@ -23,6 +23,7 @@ const DiscussionStepsAccordion = () => {
   const steps = discussion.steps;
   const { t } = useTranslation();
   const handleAccordionChange = (value: string) => {
+    setError(false);
     setActiveStep(Number(value.split('-')[1]));
   };
   const descriptionRef = useRef<HTMLButtonElement>(null);
@@ -55,11 +56,18 @@ const DiscussionStepsAccordion = () => {
         descriptionRef.current.focus();
       }
     } else {
-      discussionStore.setState((state) => ({
-        ...state,
-        isCompleted: true,
-      }));
-      navigate('/discussion/summary');
+      // TODO : add a verification to check if the discussion is completed
+      if (content.every((step) => step !== '')) {
+        discussionStore.setState((state) => ({
+          ...state,
+          isCompleted: true,
+        }));
+        navigate('/discussion/summary');
+      } else {
+        const index = content.findIndex((step) => step === '');
+        setActiveStep(index);
+        setError(true);
+      }
     }
   };
 
