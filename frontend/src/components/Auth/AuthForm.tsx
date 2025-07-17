@@ -53,7 +53,7 @@ const AuthForm = <T extends ZodTypeAny>({
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="flex flex-col gap-6 w-100 items-center"
+        className="flex flex-col gap-6 max-w-100 items-center"
       >
         {fields.map((customField) => (
           <FormField
