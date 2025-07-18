@@ -1,5 +1,27 @@
 # Changelog
 
+# [2.0.0](https://github.com/Liv44/Ahimsa/compare/v1.2.0...v2.0.0) (2025-07-18)
+
+
+### Bug Fixes
+
+* **config:** add supabase env variables for lighthouse ci ([670a202](https://github.com/Liv44/Ahimsa/commit/670a202d433925d88fb204cfde60b67aaa5f2ca1))
+* **Connexion:** add environment variable with correct redirection link for connexion ([3f3c2f6](https://github.com/Liv44/Ahimsa/commit/3f3c2f64fb20ddec59586587a34d087f49c262b3))
+* **Connexion:** fix width of connexion form ([7e69b73](https://github.com/Liv44/Ahimsa/commit/7e69b73f52eb723e071dbb5eed01dda8bb764e80))
+
+
+### Features
+
+* **Connexion:** add Profile Page with logout button ([94bb302](https://github.com/Liv44/Ahimsa/commit/94bb302d407b13a09dd09e71620dece3b3f0a13b))
+* **Connexion:** add Supabase config, components and useAuth hook ([75c0bb0](https://github.com/Liv44/Ahimsa/commit/75c0bb095a1ba496b0e7c024733561a2329f70d6))
+* **Connexion:** add tanstack mutations to login and signin ([7ef91e3](https://github.com/Liv44/Ahimsa/commit/7ef91e3e4a355f1b261d582f3f4e25eccaab70e6))
+* **Layout:** add active status to LoginLink when location is /register ([b0aa9a4](https://github.com/Liv44/Ahimsa/commit/b0aa9a4f7b5a02f3fc4e8b7d097d72a225c27a14))
+
+
+### BREAKING CHANGES
+
+* **Connexion:** Authentification is enabled with magic link
+
 # [1.2.0](https://github.com/Liv44/Ahimsa/compare/v1.1.0...v1.2.0) (2025-07-17)
 
 
