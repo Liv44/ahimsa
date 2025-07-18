@@ -1,14 +1,12 @@
 {
   "plugins": {
     "@release-it/conventional-changelog": {
-          "preset": "angular",
+      "preset": "angular",
       "infile": "CHANGELOG.md"
     },
     "@release-it/bumper": {
       "in": "package.json",
-      "out": [
-          "frontend/package.json"
-      ]
+      "out": ["package.json"]
     }
   },
   "git": {
@@ -19,11 +17,7 @@
     "tagName": "v${version}",
     "requireCleanWorkingDir": true,
     "requireUpstream": true,
-    "files": [
-      "package.json",
-      "frontend/package.json",
-      "CHANGELOG.md"
-    ]
+    "files": ["package.json", "CHANGELOG.md"]
   },
   "github": {
     "release": true

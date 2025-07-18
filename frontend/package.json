@@ -1,16 +1,23 @@
 {
-  "name": "ahimsa-front",
+  "name": "ahimsa",
   "private": true,
   "version": "1.0.1",
+  "author": "Olivia Moreau <moreauolivia49@gmail.com> (https://github.com/Liv44)",
+  "license": "MIT",
+  "description": "Ahimsa est un site web pour découvrir et pratiquer la Communication Non Violente (CNV).",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Liv44/Ahimsa.git"
+  },
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "lint:check": "eslint --max-warnings=0 \"src/**/*.{js,jsx,ts,tsx,json}\"",
-    "lint:fix": "eslint \"src/**/*.{js,jsx,ts,tsx,json}\" --fix",
-    "prettier:check": "prettier --check \"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
-    "prettier:fix": "prettier \"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\" -w",
+    "lint:check": "eslint --max-warnings=0 'src/**/*.{js,jsx,ts,tsx,json}'",
+    "lint:fix": "eslint 'src/**/*.{js,jsx,ts,tsx,json}' --fix",
+    "prettier:check": "prettier --check 'src/**/*.{js,jsx,ts,tsx,json,css,scss,md}'",
+    "prettier:fix": "prettier 'src/**/*.{js,jsx,ts,tsx,json,css,scss,md}' -w",
     "preview": "vite preview",
     "prepare": "husky",
     "test": "vitest",
@@ -48,7 +55,11 @@
     "zod": "^3.25.76"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
     "@eslint/js": "^9.25.0",
+    "@release-it/bumper": "^7.0.5",
+    "@release-it/conventional-changelog": "^10.0.1",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
@@ -64,6 +75,7 @@
     "globals": "^16.0.0",
     "husky": "^9.1.7",
     "jsdom": "^26.1.0",
+    "release-it": "^19.0.3",
     "tw-animate-css": "^1.3.4",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.30.1",
