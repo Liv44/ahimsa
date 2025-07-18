@@ -1,13 +1,4 @@
-cd frontend
-
 yarn lint:fix
 yarn prettier:fix
-
-cd ../backend
-
-yarn lint
-yarn format
-
-
 
 git update-index --again
