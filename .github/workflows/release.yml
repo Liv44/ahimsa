@@ -29,10 +29,6 @@ jobs:
       - name: 📥 Install dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Install backend dependencies
-        working-directory: backend
-        run: yarn install --frozen-lockfile
-
       - name: Install frontend dependencies
         working-directory: frontend
         run: yarn install --frozen-lockfile
