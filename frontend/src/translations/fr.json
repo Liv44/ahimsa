@@ -10,6 +10,7 @@
       "login": "Se connecter",
       "discussion": "Créer une discussion",
       "register": "S'inscrire",
+      "profile": "Mon profil",
       "aria-label": {
         "home": "Page d'accueil",
         "feelings-list": "Aller à la page de la liste des émotions",
@@ -24,7 +25,8 @@
         "title": "Navigation",
         "home": "Accueil",
         "login": "Se connecter",
-        "register": "S'inscrire"
+        "register": "S'inscrire",
+        "profile": "Mon profil"
       },
       "copyright": "© 2025 Ahimsa. Créé par Olivia MOREAU. Projet de fin d'études."
     }
@@ -84,6 +86,34 @@
         "example": "Est-ce que tu serais d'accord pour poser ton téléphone pendant les repas ?"
       }
     }
+  },
+  "connexion": {
+    "title-login": "Connexion",
+    "title-register": "Créer un compte",
+    "description-login": "Pas besoin de mot de passe ! Vous recevrez un mail pour vous connecter.",
+    "description-register": "Pas besoin de mot de passe ! Vous recevrez directement un mail pour valider votre inscription et vous connecter.",
+    "button-login": "Se connecter",
+    "button-register": "Créer un compte",
+    "button-already-account": "Déjà un compte ? Connectez-vous",
+    "button-no-account": "Pas de compte ? Créez le vôtre",
+    "error-sending-email": "Il y a eu une erreur lors de l'envoi de mail.",
+    "missing-email": "L'email est obligatoire",
+    "missing-pseudo": "Le pseudo est obligatoire",
+    "wrong-email": "L'email doit être valide",
+    "wrong-pseudo": "Le pseudo doit contenir au moins 3 caractères et au plus 25 caractères",
+    "email-sent": "Un mail a été envoyé à {{email}}",
+    "tried-to-signin": "Pas de compte trouvé avec cet email. Veuillez vous connecter ou créer un compte."
+  },
+  "profile-page": {
+    "title": "Page de profil",
+    "email": "Email",
+    "pseudo": "Pseudo",
+    "loading": "Chargement...",
+    "sign-out": "Déconnexion",
+    "registered": "Vous êtes bien inscrit !",
+    "registered-description": "Vous pouvez maintenant accéder à votre compte.",
+    "connected": "Vous êtes bien connecté !",
+    "connected-description": "Vous pouvez maintenant accéder à votre compte."
   },
   "feelings-list-page": {
     "title": "Liste des émotions et besoins",

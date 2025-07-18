@@ -32,6 +32,8 @@ export default defineConfig(() => {
           '**/router/**',
           '**/dist/**',
           'src/domain/usecases/discussion/useDiscussionStore.ts',
+          'src/domain/usecases/auth/useSignIn.ts',
+          'src/domain/usecases/auth/useLogin.ts',
         ],
       },
     },

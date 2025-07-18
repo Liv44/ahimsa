@@ -3,9 +3,24 @@ import Layout from '@/components/Layout/Layout';
 import { fireEvent, screen } from '@testing-library/react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
+const mocks = vi.hoisted(() => ({
+  useAuth: vi.fn().mockReturnValue({
+    user: null,
+    loading: false,
+  }),
+}));
+
+vi.mock('@/hooks/useAuth', () => ({
+  useAuth: mocks.useAuth,
+}));
+
 describe('LayoutLink', () => {
   beforeEach(() => {
-    vi.clearAllMocks();
+    mocks.useAuth.mockReset();
+    mocks.useAuth.mockReturnValue({
+      user: null,
+      loading: false,
+    });
   });
 
   it('renders children correctly', () => {
@@ -188,5 +203,38 @@ describe('LayoutLink', () => {
     const gridContainer = footer.querySelector('.grid');
 
     expect(gridContainer).toHaveClass('grid-cols-1', 'md:grid-cols-2');
+  });
+
+  it('when path is /login and location is /register, link must be active', () => {
+    vi.mock('react-router-dom', async (importOriginal) => {
+      const actual = (await importOriginal()) as typeof importOriginal;
+      return {
+        ...actual,
+        useLocation: () => ({
+          pathname: '/register',
+        }),
+      };
+    });
+
+    renderWithRouter(<Layout>Test Content</Layout>);
+
+    const link = screen.getAllByRole('link', {
+      name: 'layout.navigation.login',
+    })[0];
+
+    expect(link).toHaveClass('font-extrabold');
+  });
+
+  it('when user is logged in, profile link must be here', () => {
+    mocks.useAuth.mockReturnValue({ user: { email: 'test@test.com' } });
+
+    renderWithRouter(<Layout>Test Content</Layout>);
+
+    const links = screen.getAllByRole('link', {
+      name: 'layout.navigation.profile',
+    });
+    expect(links).toHaveLength(2);
+    expect(links[0]).toHaveAttribute('href', '/profile');
+    expect(links[1]).toHaveAttribute('href', '/profile');
   });
 });
