@@ -7,8 +7,7 @@
     "@release-it/bumper": {
       "in": "package.json",
       "out": [
-          "frontend/package.json",
-          "backend/package.json"
+          "frontend/package.json"
       ]
     }
   },
@@ -23,7 +22,6 @@
     "files": [
       "package.json",
       "frontend/package.json",
-      "backend/package.json",
       "CHANGELOG.md"
     ]
   },
