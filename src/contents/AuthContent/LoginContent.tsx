@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import z from 'zod';
 
 import AuthForm, { FieldConfig } from '@/components/Auth/AuthForm';
-import useLogin from '@/domain/usecases/auth/useLogin';
+import useLogin from '@/hooks/auth/useLogin';
 import { useSentry } from '@/hooks/useSentry';
 
 const LoginContent = () => {

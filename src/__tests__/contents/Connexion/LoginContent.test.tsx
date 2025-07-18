@@ -17,7 +17,7 @@ vi.mock('@/hooks/useSentry', () => ({
   }),
 }));
 
-vi.mock('@/domain/usecases/auth/useLogin', () => {
+vi.mock('@/hooks/auth/useLogin', () => {
   return {
     default: () => ({
       mutate: mocks.mutateMock,
