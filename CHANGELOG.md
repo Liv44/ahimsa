@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.0.1](https://github.com/Liv44/Ahimsa/compare/v2.0.0...v2.0.1) (2025-07-18)
+
+
+### Bug Fixes
+
+* **release:** fix release after deleting backend folder ([6afdec3](https://github.com/Liv44/Ahimsa/commit/6afdec325f096c06295af6053ae1370a1640f0a9))
+* **release:** remove bumper to fix versioning with one package.json ([7f530de](https://github.com/Liv44/Ahimsa/commit/7f530de14653501b427cff31e605b328800ac198))
+
 # [2.0.0](https://github.com/Liv44/Ahimsa/compare/v1.2.0...v2.0.0) (2025-07-18)
 
 
