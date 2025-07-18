@@ -17,26 +17,21 @@ jobs:
           node-version: 20
 
       - name: Install dependencies
-        working-directory: frontend
         run: yarn install --frozen-lockfile
 
       - name: Run build
-        working-directory: frontend
         run: yarn build
 
       - name: Run tests
-        working-directory: frontend
         run: yarn test
-      
+
       - name: Run coverage
-        working-directory: frontend
         run: yarn coverage
-      
+
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v5
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-      
+
       - name: Run linter
-        working-directory: frontend
         run: yarn lint:check

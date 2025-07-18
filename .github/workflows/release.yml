@@ -16,23 +16,19 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0  # IMPORTANT pour accéder à l'historique Git complet (tags inclus)
+          fetch-depth: 0 # IMPORTANT pour accéder à l'historique Git complet (tags inclus)
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 20
- 
+
       - name: Install yarn
         run: npm install -g yarn
 
       - name: 📥 Install dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Install frontend dependencies
-        working-directory: frontend
-        run: yarn install --frozen-lockfile
-        
       - name: Configure Git user
         run: |
           git config --global user.email "release-bot@example.com"
