@@ -1,7 +1,7 @@
 {
   "name": "Ahimsa",
   "private": true,
-  "version": "2.0.1",
+  "version": "2.0.0",
   "author": "Olivia Moreau <moreauolivia49@gmail.com> (https://github.com/Liv44)",
   "license": "MIT",
   "description": "Ahimsa est un site web pour découvrir et pratiquer la Communication Non Violente (CNV).",
@@ -58,7 +58,6 @@
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
     "@eslint/js": "^9.25.0",
-    "@release-it/bumper": "^7.0.5",
     "@release-it/conventional-changelog": "^10.0.1",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",

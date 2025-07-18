@@ -3,10 +3,6 @@
     "@release-it/conventional-changelog": {
       "preset": "angular",
       "infile": "CHANGELOG.md"
-    },
-    "@release-it/bumper": {
-      "in": "package.json",
-      "out": ["package.json"]
     }
   },
   "git": {
