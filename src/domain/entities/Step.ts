@@ -9,6 +9,7 @@ export enum DiscussionStepKey {
 
 interface IStepConstructorProps {
   id: string;
+  discussionId?: string;
   key: DiscussionStepKey;
   content: string;
   createdAt?: Date;
@@ -17,6 +18,7 @@ interface IStepConstructorProps {
 
 class Step {
   private _id: string;
+  private _discussionId?: string;
   private _key: DiscussionStepKey;
   private _content: string;
   private _createdAt: Date;
@@ -24,6 +26,7 @@ class Step {
 
   constructor({
     id,
+    discussionId,
     key,
     content,
     createdAt,
@@ -31,6 +34,7 @@ class Step {
   }: IStepConstructorProps) {
     const now = new Date();
     this._id = id;
+    this._discussionId = discussionId;
     this._key = key;
     this._content = content;
     this._createdAt = createdAt ?? now;
@@ -39,6 +43,10 @@ class Step {
 
   get id(): string {
     return this._id;
+  }
+
+  get discussionId(): string | undefined {
+    return this._discussionId;
   }
 
   get key(): DiscussionStepKey {

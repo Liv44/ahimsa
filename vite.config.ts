@@ -35,6 +35,8 @@ export default defineConfig(() => {
           'src/hooks/auth/useSignIn.ts',
           'src/hooks/auth/useLogin.ts',
           'src/hooks/useSentry.ts',
+          'src/infrastructure/mappers/supabase.types.ts',
+          'src/infrastructure/repositories/**',
         ],
       },
     },
