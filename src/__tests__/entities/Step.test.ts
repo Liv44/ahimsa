@@ -33,12 +33,14 @@ describe('Step entity', () => {
       content: 'Test content',
       createdAt: now,
       updatedAt: now,
+      discussionId: 'discussionId',
     });
 
     expect(step.key).toBe(DiscussionStepKey.OBSERVATION);
     expect(step.content).toBe('Test content');
     expect(step.createdAt).toBe(now);
     expect(step.updatedAt).toBe(now);
+    expect(step.discussionId).toBe('discussionId');
   });
 
   it('should update the content of the step', async () => {

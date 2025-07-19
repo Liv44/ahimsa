@@ -34,6 +34,8 @@ export default defineConfig(() => {
           'src/hooks/discussion/useDiscussionStore.ts',
           'src/hooks/auth/useSignIn.ts',
           'src/hooks/auth/useLogin.ts',
+          'src/infrastructure/mappers/supabase.types.ts',
+          'src/infrastructure/repositories/**',
         ],
       },
     },
