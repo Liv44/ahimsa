@@ -3,68 +3,69 @@ import { describe, expect, it } from 'vitest';
 
 describe('Step entity', () => {
   it('should create a Step with the correct properties', () => {
-    const date = new Date();
-    const step = Step.create({
+    const step = Step.create(DiscussionStepKey.OBSERVATION);
+
+    expect(step.key).toBe(DiscussionStepKey.OBSERVATION);
+    expect(step.content).toBe('');
+    expect(step.createdAt).toBeInstanceOf(Date);
+    expect(step.updatedAt).toBeInstanceOf(Date);
+  });
+
+  it('should create Step with required properties from constructor', () => {
+    const step = new Step({
+      id: 'id',
       key: DiscussionStepKey.OBSERVATION,
       content: 'Test content',
-      completedAt: date,
+    });
+
+    expect(step.id).toBe('id');
+    expect(step.key).toBe(DiscussionStepKey.OBSERVATION);
+    expect(step.content).toBe('Test content');
+    expect(step.createdAt).toBeInstanceOf(Date);
+    expect(step.updatedAt).toEqual(step.createdAt);
+  });
+
+  it('should create Step with optional properties from constructor', () => {
+    const now = new Date();
+    const step = new Step({
+      id: 'id',
+      key: DiscussionStepKey.OBSERVATION,
+      content: 'Test content',
+      createdAt: now,
+      updatedAt: now,
     });
 
     expect(step.key).toBe(DiscussionStepKey.OBSERVATION);
     expect(step.content).toBe('Test content');
-    expect(step.completedAt).toBe(date);
+    expect(step.createdAt).toBe(now);
+    expect(step.updatedAt).toBe(now);
   });
 
-  it('should update the content of the step', () => {
-    const step = Step.create({
+  it('should update the content of the step', async () => {
+    const step = new Step({
+      id: 'id',
       key: DiscussionStepKey.FEELINGS,
       content: 'Initial content',
-      completedAt: null,
     });
+    const firstUpdate = step.updatedAt;
+
+    await new Promise((resolve) => setTimeout(resolve, 10));
 
     step.updateContent('Updated content');
+
     expect(step.content).toBe('Updated content');
-  });
-
-  it('should set completedAt when complete() is called', () => {
-    const step = Step.create({
-      key: DiscussionStepKey.NEEDS,
-      content: '',
-      completedAt: null,
-    });
-
-    expect(step.completedAt).toBeNull();
-    step.complete();
-    expect(step.completedAt).toBeInstanceOf(Date);
+    expect(step.updatedAt).not.toEqual(firstUpdate);
+    expect(step.updatedAt.getTime()).toBeGreaterThan(firstUpdate.getTime());
   });
 
   it('should reset the content to an empty string', () => {
-    const step = Step.create({
+    const step = new Step({
+      id: 'id',
       key: DiscussionStepKey.REQUEST,
       content: 'Some content',
-      completedAt: null,
     });
 
     step.reset();
     expect(step.content).toBe('');
-  });
-
-  it('should allow multiple operations: update, complete, reset', () => {
-    const step = Step.create({
-      key: DiscussionStepKey.OBSERVATION,
-      content: 'Start',
-      completedAt: null,
-    });
-
-    step.updateContent('Middle');
-    expect(step.content).toBe('Middle');
-
-    step.complete();
-    expect(step.completedAt).toBeInstanceOf(Date);
-
-    step.reset();
-    expect(step.content).toBe('');
-    // completedAt should not be reset by reset()
-    expect(step.completedAt).toBeInstanceOf(Date);
   });
 });

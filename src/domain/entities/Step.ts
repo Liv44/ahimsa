@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from 'uuid';
+
 export enum DiscussionStepKey {
   OBSERVATION = 'observation',
   FEELINGS = 'feelings',
@@ -6,20 +8,37 @@ export enum DiscussionStepKey {
 }
 
 interface IStepConstructorProps {
+  id: string;
   key: DiscussionStepKey;
   content: string;
-  completedAt: Date | null;
+  createdAt?: Date;
+  updatedAt?: Date;
 }
 
 class Step {
+  private _id: string;
   private _key: DiscussionStepKey;
   private _content: string;
-  private _completedAt: Date | null;
+  private _createdAt: Date;
+  private _updatedAt: Date;
 
-  constructor({ key, content, completedAt }: IStepConstructorProps) {
+  constructor({
+    id,
+    key,
+    content,
+    createdAt,
+    updatedAt,
+  }: IStepConstructorProps) {
+    const now = new Date();
+    this._id = id;
     this._key = key;
     this._content = content;
-    this._completedAt = completedAt;
+    this._createdAt = createdAt ?? now;
+    this._updatedAt = updatedAt ?? now;
+  }
+
+  get id(): string {
+    return this._id;
   }
 
   get key(): DiscussionStepKey {
@@ -30,24 +49,27 @@ class Step {
     return this._content;
   }
 
-  get completedAt(): Date | null {
-    return this._completedAt;
+  get createdAt(): Date {
+    return this._createdAt;
+  }
+
+  get updatedAt(): Date {
+    return this._updatedAt;
   }
 
   updateContent(content: string) {
     this._content = content;
-  }
-
-  complete() {
-    this._completedAt = new Date();
+    this._updatedAt = new Date();
   }
 
   reset() {
     this._content = '';
+    this._updatedAt = new Date();
   }
 
-  static create({ key, content, completedAt }: IStepConstructorProps): Step {
-    return new Step({ key, content, completedAt });
+  static create(key: DiscussionStepKey): Step {
+    const id = uuidv4();
+    return new Step({ id, key, content: '' });
   }
 }
 
