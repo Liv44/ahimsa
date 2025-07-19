@@ -5,7 +5,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 import { Toaster, toast } from 'sonner';
 
 import { Button } from '@/components/ui/button';
-import { useAuth } from '@/hooks/useAuth';
+import { useAuth } from '@/hooks/auth/useAuth';
 
 const ProfilePage = () => {
   const { t } = useTranslation();
@@ -52,7 +52,7 @@ const ProfilePage = () => {
         <p className="text-md">
           {t('profile-page.email')} : {user?.email}
           <br />
-          {t('profile-page.pseudo')} : {user?.user_metadata.pseudo}
+          {t('profile-page.pseudo')} : {user?.user_metadata.display_name}
         </p>
       )}
       <Button onClick={handleSignOut}>{t('profile-page.sign-out')}</Button>

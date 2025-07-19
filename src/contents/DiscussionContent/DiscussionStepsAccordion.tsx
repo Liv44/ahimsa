@@ -45,7 +45,7 @@ const DiscussionStepsAccordion = () => {
     }
     setActiveStep(activeStep + 1);
     steps[activeStep].updateContent(content[activeStep]);
-    steps[activeStep].complete();
+
     discussionStore.setState((state) => ({
       ...state,
       discussion,

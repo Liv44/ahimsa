@@ -8,7 +8,7 @@ const mocks = vi.hoisted(() => {
   };
 });
 
-vi.mock('@/domain/usecases/auth/useSignIn', () => {
+vi.mock('@/hooks/auth/useSignIn', () => {
   return {
     default: () => ({
       mutate: mocks.mutateMock,

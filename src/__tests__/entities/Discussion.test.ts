@@ -5,38 +5,72 @@ import { describe, expect, it } from 'vitest';
 describe('Discussion entity', () => {
   it('should create a Discussion with given steps', () => {
     const steps = [
-      Step.create({
+      new Step({
+        id: 'id',
         key: DiscussionStepKey.OBSERVATION,
         content: 'Observation',
-        completedAt: null,
       }),
-      Step.create({
+      new Step({
+        id: 'id',
         key: DiscussionStepKey.FEELINGS,
-        content: 'Feeling',
-        completedAt: null,
+        content: 'Feelings step',
       }),
     ];
     const discussion = Discussion.create(steps);
 
     expect(discussion.steps).toHaveLength(2);
     expect(discussion.steps[0].content).toBe('Observation');
+    expect(discussion.steps[0].key).toBe(DiscussionStepKey.OBSERVATION);
+    expect(discussion.steps[1].content).toBe('Feelings step');
     expect(discussion.steps[1].key).toBe(DiscussionStepKey.FEELINGS);
     expect(discussion.completedAt).toBeNull();
   });
 
+  it('should create a Discussion with all properties in constructor', () => {
+    const date = new Date();
+    const discussion = new Discussion({
+      id: 'id',
+      steps: [],
+      userId: 'userId',
+      completedAt: date,
+      createdAt: date,
+      updatedAt: date,
+    });
+
+    expect(discussion.id).toBe('id');
+    expect(discussion.steps).toHaveLength(0);
+    expect(discussion.userId).toBe('userId');
+    expect(discussion.completedAt).toBe(date);
+    expect(discussion.createdAt).toBe(date);
+    expect(discussion.updatedAt).toBe(date);
+  });
+
+  it('should create a Discussion with default values', () => {
+    const discussion = new Discussion({
+      id: 'id',
+      steps: [],
+      userId: 'userId',
+      completedAt: undefined,
+      createdAt: undefined,
+      updatedAt: undefined,
+    });
+    expect(discussion.id).toBe('id');
+    expect(discussion.steps).toHaveLength(0);
+    expect(discussion.completedAt).toBeNull();
+    expect(discussion.createdAt).toBeDefined();
+    expect(discussion.updatedAt).toBeDefined();
+    expect(discussion.userId).toBe('userId');
+  });
+
   it('should set completedAt when complete() is called', () => {
-    const steps = [
-      Step.create({
-        key: DiscussionStepKey.OBSERVATION,
-        content: '',
-        completedAt: null,
-      }),
-    ];
+    const steps = [Step.create(DiscussionStepKey.OBSERVATION)];
     const discussion = Discussion.create(steps);
 
     expect(discussion.completedAt).toBeNull();
     discussion.complete();
     expect(discussion.completedAt).toBeInstanceOf(Date);
+    expect(discussion.updatedAt).toBeInstanceOf(Date);
+    expect(discussion.updatedAt).toBe(discussion.completedAt);
   });
 
   it('should reset all steps and return a new Discussion', () => {
@@ -45,7 +79,6 @@ describe('Discussion entity', () => {
     expect(discussion.steps).toHaveLength(4);
     discussion.steps.forEach((step) => {
       expect(step.content).toBe('');
-      expect(step.completedAt).toBeNull();
     });
     expect(discussion.completedAt).toBeNull();
   });
@@ -54,43 +87,43 @@ describe('Discussion entity', () => {
 describe('Discussion Summary', () => {
   it('should generate a full summary with punctuation added when missing', () => {
     const steps = [
-      Step.create({
+      new Step({
+        id: 'id',
         key: DiscussionStepKey.OBSERVATION,
-        content: 'observation step',
-        completedAt: null,
+        content: 'Observation step',
       }),
-      Step.create({
+      new Step({
+        id: 'id',
         key: DiscussionStepKey.FEELINGS,
-        content: 'feeling step',
-        completedAt: null,
+        content: 'Feelings step',
       }),
-      Step.create({
+      new Step({
+        id: 'id',
         key: DiscussionStepKey.NEEDS,
-        content: 'needs step',
-        completedAt: null,
+        content: 'Needs step',
       }),
-      Step.create({
+      new Step({
+        id: 'id',
         key: DiscussionStepKey.REQUEST,
-        content: 'request step',
-        completedAt: null,
+        content: 'Request step',
       }),
     ];
     const discussion = Discussion.create(steps);
     expect(discussion.getSummary()).toBe(
-      'Observation step. Feeling step, needs step. Request step.'
+      'Observation step. Feelings step, needs step. Request step.'
     );
   });
   it('should generate a summary when only needs and request are provided', () => {
     const steps = [
-      Step.create({
+      new Step({
+        id: 'id',
         key: DiscussionStepKey.NEEDS,
-        content: 'needs',
-        completedAt: null,
+        content: 'Needs',
       }),
-      Step.create({
+      new Step({
+        id: 'id',
         key: DiscussionStepKey.REQUEST,
-        content: 'request',
-        completedAt: null,
+        content: 'Request',
       }),
     ];
     const discussion = Discussion.create(steps);
@@ -99,15 +132,15 @@ describe('Discussion Summary', () => {
 
   it('should capitalize needs if feelings ends with punctuation', () => {
     const steps = [
-      Step.create({
+      new Step({
+        id: 'id',
         key: DiscussionStepKey.FEELINGS,
-        content: 'Feelings with  punctuation!',
-        completedAt: null,
+        content: 'Feelings with punctuation!',
       }),
-      Step.create({
+      new Step({
+        id: 'id',
         key: DiscussionStepKey.NEEDS,
-        content: 'needs lowercase',
-        completedAt: null,
+        content: 'Needs lowercase',
       }),
     ];
     const discussion = Discussion.create(steps);
@@ -118,15 +151,15 @@ describe('Discussion Summary', () => {
 
   it('should lowercase needs if feelings has no punctuation', () => {
     const steps = [
-      Step.create({
+      new Step({
+        id: 'id',
         key: DiscussionStepKey.FEELINGS,
         content: 'Feelings with no punctuation',
-        completedAt: null,
       }),
-      Step.create({
+      new Step({
+        id: 'id',
         key: DiscussionStepKey.NEEDS,
         content: 'Needs to lowercase',
-        completedAt: null,
       }),
     ];
     const discussion = Discussion.create(steps);
