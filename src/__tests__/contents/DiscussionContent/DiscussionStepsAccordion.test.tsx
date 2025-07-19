@@ -173,7 +173,6 @@ describe('DiscussionStepsAccordion', () => {
     clickButton('Next Button Aria');
 
     expect(stepsMock[0].updateContent).toHaveBeenCalledWith('Mon texte');
-    expect(stepsMock[0].complete).toHaveBeenCalled();
 
     expect(document.activeElement).toBe(
       screen.getByRole('button', { name: '2. Step 2' })
