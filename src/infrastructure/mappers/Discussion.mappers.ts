@@ -8,7 +8,7 @@ type DiscussionStepRow = Tables<'discussionStep'>;
 
 // Types étendus avec les relations
 type DiscussionWithSteps = DiscussionRow & {
-  discussionSteps: DiscussionStepRow[];
+  steps: DiscussionStepRow[];
 };
 
 const DiscussionMappers = {
@@ -28,7 +28,7 @@ const DiscussionMappers = {
   },
 
   fromDatabase: (discussionWithSteps: DiscussionWithSteps): Discussion => {
-    const steps = discussionWithSteps.discussionSteps.map((stepRow) =>
+    const steps = discussionWithSteps.steps.map((stepRow) =>
       StepMappers.fromDatabase(stepRow)
     );
 

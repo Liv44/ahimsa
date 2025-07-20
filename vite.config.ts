@@ -31,7 +31,7 @@ export default defineConfig(() => {
           '**/pages/**',
           '**/router/**',
           '**/dist/**',
-          'src/hooks/discussion/useDiscussionStore.ts',
+          'src/hooks/discussion/*',
           'src/hooks/auth/useSignIn.ts',
           'src/hooks/auth/useLogin.ts',
           'src/hooks/useSentry.ts',
