@@ -2,7 +2,7 @@ import { Loader2 } from 'lucide-react';
 import { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import { Toaster, toast } from 'sonner';
+import { toast } from 'sonner';
 
 import { Button } from '@/components/ui/button';
 import { useAuth } from '@/hooks/auth/useAuth';
@@ -44,7 +44,6 @@ const ProfilePage = () => {
 
   return (
     <div className="flex flex-col items-center justify-start gap-4">
-      <Toaster position="top-center" richColors />
       <h1 className="text-2xl font-bold">{t('profile-page.title')}</h1>
       {loading ? (
         <Loader2 className="animate-spin" />

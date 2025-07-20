@@ -129,9 +129,13 @@ class Discussion {
 
   static create(steps: Step[]): Discussion {
     const id = uuidv4();
+    const stepsWithDiscussionId = steps.map((step) => {
+      step.addDiscussionId(id);
+      return step;
+    });
     return new Discussion({
       id,
-      steps,
+      steps: stepsWithDiscussionId,
     });
   }
 
@@ -145,14 +149,19 @@ class Discussion {
     initialSteps.map((step) => {
       step.reset();
     });
-    return Discussion.create(initialSteps);
+    const newDiscussion = Discussion.create(initialSteps);
+    return newDiscussion;
+  }
+
+  addUserId(userId: string) {
+    this._userId = userId;
   }
 }
 
 export interface DiscussionRepository {
-  create(discussion: Discussion): Promise<void>;
+  create(discussion: Discussion): Promise<Discussion>;
   getById(id: string): Promise<Discussion | null>;
-  update(discussion: Discussion): Promise<void>;
+  update(discussion: Discussion): Promise<Discussion>;
   delete(id: string): Promise<void>;
   getAllFromUser(userId: string): Promise<Discussion[]>;
 }
