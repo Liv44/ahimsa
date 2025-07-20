@@ -14,12 +14,14 @@ import { Textarea } from '@/components/ui/textarea';
 
 import WordSelectionModal from '@/components/Discussion/WordSelectionModal';
 import { DiscussionStepKey } from '@/domain/entities/Step';
+import { useCompleteAndSaveDiscussion } from '@/hooks/discussion/useCompleteAndSaveDiscussion';
 import useDiscussionStore, {
   discussionStore,
-} from '@/domain/usecases/discussion/useDiscussionStore';
+} from '@/hooks/discussion/useDiscussionStore';
 
 const DiscussionStepsAccordion = () => {
   const { discussion } = useDiscussionStore();
+  const { mutateAsync: createDiscussion } = useCompleteAndSaveDiscussion();
   const steps = discussion.steps;
   const { t } = useTranslation();
   const handleAccordionChange = (value: string) => {
@@ -36,7 +38,7 @@ const DiscussionStepsAccordion = () => {
 
   const navigate = useNavigate();
 
-  const handleNextStep = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleNextStep = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError(false);
     if (content[activeStep] === '') {
@@ -58,11 +60,11 @@ const DiscussionStepsAccordion = () => {
     } else {
       // TODO : add a verification to check if the discussion is completed
       if (content.every((step) => step !== '')) {
-        discussionStore.setState((state) => ({
-          ...state,
-          isCompleted: true,
-        }));
-        navigate('/discussion/summary');
+        createDiscussion(undefined, {
+          onSuccess: () => {
+            navigate('/discussion/summary');
+          },
+        });
       } else {
         const index = content.findIndex((step) => step === '');
         setActiveStep(index);

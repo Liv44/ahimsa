@@ -82,6 +82,12 @@ describe('Discussion entity', () => {
     });
     expect(discussion.completedAt).toBeNull();
   });
+
+  it('should add userId to a discussion', () => {
+    const discussion = Discussion.create([]);
+    discussion.addUserId('userId');
+    expect(discussion.userId).toBe('userId');
+  });
 });
 
 describe('Discussion Summary', () => {
