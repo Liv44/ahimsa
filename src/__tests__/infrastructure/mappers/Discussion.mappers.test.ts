@@ -23,7 +23,7 @@ describe('Discussion Mapper', () => {
         created_at: '2025-07-01T10:05:00.000Z',
         updated_at: '2025-07-02T12:00:00.000Z',
         completed_at: '2025-07-03T14:00:00.000Z',
-        discussionSteps: [
+        steps: [
           {
             id: '1',
             discussion_id: '1',
@@ -54,7 +54,7 @@ describe('Discussion Mapper', () => {
         created_at: null as unknown as string,
         updated_at: null as unknown as string,
         completed_at: null as unknown as string | null,
-        discussionSteps: [],
+        steps: [],
       });
       expect(discussion.createdAt).toBeInstanceOf(Date);
       expect(discussion.updatedAt).toBeInstanceOf(Date);

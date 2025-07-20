@@ -73,12 +73,29 @@ class Step {
   reset() {
     this._content = '';
     this._updatedAt = new Date();
+    this._createdAt = new Date();
+    this._updatedAt = new Date();
+    this._id = uuidv4();
+    this._discussionId = undefined;
+  }
+
+  addDiscussionId(discussionId: string) {
+    this._discussionId = discussionId;
+    this._updatedAt = new Date();
   }
 
   static create(key: DiscussionStepKey): Step {
     const id = uuidv4();
     return new Step({ id, key, content: '' });
   }
+}
+
+export interface StepRepository {
+  create(step: Step): Promise<Step>;
+  update(step: Step): Promise<Step>;
+  delete(id: string): Promise<void>;
+  getById(id: string): Promise<Step | null>;
+  getAllFromDiscussion(discussionId: string): Promise<Step[]>;
 }
 
 export default Step;
