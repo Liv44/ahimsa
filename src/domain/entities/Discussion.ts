@@ -127,6 +127,14 @@ class Discussion {
     return summary.replace(/\s+/g, ' ').trim();
   }
 
+  getSummaryForList(): string {
+    const summary = this.getSummary();
+    if (summary.length > 40) {
+      return '"' + summary.slice(0, 40) + '..."';
+    }
+    return '"' + summary + '"';
+  }
+
   static create(steps: Step[]): Discussion {
     const id = uuidv4();
     const stepsWithDiscussionId = steps.map((step) => {

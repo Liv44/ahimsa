@@ -32,6 +32,7 @@ const StepMappers = {
   fromDatabase: (step: StepRow) => {
     return new Step({
       id: step.id,
+      discussionId: step.discussion_id,
       key: stepTypeMapping[step.step],
       content: step.content,
       createdAt: step.created_at ? new Date(step.created_at) : undefined,

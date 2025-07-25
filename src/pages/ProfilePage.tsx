@@ -1,25 +1,19 @@
-import { Loader2 } from 'lucide-react';
 import { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { toast } from 'sonner';
 
-import { Button } from '@/components/ui/button';
+import ProfileContent from '@/contents/ProfileContent/ProfileContent';
 import { useAuth } from '@/hooks/auth/useAuth';
 
 const ProfilePage = () => {
   const { t } = useTranslation();
-  const { user, loading, signOut } = useAuth();
+  const { user, loading } = useAuth();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const fromMagicLink = searchParams.get('magic_link') === 'true';
   const fromRegister = searchParams.get('register');
   const hasShownToast = useRef(false);
-
-  const handleSignOut = async () => {
-    await signOut();
-    navigate('/login');
-  };
 
   useEffect(() => {
     if (!loading && !user) {
@@ -42,21 +36,7 @@ const ProfilePage = () => {
     }
   }, [fromMagicLink, fromRegister, t, loading, user, navigate]);
 
-  return (
-    <div className="flex flex-col items-center justify-start gap-4">
-      <h1 className="text-2xl font-bold">{t('profile-page.title')}</h1>
-      {loading ? (
-        <Loader2 className="animate-spin" />
-      ) : (
-        <p className="text-md">
-          {t('profile-page.email')} : {user?.email}
-          <br />
-          {t('profile-page.pseudo')} : {user?.user_metadata.display_name}
-        </p>
-      )}
-      <Button onClick={handleSignOut}>{t('profile-page.sign-out')}</Button>
-    </div>
-  );
+  return <ProfileContent />;
 };
 
 export default ProfilePage;

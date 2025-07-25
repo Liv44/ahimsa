@@ -86,7 +86,7 @@ class SupabaseDiscussionRepository implements DiscussionRepository {
       .select(
         `
         *,
-        steps:discussionStep (*)
+        steps:discussionStep(*)
       `
       )
       .eq('user_id', userId);
@@ -94,6 +94,8 @@ class SupabaseDiscussionRepository implements DiscussionRepository {
     if (error) {
       throw error;
     }
+
+    console.log({ data });
 
     return data
       ? data.map((discussion) => DiscussionMappers.fromDatabase(discussion))

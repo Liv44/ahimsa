@@ -29,7 +29,7 @@ const WordCategorySection = ({
   };
 
   return (
-    <div className="flex flex-col gap-2 border border-gray-200 rounded-md p-1">
+    <li className="flex flex-col gap-2 border border-gray-200 rounded-md p-1">
       <Button
         className="text-start justify-between"
         aria-expanded={isOpen}
@@ -61,7 +61,7 @@ const WordCategorySection = ({
           );
         })}
       </ul>
-    </div>
+    </li>
   );
 };
 
