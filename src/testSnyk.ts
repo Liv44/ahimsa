@@ -1,13 +1,18 @@
 import express from 'express';
+
 const app = express();
 
 app.get('/xss', (req, res) => {
-  res.send('Bonjour ' + req.query.name);
+  res.send('Hi xss error ' + req.query.name);
 });
 
-app.listen(3000, () => {
-  console.log('Serveur démarré sur le port 3000');
-});
+const dbConfig = {
+  host: 'localhost',
+  user: 'root',
+  password: 'secret123',
+  database: 'users_db',
+};
+console.log('DB config:', dbConfig);
 
-const secretVariable = 'clé-super-secrète-123';
-console.log("Secret utilisé pour l'auth:", secretVariable);
+const secretVariable = 'key-123456';
+console.log('Secret displayed in console:', secretVariable);
