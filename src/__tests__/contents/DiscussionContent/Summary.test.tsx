@@ -8,6 +8,7 @@ const mocks = vi.hoisted(() => {
     resetMock: vi.fn(() => ({ resetDiscussion: true })),
     setStateMock: vi.fn(),
     copyTextMock: vi.fn(),
+    toastSuccessMock: vi.fn(),
   };
 });
 
@@ -26,8 +27,12 @@ vi.mock('react-i18next', () => ({
   }),
 }));
 
+vi.mock('sonner', () => ({
+  toast: { success: mocks.toastSuccessMock },
+}));
+
 // Mock the discussion store
-vi.mock('@/domain/usecases/discussion/useDiscussionStore', () => ({
+vi.mock('@/hooks/discussion/useDiscussionStore', () => ({
   __esModule: true,
   default: () => ({
     discussion: {
@@ -42,12 +47,6 @@ vi.mock('@/domain/entities/Discussion', () => ({
   default: {
     reset: mocks.resetMock,
   },
-}));
-
-// Mock the toaster
-vi.mock('sonner', () => ({
-  Toaster: () => <div data-testid="toaster">Toaster</div>,
-  toast: { success: vi.fn() },
 }));
 
 describe('Summary', () => {
@@ -71,8 +70,6 @@ describe('Summary', () => {
 
     expect(screen.getByText('"Summary of the discussion"')).toBeInTheDocument();
     expect(screen.getByRole('button')).toHaveAccessibleName('Copy button aria');
-
-    expect(screen.getByTestId('toaster')).toBeInTheDocument();
   });
 
   it('calls setState with Discussion.reset() when restart button is clicked', () => {
@@ -98,5 +95,8 @@ describe('Summary', () => {
     expect(mocks.copyTextMock).toHaveBeenCalledWith(
       'Summary of the discussion'
     );
+    expect(mocks.toastSuccessMock).toHaveBeenCalledWith('Copy toast', {
+      duration: 2000,
+    });
   });
 });
