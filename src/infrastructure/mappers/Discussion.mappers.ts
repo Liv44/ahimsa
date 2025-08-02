@@ -31,6 +31,7 @@ const DiscussionMappers = {
     const steps = discussionWithSteps.steps.map((stepRow) =>
       StepMappers.fromDatabase(stepRow)
     );
+    console.log({ steps });
 
     const discussion = new Discussion({
       id: discussionWithSteps.id,
@@ -47,6 +48,7 @@ const DiscussionMappers = {
         : undefined,
     });
 
+    console.log({ discussion });
     return discussion;
   },
 };
