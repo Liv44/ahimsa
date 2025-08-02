@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import z from 'zod';
 
 import AuthForm, { FieldConfig } from '@/components/Auth/AuthForm';
-import useSignIn from '@/domain/usecases/auth/useSignIn';
+import useSignIn from '@/hooks/auth/useSignIn';
 
 const RegisterContent = () => {
   const [emailSent, setEmailSent] = useState(false);
