@@ -12,7 +12,12 @@ class SupabaseDiscussionRepositoryMock implements DiscussionRepository {
     .fn()
     .mockResolvedValue(new Discussion({ steps: [], id: '1', userId: '1' }));
   delete = vi.fn().mockResolvedValue(undefined);
-  getAllFromUser = vi.fn().mockResolvedValue([]);
+  getAllFromUser = vi
+    .fn()
+    .mockResolvedValue([
+      new Discussion({ steps: [], id: '1', userId: '1' }),
+      new Discussion({ steps: [], id: '2', userId: '1' }),
+    ]);
 }
 
 export default SupabaseDiscussionRepositoryMock;
