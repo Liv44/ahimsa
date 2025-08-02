@@ -113,7 +113,9 @@
     "registered": "Vous êtes bien inscrit !",
     "registered-description": "Vous pouvez maintenant accéder à votre compte.",
     "connected": "Vous êtes bien connecté !",
-    "connected-description": "Vous pouvez maintenant accéder à votre compte."
+    "connected-description": "Vous pouvez maintenant accéder à votre compte.",
+    "history-title": "Historique des discussions",
+    "history-description": "Vous pouvez consulter l'historique de vos discussions."
   },
   "feelings-list-page": {
     "title": "Liste des émotions et besoins",
