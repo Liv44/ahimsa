@@ -119,8 +119,8 @@ describe('Discussion Summary', () => {
       'Observation step. Feelings step, needs step. Request step.'
     );
   });
-  it('should generate a summary when only needs and request are provided', () => {
-    const steps = [
+  it('should generate a summary when not all steps are provided', () => {
+    const stepsWithNeedsAndRequest = [
       new Step({
         id: 'id',
         key: DiscussionStepKey.NEEDS,
@@ -132,8 +132,23 @@ describe('Discussion Summary', () => {
         content: 'Request',
       }),
     ];
-    const discussion = Discussion.create(steps);
+    const discussion = Discussion.create(stepsWithNeedsAndRequest);
     expect(discussion.getSummary()).toBe('Needs. Request.');
+
+    const stepsWithObservationAndFeelings = [
+      new Step({
+        id: 'id',
+        key: DiscussionStepKey.OBSERVATION,
+        content: 'Observation',
+      }),
+      new Step({
+        id: 'id',
+        key: DiscussionStepKey.FEELINGS,
+        content: 'Feelings',
+      }),
+    ];
+    const discussion2 = Discussion.create(stepsWithObservationAndFeelings);
+    expect(discussion2.getSummary()).toBe('Observation. Feelings.');
   });
 
   it('should capitalize needs if feelings ends with punctuation', () => {
@@ -177,5 +192,42 @@ describe('Discussion Summary', () => {
   it('should return an empty string when no steps are provided', () => {
     const discussion = Discussion.create([]);
     expect(discussion.getSummary()).toBe('');
+  });
+});
+
+describe('Discussion Preview', () => {
+  it('should get a preview of 40 characters maximum', () => {
+    const steps = [
+      new Step({
+        id: 'id',
+        key: DiscussionStepKey.FEELINGS,
+        content: 'This is a very long sentence.',
+      }),
+      new Step({
+        id: 'id',
+        key: DiscussionStepKey.NEEDS,
+        content: 'This one will be truncated.',
+      }),
+    ];
+    const discussion = Discussion.create(steps);
+    expect(discussion.getPreview()).toBe(
+      '"This is a very long sentence. This one w..."'
+    );
+  });
+  it('should get a preview of all summary if it is less than 40 characters', () => {
+    const steps = [
+      new Step({
+        id: 'id',
+        key: DiscussionStepKey.FEELINGS,
+        content: 'This is a sentence.',
+      }),
+      new Step({
+        id: 'id',
+        key: DiscussionStepKey.NEEDS,
+        content: 'This one too.',
+      }),
+    ];
+    const discussion = Discussion.create(steps);
+    expect(discussion.getPreview()).toBe('"This is a sentence. This one too."');
   });
 });

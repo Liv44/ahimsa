@@ -1,25 +1,21 @@
-import useGetDiscussions from '@/hooks/discussion/useGetDiscussions';
 import { Loader2 } from 'lucide-react';
-import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+
+import HistoryDiscussionItem from '@/components/Profile/HistoryDiscussionItem';
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from '../ui/card';
-import { ScrollArea } from '../ui/scroll-area';
-import { Separator } from '../ui/separator';
-import HistoryDiscussionItem from './HistoryDiscussionItem';
+} from '@/components/ui/card';
+import { ScrollArea } from '@/components/ui/scroll-area';
+import { Separator } from '@/components/ui/separator';
+import useGetDiscussions from '@/hooks/discussion/useGetDiscussions';
 
 const HistoryCard = () => {
   const { t } = useTranslation();
-  const { discussions, isPending, error } = useGetDiscussions();
-
-  useEffect(() => {
-    console.log({ isPending, error });
-  }, [isPending, error, discussions]);
+  const { discussions, isPending } = useGetDiscussions();
 
   return (
     <Card className="flex flex-col gap-2 p-2 md:p-4 ">

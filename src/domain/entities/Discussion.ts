@@ -112,6 +112,8 @@ class Discussion {
         return feelingFinal + needsFinal;
       } else if (needs) {
         return formatSentence(needs) + ' ';
+      } else if (feeling) {
+        return formatSentence(feeling) + ' ';
       }
       return '';
     };
@@ -127,7 +129,7 @@ class Discussion {
     return summary.replace(/\s+/g, ' ').trim();
   }
 
-  getSummaryForList(): string {
+  getPreview(): string {
     const summary = this.getSummary();
     if (summary.length > 40) {
       return '"' + summary.slice(0, 40) + '..."';
