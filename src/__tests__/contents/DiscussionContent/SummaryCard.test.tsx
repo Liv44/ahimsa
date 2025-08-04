@@ -1,7 +1,8 @@
 import { renderWithRouter } from '@/__tests__/utils';
-import Summary from '@/contents/DiscussionContent/Summary';
+import SummaryCard from '@/contents/DiscussionContent/SummaryCard';
+import Discussion from '@/domain/entities/Discussion';
 import { fireEvent, screen } from '@testing-library/react';
-import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 
 const mocks = vi.hoisted(() => {
   return {
@@ -11,6 +12,12 @@ const mocks = vi.hoisted(() => {
     toastSuccessMock: vi.fn(),
   };
 });
+
+vi.mock('@/components/Discussion/SummaryDiscussion', () => ({
+  default: ({ discussion }: { discussion: Discussion }) => (
+    <div data-testid={`summary-discussion-${discussion.id}`}></div>
+  ),
+}));
 
 vi.mock('react-i18next', () => ({
   useTranslation: () => ({
@@ -27,15 +34,12 @@ vi.mock('react-i18next', () => ({
   }),
 }));
 
-vi.mock('sonner', () => ({
-  toast: { success: mocks.toastSuccessMock },
-}));
-
 // Mock the discussion store
 vi.mock('@/hooks/discussion/useDiscussionStore', () => ({
   __esModule: true,
   default: () => ({
     discussion: {
+      id: '1',
       getSummary: vi.fn(() => 'Summary of the discussion'),
     },
   }),
@@ -50,15 +54,8 @@ vi.mock('@/domain/entities/Discussion', () => ({
 }));
 
 describe('Summary', () => {
-  beforeEach(() => {
-    Object.assign(navigator, {
-      clipboard: {
-        writeText: mocks.copyTextMock,
-      },
-    });
-  });
   it('renders summary component with correct text', () => {
-    renderWithRouter(<Summary />);
+    renderWithRouter(<SummaryCard />);
     expect(screen.getByRole('heading')).toHaveTextContent('Title Summary');
 
     const links = screen.getAllByRole('link');
@@ -68,12 +65,11 @@ describe('Summary', () => {
     expect(links[0]).toHaveAttribute('href', '/discussion/create');
     expect(links[1]).toHaveAttribute('href', '/discussion');
 
-    expect(screen.getByText('"Summary of the discussion"')).toBeInTheDocument();
-    expect(screen.getByRole('button')).toHaveAccessibleName('Copy button aria');
+    expect(screen.getByTestId('summary-discussion-1')).toBeInTheDocument();
   });
 
   it('calls setState with Discussion.reset() when restart button is clicked', () => {
-    renderWithRouter(<Summary />);
+    renderWithRouter(<SummaryCard />);
 
     const restartButton = screen.getByText('Restart Button');
     fireEvent.click(restartButton);
@@ -84,19 +80,6 @@ describe('Summary', () => {
       isStarted: true,
       isCompleted: false,
       activeStep: 0,
-    });
-  });
-
-  it('displays a toast when the copy button is clicked', () => {
-    renderWithRouter(<Summary />);
-
-    const copyButton = screen.getByRole('button');
-    fireEvent.click(copyButton);
-    expect(mocks.copyTextMock).toHaveBeenCalledWith(
-      'Summary of the discussion'
-    );
-    expect(mocks.toastSuccessMock).toHaveBeenCalledWith('Copy toast', {
-      duration: 2000,
     });
   });
 });

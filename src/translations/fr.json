@@ -115,7 +115,12 @@
     "connected": "Vous êtes bien connecté !",
     "connected-description": "Vous pouvez maintenant accéder à votre compte.",
     "history-title": "Historique des discussions",
-    "history-description": "Vous pouvez consulter l'historique de vos discussions."
+    "history-description": "Vous pouvez consulter l'historique de vos discussions.",
+    "history-details-dialog": {
+      "title": "Discussion du {{date}}",
+      "description": "Vous pouvez consulter la discussion, mais vous ne pouvez pas la modifier.",
+      "back": "Retour"
+    }
   },
   "feelings-list-page": {
     "title": "Liste des émotions et besoins",

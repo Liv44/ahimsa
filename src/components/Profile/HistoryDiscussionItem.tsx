@@ -1,10 +1,11 @@
-import { Eye, Trash2 } from 'lucide-react';
+import { Trash2 } from 'lucide-react';
 
 import Discussion from '@/domain/entities/Discussion';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
+import HistoryDetailsDialog from './HistoryDetailsDialog';
 
 const HistoryDiscussionItem = ({ discussion }: { discussion: Discussion }) => {
   return (
@@ -24,10 +25,7 @@ const HistoryDiscussionItem = ({ discussion }: { discussion: Discussion }) => {
           <p>{discussion.getPreview()}</p>
         </div>
         <div className="flex flex-col gap-2 md:flex-row">
-          <Button variant="ghost" size="icon" className="bg-light-orange m-1">
-            <span className="sr-only">View</span>
-            <Eye className="h-4 w-4" />
-          </Button>
+          <HistoryDetailsDialog discussion={discussion} />
           <Button variant="ghost" size="icon" className="bg-light-orange m-1">
             <span className="sr-only">Delete</span>
             <Trash2 className="h-4 w-4" />
