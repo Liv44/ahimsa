@@ -73,6 +73,20 @@ class SupabaseDiscussionRepository implements DiscussionRepository {
   }
 
   async delete(id: string): Promise<void> {
+    // Pour effectuer une suppression en cascade, il faut d'abord supprimer les étapes associées à la discussion,
+    // puis supprimer la discussion elle-même. Voici comment faire :
+
+    // Suppression des steps liés à la discussion
+    const { error: stepsError } = await supabase
+      .from('discussionStep')
+      .delete()
+      .eq('discussion_id', id);
+
+    if (stepsError) {
+      throw stepsError;
+    }
+
+    // Suppression de la discussion
     const { error } = await supabase.from('discussion').delete().eq('id', id);
 
     if (error) {

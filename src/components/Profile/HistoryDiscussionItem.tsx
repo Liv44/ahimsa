@@ -1,10 +1,8 @@
-import { Trash2 } from 'lucide-react';
-
 import Discussion from '@/domain/entities/Discussion';
 
 import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
+import HistoryDeleteDialog from './HistoryDeleteDialog';
 import HistoryDetailsDialog from './HistoryDetailsDialog';
 
 const HistoryDiscussionItem = ({ discussion }: { discussion: Discussion }) => {
@@ -26,10 +24,7 @@ const HistoryDiscussionItem = ({ discussion }: { discussion: Discussion }) => {
         </div>
         <div className="flex flex-col gap-2 md:flex-row">
           <HistoryDetailsDialog discussion={discussion} />
-          <Button variant="ghost" size="icon" className="bg-light-orange m-1">
-            <span className="sr-only">Delete</span>
-            <Trash2 className="h-4 w-4" />
-          </Button>
+          <HistoryDeleteDialog discussion={discussion} />
         </div>
       </li>
       <Separator />

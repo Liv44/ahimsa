@@ -120,6 +120,12 @@
       "title": "Discussion du {{date}}",
       "description": "Vous pouvez consulter la discussion, mais vous ne pouvez pas la modifier.",
       "back": "Retour"
+    },
+    "history-delete-dialog": {
+      "title": "Voulez-vous vraiment supprimer la discussion du {{date}} ?",
+      "description": "La suppression de cette discussion est irréversible. Vous ne pouvez pas la restaurer.",
+      "back": "Retour",
+      "delete": "Supprimer"
     }
   },
   "feelings-list-page": {
