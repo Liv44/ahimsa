@@ -1,4 +1,4 @@
-import Discussion, { DiscussionRepository } from '@/domain/entities/Discussion';
+import { DiscussionRepository } from '@/domain/entities/Discussion';
 
 const getAllDiscussions = async (
   discussionRepository: DiscussionRepository,
@@ -8,14 +8,7 @@ const getAllDiscussions = async (
     throw new Error('User ID is required');
   }
   const discussions = await discussionRepository.getAllFromUser(userId);
-  console.log({ discussions });
-  if (discussions.length > 0) {
-    discussions.forEach((discussion) => {
-      if (!(discussion instanceof Discussion)) {
-        throw new Error('Discussion is not an instance of Discussion');
-      }
-    });
-  }
+
   return discussions;
 };
 

@@ -1,11 +1,12 @@
-import Discussion from '@/domain/entities/Discussion';
 import { Eye, Trash2 } from 'lucide-react';
-import { Badge } from '../ui/badge';
-import { Button } from '../ui/button';
-import { Separator } from '../ui/separator';
+
+import Discussion from '@/domain/entities/Discussion';
+
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Separator } from '@/components/ui/separator';
 
 const HistoryDiscussionItem = ({ discussion }: { discussion: Discussion }) => {
-  console.log(discussion);
   return (
     <>
       <li className="flex flex-row gap-2 justify-between items-center w-full">
@@ -20,7 +21,7 @@ const HistoryDiscussionItem = ({ discussion }: { discussion: Discussion }) => {
               year: 'numeric',
             })}
           </Badge>
-          <p>{discussion.getSummaryForList()}</p>
+          <p>{discussion.getPreview()}</p>
         </div>
         <div className="flex flex-col gap-2 md:flex-row">
           <Button variant="ghost" size="icon" className="bg-light-orange m-1">
