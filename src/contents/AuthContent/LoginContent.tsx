@@ -4,12 +4,14 @@ import z from 'zod';
 
 import AuthForm, { FieldConfig } from '@/components/Auth/AuthForm';
 import useLogin from '@/domain/usecases/auth/useLogin';
+import { useSentry } from '@/hooks/useSentry';
 
 const LoginContent = () => {
   const [emailSent, setEmailSent] = useState(false);
   const [errorSendingEmail, setErrorSendingEmail] = useState(false);
   const [triedToSignin, setTriedToSignin] = useState(false);
   const { mutate: login, isPending: isLoading } = useLogin();
+  const { captureError, setTag } = useSentry();
   const { t } = useTranslation();
 
   const loginFormSchema = z.object({
@@ -32,6 +34,8 @@ const LoginContent = () => {
     setTriedToSignin(false);
     setEmailSent(false);
 
+    setTag('auth_action', 'login');
+
     login(
       { email: values.email },
       {
@@ -40,6 +44,17 @@ const LoginContent = () => {
         },
         onError: (error) => {
           setErrorSendingEmail(true);
+
+          captureError(error, {
+            auth: {
+              email: values.email,
+              error_code: error.message,
+              auth_method: 'magic_link',
+              error_type: 'login_failed',
+              supabase_code: error.code || 'unknown',
+            },
+          });
+
           const code = error.code;
           if (code === 'otp_disabled') {
             setTriedToSignin(true);
