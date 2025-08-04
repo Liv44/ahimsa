@@ -3,7 +3,7 @@ import { BrowserRouter, Outlet, Route, Routes } from 'react-router-dom';
 import Layout from '@/components/Layout/Layout';
 import DiscussionStepsAccordion from '@/contents/DiscussionContent/DiscussionStepsAccordion';
 import Introduction from '@/contents/DiscussionContent/Introduction';
-import Summary from '@/contents/DiscussionContent/Summary';
+import SummaryCard from '@/contents/DiscussionContent/SummaryCard';
 import ConnexionPage from '@/pages/ConnexionPage';
 import DiscussionPage from '@/pages/DiscussionPage';
 import LandingPage from '@/pages/LandingPage';
@@ -29,7 +29,7 @@ const Router = () => {
           <Route path="discussion" element={<DiscussionPage />}>
             <Route path="" element={<Introduction />} />
             <Route path="create" element={<DiscussionStepsAccordion />} />
-            <Route path="summary" element={<Summary />} />
+            <Route path="summary" element={<SummaryCard />} />
           </Route>
           <Route path="profile" element={<ProfilePage />} />
         </Route>
