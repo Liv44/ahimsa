@@ -13,6 +13,18 @@ vi.mock('@/hooks/discussion/useGetDiscussions', () => ({
   default: mocks.useGetDiscussions,
 }));
 
+vi.mock('@/components/Profile/HistoryDeleteDialog', () => ({
+  default: ({ discussion }: { discussion: Discussion }) => (
+    <div data-testid={`history-delete-dialog-${discussion.id}`}></div>
+  ),
+}));
+
+vi.mock('@/components/Profile/HistoryDetailsDialog', () => ({
+  default: ({ discussion }: { discussion: Discussion }) => (
+    <div data-testid={`history-delete-dialog-${discussion.id}`}></div>
+  ),
+}));
+
 describe('HistoryDiscussionItem', () => {
   beforeEach(() => {
     vi.clearAllMocks();
@@ -40,7 +52,6 @@ describe('HistoryDiscussionItem', () => {
       createdAt: date,
       userId: 'userId',
     });
-    console.log(discussion.getPreview());
 
     renderWithRouter(<HistoryDiscussionItem discussion={discussion} />);
 

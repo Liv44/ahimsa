@@ -19,7 +19,6 @@ const HistoryDeleteDialog = ({ discussion }: { discussion: Discussion }) => {
   const { t } = useTranslation();
   const { mutate: deleteDiscussion } = useDeleteDiscussion();
   const handleDelete = () => {
-    console.log('delete');
     deleteDiscussion(discussion);
   };
   return (
