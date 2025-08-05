@@ -34,6 +34,7 @@ export default defineConfig(() => {
           'src/domain/usecases/discussion/useDiscussionStore.ts',
           'src/domain/usecases/auth/useSignIn.ts',
           'src/domain/usecases/auth/useLogin.ts',
+          'src/hooks/useSentry.ts',
         ],
       },
     },

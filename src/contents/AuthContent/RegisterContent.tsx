@@ -1,3 +1,4 @@
+import { useSentry } from '@/hooks/useSentry';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import z from 'zod';
@@ -8,8 +9,9 @@ import useSignIn from '@/domain/usecases/auth/useSignIn';
 const RegisterContent = () => {
   const [emailSent, setEmailSent] = useState(false);
   const [errorSendingEmail, setErrorSendingEmail] = useState(false);
+  const { mutate: signIn, isPending: isLoading } = useSignIn();
+  const { captureError, setTag } = useSentry();
   const { t } = useTranslation();
-  const { mutate: signIn } = useSignIn();
 
   const registerFormSchema = z.object({
     pseudo: z
@@ -41,14 +43,29 @@ const RegisterContent = () => {
   ) => {
     setErrorSendingEmail(false);
     setEmailSent(false);
+
+    // Tag pour identifier l'action dans Sentry
+    setTag('auth_action', 'register');
+
     signIn(
       { email: values.email, pseudo: values.pseudo },
       {
         onSuccess: () => {
           setEmailSent(true);
         },
-        onError: () => {
+        onError: (error) => {
           setErrorSendingEmail(true);
+
+          captureError(error, {
+            auth: {
+              email: values.email,
+              pseudo: values.pseudo,
+              error_code: error.message,
+              auth_method: 'magic_link',
+              error_type: 'register_failed',
+              supabase_code: error.code || 'unknown',
+            },
+          });
         },
       }
     );
@@ -61,6 +78,7 @@ const RegisterContent = () => {
       submitLabel={t('connexion.button-register')}
       errorSendingEmail={errorSendingEmail}
       emailSent={emailSent}
+      isLoading={isLoading}
     />
   );
 };
