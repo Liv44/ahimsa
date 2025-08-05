@@ -1,4 +1,5 @@
 import { useMutation } from '@tanstack/react-query';
+import { useTranslation } from 'react-i18next';
 import { toast } from 'sonner';
 
 import { queryClient } from '@/config/queryConfig';
@@ -14,6 +15,7 @@ const repository = new SupabaseDiscussionRepository();
 export const useCompleteAndSaveDiscussion = () => {
   const { user } = useAuth();
   const { discussion } = useDiscussionStore();
+  const { t } = useTranslation();
   return useMutation({
     mutationFn: async () => {
       const updatedDiscussion = await completeAndSaveDiscussion(
@@ -33,11 +35,11 @@ export const useCompleteAndSaveDiscussion = () => {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['discussions'] });
       if (user) {
-        toast.success('Discussion saved');
+        toast.success(t('discussion-page.summary.toast-success'));
       }
     },
     onError: (error) => {
-      toast.error('Error saving discussion');
+      toast.error(t('discussion-page.summary.toast-error'));
       console.error(error);
     },
   });
