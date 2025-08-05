@@ -1,4 +1,5 @@
 import { useMutation } from '@tanstack/react-query';
+import { useTranslation } from 'react-i18next';
 import { toast } from 'sonner';
 
 import { queryClient } from '@/config/queryConfig';
@@ -11,6 +12,7 @@ const repository = new SupabaseDiscussionRepository();
 
 export const useDeleteDiscussion = () => {
   const { user } = useAuth();
+  const { t } = useTranslation();
   return useMutation({
     mutationFn: async (discussion: Discussion) => {
       if (!user) {
@@ -21,11 +23,11 @@ export const useDeleteDiscussion = () => {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['discussions'] });
       if (user) {
-        toast.success('Discussion deleted');
+        toast.success(t('profile-page.history-delete-dialog.toast-success'));
       }
     },
     onError: (error) => {
-      toast.error('Error deleting discussion');
+      toast.error(t('profile-page.history-delete-dialog.toast-error'));
       console.error(error);
     },
   });
