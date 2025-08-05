@@ -32,7 +32,8 @@ export function useAuth() {
       mounted = false;
       data.subscription.unsubscribe();
     };
-  }, [captureError, setTag, setUser, setUserSentry]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const refreshUser = useCallback(async () => {
     setLoading(true);
@@ -44,7 +45,8 @@ export function useAuth() {
     setUser(data.user);
     setUserSentry(data.user);
     setLoading(false);
-  }, [captureError, setTag, setUser, setUserSentry]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const signOut = useCallback(async () => {
     const { error } = await supabase.auth.signOut();
@@ -54,7 +56,8 @@ export function useAuth() {
     }
     setUser(null);
     setUserSentry(null);
-  }, [captureError, setTag, setUser, setUserSentry]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return { user, loading, refreshUser, signOut };
 }
