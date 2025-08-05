@@ -1,15 +1,14 @@
-import { Copy } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import { Toaster, toast } from 'sonner';
 
+import SummaryDiscussion from '@/components/Discussion/SummaryDiscussion';
 import { Button } from '@/components/ui/button';
 import Discussion from '@/domain/entities/Discussion';
 import useDiscussionStore, {
   discussionStore,
-} from '@/domain/usecases/discussion/useDiscussionStore';
+} from '@/hooks/discussion/useDiscussionStore';
 
-const Summary = () => {
+const SummaryCard = () => {
   const { discussion } = useDiscussionStore();
   const { t } = useTranslation();
   return (
@@ -17,23 +16,9 @@ const Summary = () => {
       <h2 className="text-xl font-bold text-light-blue">
         {t('discussion-page.summary.title')}
       </h2>
-      <div className="flex flex-row justify-center items-center gap-1">
-        <p className="text-md">"{discussion.getSummary()}"</p>
-        <Toaster position="top-center" richColors />
-        <Button
-          size="icon"
-          variant="ghost"
-          onClick={() => {
-            navigator.clipboard.writeText(discussion.getSummary());
-            toast.success(t('discussion-page.summary.toast-text'), {
-              duration: 2000,
-            });
-          }}
-          aria-label={t('discussion-page.summary.copy-button-aria')}
-        >
-          <Copy className="size-4" />
-        </Button>
-      </div>
+
+      <SummaryDiscussion discussion={discussion} />
+
       <div className="flex flex-wrap items-center justify-center gap-4">
         <Button asChild>
           <Link to="/discussion/create">
@@ -63,4 +48,4 @@ const Summary = () => {
   );
 };
 
-export default Summary;
+export default SummaryCard;

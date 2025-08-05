@@ -4,7 +4,7 @@ import { Link, Navigate, useLocation } from 'react-router-dom';
 
 import LoginContent from '@/contents/AuthContent/LoginContent';
 import RegisterContent from '@/contents/AuthContent/RegisterContent';
-import { useAuth } from '@/hooks/useAuth';
+import { useAuth } from '@/hooks/auth/useAuth';
 
 const ConnexionPage = () => {
   const location = useLocation();

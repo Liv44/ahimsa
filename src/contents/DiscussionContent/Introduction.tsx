@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
+import Discussion from '@/domain/entities/Discussion';
+import { discussionStore } from '@/hooks/discussion/useDiscussionStore';
 
 const Introduction = () => {
   const { t } = useTranslation();
@@ -14,7 +16,18 @@ const Introduction = () => {
   return (
     <div className="flex flex-col gap-4 max-w-250 mx-auto p-4">
       <p className="text-md">{t('discussion-page.description')}</p>
-      <Button asChild className="mx-auto">
+      <Button
+        asChild
+        className="mx-auto"
+        onClick={() => {
+          discussionStore.setState({
+            isStarted: true,
+            isCompleted: false,
+            activeStep: 0,
+            discussion: Discussion.reset(),
+          });
+        }}
+      >
         <Link to="/discussion/create">{t('discussion-page.button-start')}</Link>
       </Button>
       <h2 className="text-lg font-bold">

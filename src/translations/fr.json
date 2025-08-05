@@ -113,7 +113,20 @@
     "registered": "Vous êtes bien inscrit !",
     "registered-description": "Vous pouvez maintenant accéder à votre compte.",
     "connected": "Vous êtes bien connecté !",
-    "connected-description": "Vous pouvez maintenant accéder à votre compte."
+    "connected-description": "Vous pouvez maintenant accéder à votre compte.",
+    "history-title": "Historique des discussions",
+    "history-description": "Vous pouvez consulter l'historique de vos discussions.",
+    "history-details-dialog": {
+      "title": "Discussion du {{date}}",
+      "description": "Vous pouvez consulter la discussion, mais vous ne pouvez pas la modifier.",
+      "back": "Retour"
+    },
+    "history-delete-dialog": {
+      "title": "Voulez-vous vraiment supprimer la discussion du {{date}} ?",
+      "description": "La suppression de cette discussion est irréversible. Vous ne pouvez pas la restaurer.",
+      "back": "Retour",
+      "delete": "Supprimer"
+    }
   },
   "feelings-list-page": {
     "title": "Liste des émotions et besoins",
