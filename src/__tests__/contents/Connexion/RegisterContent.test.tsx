@@ -5,6 +5,7 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 const mocks = vi.hoisted(() => {
   return {
     mutateMock: vi.fn(),
+    captureError: vi.fn(),
   };
 });
 
@@ -12,9 +13,18 @@ vi.mock('@/domain/usecases/auth/useSignIn', () => {
   return {
     default: () => ({
       mutate: mocks.mutateMock,
+      isPending: false,
     }),
   };
 });
+
+vi.mock('@/hooks/useSentry', () => ({
+  useSentry: () => ({
+    captureError: mocks.captureError,
+    setTag: vi.fn(),
+    captureMessage: vi.fn(),
+  }),
+}));
 
 vi.mock('@/components/Auth/AuthForm', () => ({
   default: ({
@@ -76,9 +86,51 @@ describe('RegisterContent', () => {
     const options = mocks.mutateMock.mock.calls[0][1];
 
     act(() => {
-      options.onError();
+      options.onError({
+        message: 'Test error message',
+        code: 'test_error_code',
+        name: 'AuthError',
+      });
     });
 
     expect(screen.getByText('Error sending email')).toBeInTheDocument();
+    expect(mocks.captureError).toHaveBeenCalledWith(
+      expect.objectContaining({ message: 'Test error message' }),
+      expect.objectContaining({
+        auth: expect.objectContaining({
+          email: expect.any(String),
+          pseudo: expect.any(String),
+          error_code: 'Test error message',
+          auth_method: 'magic_link',
+          error_type: 'register_failed',
+          supabase_code: 'test_error_code',
+        }),
+      })
+    );
+  });
+  it('captureError uses "unknown" if error.code is not defined', () => {
+    render(<RegisterContent />);
+
+    fireEvent.click(
+      screen.getByRole('button', { name: 'Label Button Register' })
+    );
+
+    const options = mocks.mutateMock.mock.calls[0][1];
+
+    act(() => {
+      options.onError({
+        message: 'no error code',
+        name: 'AuthError',
+      });
+    });
+
+    expect(mocks.captureError).toHaveBeenCalledWith(
+      expect.objectContaining({ message: 'no error code' }),
+      expect.objectContaining({
+        auth: expect.objectContaining({
+          supabase_code: 'unknown',
+        }),
+      })
+    );
   });
 });

@@ -32,7 +32,7 @@ export function useAuth() {
       mounted = false;
       data.subscription.unsubscribe();
     };
-  }, []);
+  }, [captureError, setTag, setUser, setUserSentry]);
 
   const refreshUser = useCallback(async () => {
     setLoading(true);
@@ -44,7 +44,7 @@ export function useAuth() {
     setUser(data.user);
     setUserSentry(data.user);
     setLoading(false);
-  }, []);
+  }, [captureError, setTag, setUser, setUserSentry]);
 
   const signOut = useCallback(async () => {
     const { error } = await supabase.auth.signOut();
@@ -54,7 +54,7 @@ export function useAuth() {
     }
     setUser(null);
     setUserSentry(null);
-  }, []);
+  }, [captureError, setTag, setUser, setUserSentry]);
 
   return { user, loading, refreshUser, signOut };
 }

@@ -5,13 +5,11 @@ import Isolation from '@/assets/illus/isolation.png';
 import MarshallRosenberg from '@/assets/illus/marshall-rosenberg.png';
 import Mockup from '@/assets/illus/mockup.png';
 
-import { useSentry } from '@/hooks/useSentry';
 import ContentBlock from './ContentBlock';
 import MethodCard from './MethodCard';
 
 const LandingContent = () => {
   const { t } = useTranslation();
-  const { captureError, setTag, captureMessage } = useSentry();
 
   const ofnrSteps = [
     {
@@ -51,17 +49,6 @@ const LandingContent = () => {
         hrefLink={'/feelings-list'}
         imageLeft={true}
       />
-      <button
-        onClick={() => {
-          setTag('landing_action', 'test_error');
-          const error = new Error('Erreur test LandingContent'); // captureException(error);
-          captureError(error);
-          captureMessage("Message d'information");
-          throw error;
-        }}
-      >
-        Break the world
-      </button>
       <ContentBlock
         title={t('landing.block1.title')}
         descriptions={
