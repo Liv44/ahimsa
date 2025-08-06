@@ -120,7 +120,7 @@ describe('DiscussionStepsAccordion', () => {
     expect(buttons[1]).toHaveTextContent('Next Button');
     expect(buttons[1]).toHaveAccessibleName('Next Button Aria');
 
-    expect(buttons[2]).toHaveTextContent('Step 2');
+    expect(buttons[2]).toHaveTextContent('2. Step 2');
     expect(buttons[2]).toHaveAttribute('aria-expanded', 'false');
 
     // Check textArea and label

@@ -4,6 +4,19 @@ import Discussion from '@/domain/entities/Discussion';
 import { screen } from '@testing-library/react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
+vi.mock('react-i18next', () => ({
+  useTranslation: () => ({
+    t: (key: string) => {
+      const translations: Record<string, unknown> = {
+        'profile-page.history-title': 'Title History',
+        'profile-page.history-description': 'Description History',
+        'profile-page.loading-spinner': 'Loading...',
+      };
+      return translations[key];
+    },
+  }),
+}));
+
 const mocks = vi.hoisted(() => ({
   useGetDiscussions: vi.fn(),
 }));
@@ -14,7 +27,7 @@ vi.mock('@/hooks/discussion/useGetDiscussions', () => ({
 
 vi.mock('@/components/Profile/HistoryDiscussionItem', () => ({
   default: ({ discussion }: { discussion: Discussion }) => (
-    <div data-testid={`discussion-item-${discussion.id}`}>{discussion.id}</div>
+    <div data-testid={'discussion-item-${discussion.id}'}>{discussion.id}</div>
   ),
 }));
 
@@ -32,9 +45,7 @@ describe('HistoryCard', () => {
 
     renderWithRouter(<HistoryCard />);
 
-    expect(
-      screen.getByLabelText('profile-page.loading-spinner')
-    ).toBeInTheDocument();
+    expect(screen.getByLabelText('Loading...')).toBeInTheDocument();
   });
 
   it('renders discussions when loaded', () => {
@@ -72,10 +83,8 @@ describe('HistoryCard', () => {
 
     renderWithRouter(<HistoryCard />);
 
-    expect(screen.getByText('profile-page.history-title')).toBeInTheDocument();
-    expect(
-      screen.getByText('profile-page.history-description')
-    ).toBeInTheDocument();
+    expect(screen.getByText('Title History')).toBeInTheDocument();
+    expect(screen.getByText('Description History')).toBeInTheDocument();
   });
 
   it('filters out discussions without updatedAt', () => {

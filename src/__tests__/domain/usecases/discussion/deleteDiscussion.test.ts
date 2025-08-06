@@ -33,6 +33,12 @@ describe('deleteDiscussion', () => {
       deleteDiscussion(discussion, repository, undefined as unknown as string)
     ).rejects.toThrow('You are not the owner of this discussion');
   });
+
+  it('should throw an error if userId is not equal to discussion.userId', () => {
+    expect(
+      deleteDiscussion(discussion, repository, 'wrongUserId')
+    ).rejects.toThrow('You are not the owner of this discussion');
+  });
   it('should return discussions', async () => {
     await deleteDiscussion(discussion, repository, 'userId');
     expect(repository.delete).toHaveBeenCalledWith('1');
