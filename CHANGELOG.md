@@ -1,5 +1,25 @@
 # Changelog
 
+# [2.1.0](https://github.com/Liv44/Ahimsa/compare/v2.0.1...v2.1.0) (2025-08-06)
+
+
+### Bug Fixes
+
+* **auth:** remove dependencies to useEffect ([f3ae7ac](https://github.com/Liv44/Ahimsa/commit/f3ae7aca58918f9161803b6c0cfa738216815c57))
+* **I51:** add translations for toaster ([e5e6b7e](https://github.com/Liv44/Ahimsa/commit/e5e6b7ebe0b756b0dc682c2b200e04c90d8fa16f))
+
+
+### Features
+
+* **config:** add Sentry to monitor errors ([7dc8e98](https://github.com/Liv44/Ahimsa/commit/7dc8e98da870c72796c25ce3fb449c747597cd1e))
+* **Discussion:** add completeAndSaveDiscussion usecase with tanstack query related to ([335023d](https://github.com/Liv44/Ahimsa/commit/335023dee90e7dd890bf9b7fc6ba9ba81b3077db))
+* **History:** add history Card in profile page ([a5212bf](https://github.com/Liv44/Ahimsa/commit/a5212bf923533dcf97cfab7fbebe29adb5d72b82))
+* **History:** add modale to delete discussion ([2ae6f01](https://github.com/Liv44/Ahimsa/commit/2ae6f01a9d9b4668b1b9be3a4f7eb3aa33380d0a))
+* **History:** add modale with details of Discussion ([8fc2cf1](https://github.com/Liv44/Ahimsa/commit/8fc2cf13c3c1ac9ecbfa9d0fd903b10472d677bc))
+* **mappers:** add Discussion and Step mappers from supabase type ([e8eaf9e](https://github.com/Liv44/Ahimsa/commit/e8eaf9ef8cf30da45fd534783ab6ade3de37c905))
+* **performances:** reduce images sizes and add loading lazy ([1372077](https://github.com/Liv44/Ahimsa/commit/137207732b5bc10b3012bd4a07622a1201ba23d6))
+* **Supabase:** add supabase repository ([c370435](https://github.com/Liv44/Ahimsa/commit/c370435255ef9ddfb2f4d449ce824976ce0f8058))
+
 ## [2.0.1](https://github.com/Liv44/Ahimsa/compare/v2.0.0...v2.0.1) (2025-07-18)
 
 
