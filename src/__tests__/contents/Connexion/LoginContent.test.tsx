@@ -5,10 +5,19 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 const mocks = vi.hoisted(() => {
   return {
     mutateMock: vi.fn(),
+    captureError: vi.fn(),
   };
 });
 
-vi.mock('@/domain/usecases/auth/useLogin', () => {
+vi.mock('@/hooks/useSentry', () => ({
+  useSentry: () => ({
+    captureError: mocks.captureError,
+    setTag: vi.fn(),
+    captureMessage: vi.fn(),
+  }),
+}));
+
+vi.mock('@/hooks/auth/useLogin', () => {
   return {
     default: () => ({
       mutate: mocks.mutateMock,
@@ -87,8 +96,48 @@ describe('LoginContent', () => {
     const options = mocks.mutateMock.mock.calls[0][1];
 
     act(() => {
-      options.onError({ code: 'otp_disabled' });
+      options.onError({
+        code: 'otp_disabled',
+        message: 'Test error message',
+        name: 'AuthError',
+      });
     });
     expect(screen.getByText('Error signin in')).toBeInTheDocument();
+    expect(mocks.captureError).toHaveBeenCalledWith(
+      expect.objectContaining({ message: 'Test error message' }),
+      expect.objectContaining({
+        auth: expect.objectContaining({
+          email: expect.any(String),
+          error_code: 'Test error message',
+          auth_method: 'magic_link',
+          error_type: 'login_failed',
+          supabase_code: 'otp_disabled',
+        }),
+      })
+    );
+  });
+
+  it('captureError uses "unknown" if error.code is not defined', () => {
+    render(<LoginContent />);
+
+    fireEvent.click(screen.getByRole('button', { name: 'Label Button Login' }));
+
+    const options = mocks.mutateMock.mock.calls[0][1];
+
+    act(() => {
+      options.onError({
+        message: 'no error code',
+        name: 'AuthError',
+      });
+    });
+
+    expect(mocks.captureError).toHaveBeenCalledWith(
+      expect.objectContaining({ message: 'no error code' }),
+      expect.objectContaining({
+        auth: expect.objectContaining({
+          supabase_code: 'unknown',
+        }),
+      })
+    );
   });
 });

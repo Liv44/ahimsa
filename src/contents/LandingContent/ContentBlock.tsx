@@ -29,6 +29,8 @@ const ContentBlock: React.FC<ContentBlockProps> = ({
     >
       {imageSrc && (
         <img
+          loading="lazy"
+          decoding="async"
           data-testid="imgContentBlock"
           src={imageSrc}
           alt={imageAlt || ''}

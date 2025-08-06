@@ -5,6 +5,7 @@ import { persister, queryClient } from '@/config/queryConfig';
 import Router from '@/router/Router';
 
 import { QueryClientProvider } from '@tanstack/react-query';
+import { Toaster } from 'sonner';
 import './App.css';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         persistOptions={{ persister }}
       >
         <Router />
+        <Toaster position="top-center" closeButton={true} richColors={true} />
       </PersistQueryClientProvider>
     </QueryClientProvider>
   );

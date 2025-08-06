@@ -8,6 +8,7 @@ const mocks = vi.hoisted(() => {
   return {
     setStateMock: vi.fn(),
     navigateMock: vi.fn(),
+    useCompleteAndSaveDiscussionMock: vi.fn(),
   };
 });
 
@@ -71,10 +72,17 @@ const stepsMock = [
   },
 ];
 
-vi.mock('@/domain/usecases/discussion/useDiscussionStore', () => ({
+vi.mock('@/hooks/discussion/useDiscussionStore', () => ({
   __esModule: true,
   default: () => ({ discussion: { steps: stepsMock } }),
   discussionStore: { setState: mocks.setStateMock },
+}));
+
+vi.mock('@/hooks/discussion/useCompleteAndSaveDiscussion', () => ({
+  __esModule: true,
+  useCompleteAndSaveDiscussion: () => ({
+    mutateAsync: mocks.useCompleteAndSaveDiscussionMock,
+  }),
 }));
 
 // - HELPERS -
@@ -173,7 +181,6 @@ describe('DiscussionStepsAccordion', () => {
     clickButton('Next Button Aria');
 
     expect(stepsMock[0].updateContent).toHaveBeenCalledWith('Mon texte');
-    expect(stepsMock[0].complete).toHaveBeenCalled();
 
     expect(document.activeElement).toBe(
       screen.getByRole('button', { name: '2. Step 2' })
@@ -211,17 +218,16 @@ describe('DiscussionStepsAccordion', () => {
 
     fireEvent.click(finalButton);
 
-    const fakeState = {
-      isStarted: true,
-      isCompleted: false,
-      activeStep: 2,
-      discussion: { steps: stepsMock },
-    };
+    expect(mocks.useCompleteAndSaveDiscussionMock).toHaveBeenCalledWith(
+      undefined,
+      {
+        onSuccess: expect.any(Function),
+      }
+    );
 
-    expect(getLastSetStateResult(fakeState)).toEqual({
-      ...fakeState,
-      isCompleted: true,
-    });
+    const onSuccessCallback =
+      mocks.useCompleteAndSaveDiscussionMock.mock.calls[0][1].onSuccess;
+    onSuccessCallback();
 
     expect(mocks.navigateMock).toHaveBeenCalledWith('/discussion/summary');
   });
