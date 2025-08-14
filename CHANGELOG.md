@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.1](https://github.com/Liv44/Ahimsa/compare/v2.1.0...v2.1.1) (2025-08-14)
+
+
+### Bug Fixes
+
+* **frontend:** fix some errors to improve performances ([aa28634](https://github.com/Liv44/Ahimsa/commit/aa286345a902d07466fe1e9152e67d191ca38215))
+
 # [2.1.0](https://github.com/Liv44/Ahimsa/compare/v2.0.1...v2.1.0) (2025-08-06)
 
 
