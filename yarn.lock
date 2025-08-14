@@ -1598,6 +1598,11 @@
     isows "^1.0.7"
     ws "^8.18.2"
 
+"@supabase/sentry-js-integration@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@supabase/sentry-js-integration/-/sentry-js-integration-0.3.0.tgz#252137eb9a37c6186afa49ac468fdaa6f1656806"
+  integrity sha512-L6tr+M9OlYu3Ge3G33Cf5BptYYs30feJmD3zovCSRQezJOdtkbA361WVNyzCpSoIbUo4rcDVY/apklAhBewFBw==
+
 "@supabase/storage-js@2.7.1":
   version "2.7.1"
   resolved "https://registry.yarnpkg.com/@supabase/storage-js/-/storage-js-2.7.1.tgz#761482f237deec98a59e5af1ace18c7a5e0a69af"
