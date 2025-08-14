@@ -73,7 +73,7 @@
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
     "@types/react-i18next": "^8.1.0",
-    "@vitejs/plugin-react": "^4.4.1",
+    "@vitejs/plugin-react": "^5.0.0",
     "@vitest/coverage-v8": "^3.2.4",
     "eslint": "^9.25.0",
     "eslint-plugin-react-hooks": "^5.2.0",
