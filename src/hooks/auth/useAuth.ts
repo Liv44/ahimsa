@@ -19,7 +19,9 @@ export function useAuth() {
       }
       if (error) {
         setTag('auth_action', 'get_user');
-        captureError(error);
+        captureError(error, {
+          title: 'useAuth - getUser',
+        });
       }
     });
 
@@ -40,7 +42,9 @@ export function useAuth() {
     const { data, error } = await supabase.auth.getUser();
     if (error) {
       setTag('auth_action', 'refresh_user');
-      captureError(error);
+      captureError(error, {
+        title: 'useAuth - refreshUser',
+      });
     }
     setUser(data.user);
     setUserSentry(data.user);
@@ -52,7 +56,9 @@ export function useAuth() {
     const { error } = await supabase.auth.signOut();
     if (error) {
       setTag('auth_action', 'sign_out');
-      captureError(error);
+      captureError(error, {
+        title: 'useAuth - signOut',
+      });
     }
     setUser(null);
     setUserSentry(null);

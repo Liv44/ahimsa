@@ -1,0 +1,30 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: '/'
+    schedule:
+      interval: weekly
+      day: monday
+      time: '04:00'
+      timezone: 'Europe/Paris'
+    open-pull-requests-limit: 5
+    allow:
+      - dependency-type: 'direct'
+    ignore:
+      - dependency-name: 'react'
+        versions: ['>=19.0.0']
+      - dependency-name: '@supabase/*'
+        versions: ['>=3.0.0']
+    commit-message:
+      prefix: 'chore(deps)'
+      include: scope
+
+  - package-ecosystem: github-actions
+    directory: '/'
+    schedule:
+      interval: monthly
+      day: monday
+      time: '05:00'
+      timezone: 'Europe/Paris'
+    commit-message:
+      prefix: 'chore(ci)'

@@ -94,17 +94,26 @@ describe('RegisterContent', () => {
     });
 
     expect(screen.getByText('Error sending email')).toBeInTheDocument();
+    console.log(mocks.captureError.mock.calls[0][1]);
+    console.log(mocks.captureError.mock.calls[0][0]);
     expect(mocks.captureError).toHaveBeenCalledWith(
-      expect.objectContaining({ message: 'Test error message' }),
       expect.objectContaining({
-        auth: expect.objectContaining({
-          email: expect.any(String),
-          pseudo: expect.any(String),
-          error_code: 'Test error message',
-          auth_method: 'magic_link',
-          error_type: 'register_failed',
-          supabase_code: 'test_error_code',
-        }),
+        message: 'Test error message',
+        code: 'test_error_code',
+        name: 'AuthError',
+      }),
+      expect.objectContaining({
+        title: 'RegisterContent',
+        context: {
+          auth: {
+            email: 'test@test.com',
+            pseudo: 'pseudo',
+            error_code: 'Test error message',
+            auth_method: 'magic_link',
+            error_type: 'register_failed',
+            supabase_code: 'test_error_code',
+          },
+        },
       })
     );
   });
@@ -125,11 +134,22 @@ describe('RegisterContent', () => {
     });
 
     expect(mocks.captureError).toHaveBeenCalledWith(
-      expect.objectContaining({ message: 'no error code' }),
       expect.objectContaining({
-        auth: expect.objectContaining({
-          supabase_code: 'unknown',
-        }),
+        message: 'no error code',
+        name: 'AuthError',
+      }),
+      expect.objectContaining({
+        title: 'RegisterContent',
+        context: {
+          auth: {
+            email: 'test@test.com',
+            pseudo: 'pseudo',
+            error_code: 'no error code',
+            auth_method: 'magic_link',
+            error_type: 'register_failed',
+            supabase_code: 'unknown',
+          },
+        },
       })
     );
   });
