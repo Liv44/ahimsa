@@ -46,12 +46,15 @@ const LoginContent = () => {
           setErrorSendingEmail(true);
 
           captureError(error, {
-            auth: {
-              email: values.email,
-              error_code: error.message,
-              auth_method: 'magic_link',
-              error_type: 'login_failed',
-              supabase_code: error.code || 'unknown',
+            title: 'LoginContent',
+            context: {
+              auth: {
+                email: values.email,
+                error_code: error.message,
+                auth_method: 'magic_link',
+                error_type: 'login_failed',
+                supabase_code: error.code || 'unknown',
+              },
             },
           });
 

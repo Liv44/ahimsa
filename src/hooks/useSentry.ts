@@ -17,18 +17,26 @@ interface SentryContext {
   [key: string]: unknown;
 }
 
+interface CaptureErrorOptions {
+  title?: string;
+  context?: SentryContext;
+}
+
 export const useSentry = () => {
-  const captureError = (error: Error, context?: SentryContext) => {
+  const captureError = (error: Error, options?: CaptureErrorOptions) => {
     Sentry.withScope((scope) => {
-      if (context) {
-        scope.setContext('error_context', context);
+      if (options?.context) {
+        scope.setContext('error_context', options.context);
       }
       scope.setTag('error_source', 'manual_capture');
 
-      if (context?.auth?.error_code) {
-        scope.setFingerprint(['auth-error', context.auth.error_code]);
-      } else if (context?.auth?.action) {
-        scope.setFingerprint(['auth-error', context.auth.action]);
+      if (options?.title) {
+        scope.setTag('error_title', options.title);
+        scope.setFingerprint(['custom-error', options.title]);
+      } else if (options?.context?.auth?.error_code) {
+        scope.setFingerprint(['auth-error', options.context.auth.error_code]);
+      } else if (options?.context?.auth?.action) {
+        scope.setFingerprint(['auth-error', options.context.auth.action]);
       } else {
         scope.setFingerprint(['manual-error', error.message]);
       }

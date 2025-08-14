@@ -9,6 +9,7 @@ import useDiscussionStore, {
   discussionStore,
 } from '@/hooks/discussion/useDiscussionStore';
 import SupabaseDiscussionRepository from '@/infrastructure/repositories/SupabaseDiscussion.repository';
+import { useSentry } from '../useSentry';
 
 const repository = new SupabaseDiscussionRepository();
 
@@ -16,8 +17,11 @@ export const useCompleteAndSaveDiscussion = () => {
   const { user } = useAuth();
   const { discussion } = useDiscussionStore();
   const { t } = useTranslation();
+  const { captureError, setTag } = useSentry();
+
   return useMutation({
     mutationFn: async () => {
+      setTag('discussion_action', 'complete_and_save');
       const updatedDiscussion = await completeAndSaveDiscussion(
         discussion,
         repository,
@@ -40,6 +44,18 @@ export const useCompleteAndSaveDiscussion = () => {
     },
     onError: (error) => {
       toast.error(t('discussion-page.summary.toast-error'));
+      captureError(error, {
+        title: 'useCompleteAndSaveDiscussion',
+        context: {
+          data: {
+            email: user?.email,
+            error_message: error.message,
+            error_type: 'save_discussion_failed',
+            discussion_id: discussion.id,
+            user_id: user?.id,
+          },
+        },
+      });
       console.error(error);
     },
   });
