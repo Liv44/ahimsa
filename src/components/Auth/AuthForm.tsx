@@ -31,6 +31,7 @@ interface AuthComponentProps<T extends ZodTypeAny> {
   fields: FieldConfig<z.infer<T>>[];
   triedToSignin?: boolean;
   isLoading?: boolean;
+  defaultValues?: z.infer<T>;
 }
 
 const AuthForm = <T extends ZodTypeAny>({
@@ -42,11 +43,13 @@ const AuthForm = <T extends ZodTypeAny>({
   fields,
   triedToSignin,
   isLoading,
+  defaultValues,
 }: AuthComponentProps<T>) => {
   const { t } = useTranslation();
 
   const form = useForm<z.infer<T>>({
     resolver: zodResolver(formSchema),
+    defaultValues,
   });
 
   return (
@@ -85,9 +88,7 @@ const AuthForm = <T extends ZodTypeAny>({
         )}
         {emailSent && (
           <FormDescription className="text-center">
-            <p>
-              {t('connexion.email-sent', { email: form.getValues().email })}
-            </p>
+            {t('connexion.email-sent', { email: form.getValues().email })}
           </FormDescription>
         )}
         <Button

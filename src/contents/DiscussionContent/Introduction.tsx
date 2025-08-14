@@ -35,10 +35,10 @@ const Introduction = () => {
       </h2>
       <ul className="flex flex-col gap-4 text-sm">
         {examples.map((example) => (
-          <>
-            <li>{example}</li>
+          <li key={example} className="flex flex-col gap-2">
+            <p>{example}</p>
             <Separator />
-          </>
+          </li>
         ))}
       </ul>
     </div>

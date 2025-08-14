@@ -16,10 +16,12 @@ const RegisterContent = () => {
   const registerFormSchema = z.object({
     pseudo: z
       .string({ required_error: t('connexion.missing-pseudo') })
+      .min(1, { message: t('connexion.missing-pseudo') })
       .min(3, { message: t('connexion.wrong-pseudo') })
       .max(25, { message: t('connexion.wrong-pseudo') }),
     email: z
       .string({ required_error: t('connexion.missing-email') })
+      .min(1, { message: t('connexion.missing-email') })
       .email({ message: t('connexion.wrong-email') }),
   });
 
@@ -79,6 +81,10 @@ const RegisterContent = () => {
       errorSendingEmail={errorSendingEmail}
       emailSent={emailSent}
       isLoading={isLoading}
+      defaultValues={{
+        pseudo: '',
+        email: '',
+      }}
     />
   );
 };

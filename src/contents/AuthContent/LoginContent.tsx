@@ -17,6 +17,7 @@ const LoginContent = () => {
   const loginFormSchema = z.object({
     email: z
       .string({ required_error: t('connexion.missing-email') })
+      .min(1, { message: t('connexion.missing-email') })
       .email({ message: t('connexion.wrong-email') }),
   });
 
@@ -73,6 +74,9 @@ const LoginContent = () => {
       emailSent={emailSent}
       triedToSignin={triedToSignin}
       isLoading={isLoading}
+      defaultValues={{
+        email: '',
+      }}
     />
   );
 };
