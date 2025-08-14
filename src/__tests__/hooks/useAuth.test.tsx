@@ -147,11 +147,16 @@ describe('useAuth', () => {
     await act(async () => {});
 
     expect(result.current.user).toBeNull();
-    expect(mocks.mockCaptureError).toHaveBeenCalledWith(fakeError);
+    expect(mocks.mockCaptureError).toHaveBeenCalledWith(fakeError, {
+      title: 'useAuth - getUser',
+    });
   });
 
   it('captureError is called if refreshUser returns an error', async () => {
-    const fakeError = { message: 'refreshUser error' };
+    const fakeError = {
+      message: 'refreshUser error',
+      title: 'useAuth - refreshUser',
+    };
     mocks.mockGetUser.mockResolvedValueOnce({
       data: { user: null },
       error: null,
@@ -172,12 +177,17 @@ describe('useAuth', () => {
       await result.current.refreshUser();
     });
 
-    expect(mocks.mockCaptureError).toHaveBeenCalledWith(fakeError);
+    expect(mocks.mockCaptureError).toHaveBeenCalledWith(fakeError, {
+      title: 'useAuth - refreshUser',
+    });
   });
 
   it('captureError is called if signOut returns an error', async () => {
     const fakeUser = { id: '123', email: 'test@test.com' };
-    const fakeError = { message: 'signOut error' };
+    const fakeError = {
+      message: 'signOut error',
+      title: 'useAuth - signOut',
+    };
 
     mocks.mockGetUser.mockResolvedValue({
       data: { user: fakeUser },
@@ -195,6 +205,8 @@ describe('useAuth', () => {
       await result.current.signOut();
     });
 
-    expect(mocks.mockCaptureError).toHaveBeenCalledWith(fakeError);
+    expect(mocks.mockCaptureError).toHaveBeenCalledWith(fakeError, {
+      title: 'useAuth - signOut',
+    });
   });
 });

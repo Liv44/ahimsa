@@ -104,15 +104,21 @@ describe('LoginContent', () => {
     });
     expect(screen.getByText('Error signin in')).toBeInTheDocument();
     expect(mocks.captureError).toHaveBeenCalledWith(
-      expect.objectContaining({ message: 'Test error message' }),
       expect.objectContaining({
-        auth: expect.objectContaining({
-          email: expect.any(String),
-          error_code: 'Test error message',
-          auth_method: 'magic_link',
-          error_type: 'login_failed',
-          supabase_code: 'otp_disabled',
-        }),
+        message: 'Test error message',
+        name: 'AuthError',
+      }),
+      expect.objectContaining({
+        title: 'LoginContent',
+        context: {
+          auth: {
+            email: 'test@test.com',
+            error_code: 'Test error message',
+            auth_method: 'magic_link',
+            error_type: 'login_failed',
+            supabase_code: 'otp_disabled',
+          },
+        },
       })
     );
   });
@@ -132,11 +138,21 @@ describe('LoginContent', () => {
     });
 
     expect(mocks.captureError).toHaveBeenCalledWith(
-      expect.objectContaining({ message: 'no error code' }),
       expect.objectContaining({
-        auth: expect.objectContaining({
-          supabase_code: 'unknown',
-        }),
+        message: 'no error code',
+        name: 'AuthError',
+      }),
+      expect.objectContaining({
+        title: 'LoginContent',
+        context: {
+          auth: {
+            email: 'test@test.com',
+            error_code: 'no error code',
+            auth_method: 'magic_link',
+            error_type: 'login_failed',
+            supabase_code: 'unknown',
+          },
+        },
       })
     );
   });

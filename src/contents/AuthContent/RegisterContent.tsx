@@ -59,13 +59,16 @@ const RegisterContent = () => {
           setErrorSendingEmail(true);
 
           captureError(error, {
-            auth: {
-              email: values.email,
-              pseudo: values.pseudo,
-              error_code: error.message,
-              auth_method: 'magic_link',
-              error_type: 'register_failed',
-              supabase_code: error.code || 'unknown',
+            title: 'RegisterContent',
+            context: {
+              auth: {
+                email: values.email,
+                pseudo: values.pseudo,
+                error_code: error.message,
+                auth_method: 'magic_link',
+                error_type: 'register_failed',
+                supabase_code: error.code || 'unknown',
+              },
             },
           });
         },
