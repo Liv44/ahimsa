@@ -109,6 +109,8 @@
     "email": "Email",
     "pseudo": "Pseudo",
     "loading": "Chargement...",
+    "history-empty-state": "Aucune discussion trouvée. Créez-en une !",
+    "history-empty-state-button": "Créer une discussion",
     "sign-out": "Déconnexion",
     "registered": "Vous êtes bien inscrit !",
     "registered-description": "Vous pouvez maintenant accéder à votre compte.",
