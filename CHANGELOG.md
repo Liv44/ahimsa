@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.1.2](https://github.com/Liv44/Ahimsa/compare/v2.1.1...v2.1.2) (2025-08-17)
+
+
+### Bug Fixes
+
+* **I55:** remove update discussion when user is connected ([ada5c6a](https://github.com/Liv44/Ahimsa/commit/ada5c6ac7c65272f1228e7bcbe197f23b88ccebc))
+* **I70:** add text when history is empty to fix display issue ([e0db9c6](https://github.com/Liv44/Ahimsa/commit/e0db9c627c95c9b48692b6451b494379f976084e))
+
 ## [2.1.1](https://github.com/Liv44/Ahimsa/compare/v2.1.0...v2.1.1) (2025-08-14)
 
 
