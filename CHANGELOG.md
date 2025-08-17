@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.3](https://github.com/Liv44/Ahimsa/compare/v2.1.2...v2.1.3) (2025-08-17)
+
+
+### Bug Fixes
+
+* **meta:** remove title duplicated ([08aaccd](https://github.com/Liv44/Ahimsa/commit/08aaccd79899adec436ea0f21a2d54953e9b5b08))
+
 ## [2.1.2](https://github.com/Liv44/Ahimsa/compare/v2.1.1...v2.1.2) (2025-08-17)
 
 
