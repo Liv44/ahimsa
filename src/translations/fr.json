@@ -109,6 +109,8 @@
     "email": "Email",
     "pseudo": "Pseudo",
     "loading": "Chargement...",
+    "history-empty-state": "Aucune discussion trouvée. Créez-en une !",
+    "history-empty-state-button": "Créer une discussion",
     "sign-out": "Déconnexion",
     "registered": "Vous êtes bien inscrit !",
     "registered-description": "Vous pouvez maintenant accéder à votre compte.",
@@ -157,7 +159,8 @@
     "summary": {
       "title": "Résumé de la discussion",
       "button-back": "Retour aux étapes",
-      "button-restart": "Recommencer une discussion",
+      "button-history": "Voir mon historique",
+      "button-restart": "Créer une nouvelle discussion",
       "toast-text": "Résumé copié dans le presse-papiers",
       "copy-button-aria": "Copier le résumé de la discussion",
       "toast-success": "Discussion sauvegardée avec succès",
