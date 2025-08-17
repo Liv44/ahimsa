@@ -10,6 +10,10 @@ const mocks = vi.hoisted(() => {
     setStateMock: vi.fn(),
     copyTextMock: vi.fn(),
     toastSuccessMock: vi.fn(),
+    useAuth: vi.fn().mockReturnValue({
+      user: null,
+      loading: false,
+    }),
   };
 });
 
@@ -19,6 +23,10 @@ vi.mock('@/components/Discussion/SummaryDiscussion', () => ({
   ),
 }));
 
+vi.mock('@/hooks/auth/useAuth', () => ({
+  useAuth: mocks.useAuth,
+}));
+
 vi.mock('react-i18next', () => ({
   useTranslation: () => ({
     t: (key: string) => {
@@ -26,6 +34,7 @@ vi.mock('react-i18next', () => ({
         'discussion-page.summary.title': 'Title Summary',
         'discussion-page.summary.button-back': 'Back Button',
         'discussion-page.summary.button-restart': 'Restart Button',
+        'discussion-page.summary.button-history': 'History Button',
         'discussion-page.summary.toast-text': 'Copy toast',
         'discussion-page.summary.copy-button-aria': 'Copy button aria',
       };
@@ -81,5 +90,35 @@ describe('Summary', () => {
       isCompleted: false,
       activeStep: 0,
     });
+  });
+
+  it('should not render history button if user is not logged in', () => {
+    mocks.useAuth.mockReturnValue({ user: null, loading: false });
+    renderWithRouter(<SummaryCard />);
+
+    const historyButton = screen.queryByRole('link', {
+      name: 'History Button',
+    });
+
+    const backButton = screen.queryByRole('link', {
+      name: 'Back Button',
+    });
+    expect(historyButton).not.toBeInTheDocument();
+    expect(backButton).toBeInTheDocument();
+  });
+
+  it('should render history button if user is logged in', () => {
+    mocks.useAuth.mockReturnValue({ user: { email: 'test@test.com' } });
+    renderWithRouter(<SummaryCard />);
+
+    const historyButton = screen.queryByRole('link', {
+      name: 'History Button',
+    });
+
+    const backButton = screen.queryByRole('link', {
+      name: 'Back Button',
+    });
+    expect(historyButton).toBeInTheDocument();
+    expect(backButton).not.toBeInTheDocument();
   });
 });
