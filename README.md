@@ -1,54 +1,38 @@
-# React + TypeScript + Vite
+# Ahimsa
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Introduction
 
-Currently, two official plugins are available:
+Ahimsa est un projet d'application web utilisant React et Supabase. Il est développé par Olivia MOREAU, dans le cadre de la réalisation du projet de fin d'études pour valider le titre RCNP niveau 7 "Expert en développement logiciel".
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Stack Technique
 
-## Expanding the ESLint configuration
+- Frontend : React, Tailwind, TypeScript
+- Backend & Base de données : Supabase
+- Tests : Vitest et Testing Library
+- Qualité & Formatage : ESLint, Prettier, Commitlint
+- Automatisation & CI/CD : Husky, GitHub Actions
+- Gestion de paquets : Yarn
+- Hébergement : Render
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Environnements
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- Développement : [http://localhost:5173/](http://localhost:5173/)
+- Staging : [https://ahimsa-staging.onrender.com/](https://ahimsa-staging.onrender.com/)
+- Production : [https://ahimsa.onrender.com/](https://ahimsa.onrender.com/)
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Documentation
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+La documentation complète est disponible dans le dossier `/docs` :
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+- 📦 [Architecture](./docs/Architecture.md) - Structure et organisation du projet
+- 🔄 [CI/CD](./docs/CICD.md) - Pipeline d'intégration et déploiement continu
+- ✅ [Tests Unitaires](./docs/UnitTests.md) - Guide des tests
+- ♿ [Accessibilité](./docs/Accessibility.md) - Standards d'accessibilité
+- 🏷️ [Versioning](./docs/Versioning.md) - Gestion des versions
+- 📝 [Manuel de Mise à jour](./docs/UpdateManual.md) - Guide pour contribuer au projet
+- 📝 [Manuel de Déploiement](./docs/DeploymentManual.md) - Guide pour déployer le projet
+- 📝 [Manuel d'Utilisation](./docs/UserManual.md) - Guide pour utiliser le projet
+
+## Contact
+
+Olivia MOREAU - [GitHub](https://github.com/Liv44) - [LinkedIn](https://www.linkedin.com/in/oliviamoreau/)
