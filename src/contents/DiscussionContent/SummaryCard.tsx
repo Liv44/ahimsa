@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import SummaryDiscussion from '@/components/Discussion/SummaryDiscussion';
 import { Button } from '@/components/ui/button';
 import Discussion from '@/domain/entities/Discussion';
+import { useAuth } from '@/hooks/auth/useAuth';
 import useDiscussionStore, {
   discussionStore,
 } from '@/hooks/discussion/useDiscussionStore';
@@ -11,6 +12,8 @@ import useDiscussionStore, {
 const SummaryCard = () => {
   const { discussion } = useDiscussionStore();
   const { t } = useTranslation();
+  const { user, loading } = useAuth();
+
   return (
     <div className="flex flex-col gap-4 mt-4 bg-dark-blue text-white p-4 rounded-lg w-full max-w-2xl mx-auto justify-center items-center">
       <h2 className="text-xl font-bold text-light-blue">
@@ -20,11 +23,20 @@ const SummaryCard = () => {
       <SummaryDiscussion discussion={discussion} />
 
       <div className="flex flex-wrap items-center justify-center gap-4">
-        <Button asChild>
-          <Link to="/discussion/create">
-            {t('discussion-page.summary.button-back')}
-          </Link>
-        </Button>
+        {!loading &&
+          (!user ? (
+            <Button asChild>
+              <Link to="/discussion/create">
+                {t('discussion-page.summary.button-back')}
+              </Link>
+            </Button>
+          ) : (
+            <Button asChild>
+              <Link to="/profile">
+                {t('discussion-page.summary.button-history')}
+              </Link>
+            </Button>
+          ))}
         <Button
           className="bg-light-blue text-dark-blue hover:bg-light-blue/80 mx-auto"
           asChild
