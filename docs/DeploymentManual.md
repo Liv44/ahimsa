@@ -14,10 +14,10 @@ Le déploiement est automatisé par GitHub Actions, qui lance un webhook de Rend
 ### Déploiement en production
 
 1. Ouvrir une Pull Request sur la branche `main`.
-2. Nommez la Pull Request `MEP - [01/01/2025]`
-3. Vérifiez que les commits comprennent bien des messages de commits avec Conventional Commits.
+2. Nommer la Pull Request `MEP - [01/01/2025]`
+3. Vérifier que les commits comprennent bien des messages de commits avec Conventional Commits.
 4. Une fois la PR approuvée et mergée, le déploiement se déclenche automatiquement.
-5. Le déploiement est effectué en utilisant le workflow [.github/workflows/deploy-production.yml](../.github/workflows/deploy-production.yml).
+5. Le déploiement est effectué en utilisant le workflow [.github/workflows/deploy-prod.yml](../.github/workflows/deploy-prod.yml).
 6. Sur le Dashboard de Render, vous pouvez voir les logs de déploiement.
 
-> Le versionnement de l'application est automatiquement géré par le workflow de déploiement. Vous pouvez vous référer à la section [Versionning](Versioning.md) pour plus d'informations.
+> Le versionnement de l'application est automatiquement géré par le workflow de déploiement. Vous pouvez vous référer à la section [Versioning](Versioning.md) pour plus d'informations.

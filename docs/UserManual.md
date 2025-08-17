@@ -27,7 +27,7 @@
    cp .env.example .env
    ```
 
-   > Pour les clés d'API Supabase, merci de vous rapprocher de Olivia MOREAU, qui vous fournira l'accès au Passbolt où sont stockés les clés.
+   > Pour les clés d'API Supabase, merci de vous rapprocher de Olivia MOREAU, qui vous fournira l'accès au Passbolt où sont stockées les clés.
 
 4. Lancez le projet :
 
@@ -35,7 +35,7 @@
    yarn dev
    ```
 
-5. Accédez à l'application à l'adresse suivante : [http://localhost:5136](http://localhost:5136)
+5. Accédez à l'application à l'adresse suivante : [http://localhost:5173/](http://localhost:5173/)
 
 ## Utilisation
 

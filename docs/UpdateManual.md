@@ -46,7 +46,7 @@ git switch -c feature/[Issue_Number]-feature-name
 
 > Vous pouvez utiliser la commande `yarn lint` pour vérifier la qualité du code.
 
-## 3. Commiter vos modifications :
+## 3. Commiter ses modifications :
 
 ```bash
 git add .
@@ -55,6 +55,6 @@ git push origin feature/[Issue_Number]-feature-name
 ```
 
 > Des scripts de pré-commit et de commit-msg vérifient automatiquement si les tests et le lint sont corrects.
-> Les commits doivent être faits avec les messages de commits de Conventional Commits. Vous pouvez vous référer à la section [Versionning](Versioning.md) pour plus d'informations.
+> Les commits doivent être faits avec les messages de commits de Conventional Commits. Vous pouvez vous référer à la section [Versioning](Versioning.md) pour plus d'informations.
 
-## 4. Ouvrez une pull request basée sur `develop` et demandez une revue de code.
+## 4. Ouvrir une pull request basée sur `develop` et demander une revue de code.
