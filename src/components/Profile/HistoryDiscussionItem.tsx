@@ -7,8 +7,8 @@ import HistoryDetailsDialog from './HistoryDetailsDialog';
 
 const HistoryDiscussionItem = ({ discussion }: { discussion: Discussion }) => {
   return (
-    <>
-      <li className="flex flex-row gap-2 justify-between items-center w-full">
+    <li className="w-full flex flex-col gap-2">
+      <div className="flex flex-row gap-2 justify-between items-center">
         <div className="flex flex-col gap-2">
           <Badge
             variant="outline"
@@ -26,9 +26,9 @@ const HistoryDiscussionItem = ({ discussion }: { discussion: Discussion }) => {
           <HistoryDetailsDialog discussion={discussion} />
           <HistoryDeleteDialog discussion={discussion} />
         </div>
-      </li>
+      </div>
       <Separator />
-    </>
+    </li>
   );
 };
 
