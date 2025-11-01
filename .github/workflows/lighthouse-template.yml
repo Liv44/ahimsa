@@ -28,7 +28,7 @@ jobs:
           yarn global add @lhci/cli@latest
           lhci autorun
       - name: Upload Lighthouse results
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: lighthouse-report
           path: ./lhci-report/
